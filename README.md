@@ -34,7 +34,7 @@ Whenever when you state a kata, you have to write a solution. This is great, bec
 ### Always have some example tests
 Unless you're creating a puzzle where the user has to find _the answer_, present some example tests. Those tests should also contain the corner cases and some easy random tests, e.g. check that the user actually returns a number for arbitrary negative numbers.
 
-# Language rules
+# Language specific remarks
 Here are some language specific rules.
 
 ## Haskell
@@ -43,10 +43,10 @@ Here are some language specific rules.
 ### Tests
 Codewars has QuickCheck, Hspec and HUnit installed. Unfortunately, it doesn't use a recent version of this libraries, but they're recent enough for most stuff you'll encounter.
 
-#### HSpec 
+#### Use Hspec with enough information for the user
 Hspec's `describe` should be used with a _function name_, whereas `it` should be used with a sentence, so that `it "should be readable"`. There can be many tests per `it`, but depending on your input you might want to use one test per `it` or a test by hand in accordance with `expecationFailure` instead of `shouldBe`. You can also use HUnit, but I usually stay within Hspec's DSL.
 
-#### QuickCheck
+#### Use QuickCheck's `forAll` to constraint random values
 The QuickCheck DSL is a little bit too large to explain completely, but usually that's not necessary. If you want to use an arbitrary `Bool`, `Int` or anything else [from that list](http://hackage.haskell.org/package/QuickCheck-2.8.1/docs/Test-QuickCheck-Arbitrary.html#v:arbitrary), simply do so while wrapping your test with `property`:
 
 ```haskell
@@ -111,6 +111,9 @@ main = hspec $ do
     it "shouldn't change letter-only strings" $ property $
       forAll (listOf $ elements $ ['a'..'z'] ++ ['A'..'Z']) $ \xs ->
         functionName1 xs `shouldBe` xs
+
+    it "should return the right result" $ property $ \xs ->
+      functionName1 xs `shouldBe` solution1 xs
 
   describe "functionName2" $ do 
     -- … similar to above
