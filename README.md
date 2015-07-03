@@ -77,6 +77,9 @@ If you have several arguments which stem from different domains, use `forAll` pe
 ```
 And yes, `Gen` is a `Functor`. You should use this to your advance.
 
+#### Always import only the expected functions, and use `qualified` if necessary
+To prevent name clashes, only import what you need from the user module. This enables the user to define additional helpers at global namespace.
+
 #### Test template
 
 ```haskell
