@@ -17,7 +17,7 @@ And this is fine. If you need to use serious magic just to create a translation 
 ## Consistency is key
 However, in some cases, it's better to strife away from idiomatic code, especially if it makes the kata _a lot_ easier in the other language. It devalues the achievements of those who solved the harder version. In those cases make sure to block the library functions (see below).
 
-But consistency should be taken in measurements. If this leads to completely unidiomatic code during your translation, consider creating a completely new kata insteaed.
+But consistency should be taken in measurements. If this leads to completely unidiomatic code during your translation, consider creating a completely new kata instead.
 
 ## Stringly typed code is bad
 Nothing to say about that. Unless it leads to convoluted code avert stringly types. _Please._
@@ -57,20 +57,20 @@ However, the instance of `Arbitrary` must be clear. Therefore, you might need to
 
 What if you want to restrict the random elements on some domain? That's when you use `forAll` or `==>`. The first will generate only fitting values, the latter will discard values that don't fit:
 ```haskell
-  it "should return true for even numbers" $ property $ 
+  it "should return true for even numbers" $ property $
     forAll (arbitrary `suchThat` even) $ \x ->
       solution x `shouldBe` True
 
-  it "should return true for even numbers" $ property $ \x -> even x ==>    
+  it "should return true for even numbers" $ property $ \x -> even x ==>
       solution x `shouldBe` True
 ```
-Beware! The latter variant might seem a lot easier, but if your domain is small, QuickCheck might give up. 
+Beware! The latter variant might seem a lot easier, but if your domain is small, QuickCheck might give up.
 
 If you have several arguments which stem from different domains, use `forAll` per domain:
 
 ```haskell
-  it "should return true if the first argument is a multiple of three and the second one a multiple of five" $ 
-    property $ 
+  it "should return true if the first argument is a multiple of three and the second one a multiple of five" $
+    property $
       forAll (fmap (3*) arbitrary) $ \three ->
       forAll (fmap (5*) arbitrary) $ \five ->
         isFizzBuzz three five `shouldBe` True
@@ -102,7 +102,7 @@ main = hspec $ do
     -- multiple tests per it; hand written failure message
     it "should work for some other examples" $ do
       let test input result = let actual = functionName1 input
-                              in if actual /= result 
+                              in if actual /= result
                                 then expectationFailure $ printf "expected \"%s\" on input \"%s\", but got \"%s\"" result input actual
                                 else return ()
       test "def" "def"
@@ -115,7 +115,7 @@ main = hspec $ do
     it "should return the right result" $ property $ \xs ->
       functionName1 xs `shouldBe` solution1 xs
 
-  describe "functionName2" $ do 
+  describe "functionName2" $ do
     -- … similar to above
 ```
 
