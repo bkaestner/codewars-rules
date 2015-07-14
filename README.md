@@ -34,6 +34,9 @@ Whenever when you state a kata, you have to write a solution. This is great, bec
 ### Always have some example tests
 Unless you're creating a puzzle where the user has to find _the answer_, present some example tests. Those tests should also contain the corner cases and some easy random tests, e.g. check that the user actually returns a number for arbitrary negative numbers.
 
+### Handle floating point values the right way
+Whenever the user returns a floating point number, make sure that you take floating point behaviour into account. The user might not add the numbers in the same order as you, and therefore end up with a slightly different number. Equality tests will always fail for that poor user. Unless you want to write a kata were the user needs to round a floating point value to a certain precision, never ever tell the user to round, truncate, floor or ceil a floating point number. Instead, check the [_relative error_](https://en.wikipedia.org/wiki/Approximation_error). You might some time need to find a good &epsilon;, I usually use `1e-12` if I want to have something "almost exact" and `1e-7` if I want something "near-ish" the correct solution.
+
 # Language specific remarks
 Here are some language specific rules.
 
