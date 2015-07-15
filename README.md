@@ -51,6 +51,29 @@ Codewars has QuickCheck, Hspec and HUnit installed. Unfortunately, it doesn't us
 #### Use Hspec with enough information for the user
 Hspec's `describe` should be used with a _function name_, whereas `it` should be used with a sentence, so that `it "should be readable"`. There can be many tests per `it`, but depending on your input you might want to use one test per `it` or a test by hand in accordance with `expecationFailure` instead of `shouldBe`. You can also use HUnit, but I usually stay within Hspec's DSL.
 
+#### Floating point tests
+As written above, one shouldn't use `shouldBe` on floating point values, since the user might use another order of addition, and adding floating point numbers isn't associative. Therefore, you should plan a little threshold. 
+
+Hspec doesn't have such an operator, but you can easily write one yourself:
+
+```haskell
+import Control.Monad (when)
+
+shouldBeFuzzy :: (Fractional a, Ord a) => a -> a -> Expectation 
+shouldBeFuzzy actual expected = 
+  when (abs ((actual - expected) / expected) >= 1e-12) $ do
+    expectationFailure $ "Expected " ++ show expected ++ ", but got " ++ show actual
+```
+Alternatively, if you don't want to import `Control.Monad`, you can use 
+
+```haskell
+shouldBeFuzzy :: (Fractional a, Ord a) => a -> a -> Expectation 
+shouldBeFuzzy actual expected = 
+  if (abs ((actual - expected) / expected) >= 1e-12) 
+    then expectationFailure $ "Expected " ++ show expected ++ ", but got " ++ show actual
+    else return ()
+```
+
 #### Use QuickCheck's `forAll` to constraint random values
 The QuickCheck DSL is a little bit too large to explain completely, but usually that's not necessary. If you want to use an arbitrary `Bool`, `Int` or anything else [from that list](http://hackage.haskell.org/package/QuickCheck-2.8.1/docs/Test-QuickCheck-Arbitrary.html#v:arbitrary), simply do so while wrapping your test with `property`:
 
@@ -128,6 +151,18 @@ main = hspec $ do
 *This section is under construction. Beware of the dragon, ye who enter his lair*.
 
 ### Snippets
+#### Floating point tests
+As written above, one shouldn't use `assertEquals` on floating point values, since the user might use another order of addition, and adding floating point numbers isn't associative. Therefore, you should plan a little threshold. 
+
+ES6 provides `Number.EPSILON`, but that's actually a little bit too low for most cases. I usually use `1e-12`, which is _good enough_, or `1e-6` if the kata is about approximative results. Just change the value below to whatever you feel is best. Just keep in mind that any value lower than `Math.min(1e-15,Number.EPSILON)` is bogus.
+```javascript
+var assertFuzzyEquals = function(actual, expected, msg){
+    var inrange = Math.abs((actual - expected) / expected) <= 1e-12;
+    Test.expect(inrange, 
+      msg || "Expected value near " + expected.toExponential(13) +", but got " + actual.toExponential(13)
+    );
+}
+```
 #### Random tests
 Unlike Haskell, JavaScript doesn't provide an automatic framework like QuickCheck, although there is an [implementation for node](https://github.com/mcandre/node-quickcheck). Until the Codewars plattform provides an built-in way, you can use the following functions to create random tests in JavaScript.
 
