@@ -81,5 +81,3 @@ var randomAssertSimilar = function(generator, userSolution, referenceSolution, t
   }
 }
 ```
-
- [Codewars]: http://www.codewars.com
