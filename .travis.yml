@@ -1,0 +1,23 @@
+language: c
+before_script:
+- wget https://github.com/jgm/pandoc/releases/download/1.15.0.6/pandoc-1.15.0.6-1-amd64.deb
+- ar vx pandoc-1.15.0.6-1-amd64.deb
+- tar -vzxf data.tar.gz
+- export PATH="$PATH:`pwd`/usr/bin"
+script: make
+addons:
+  apt:
+    packages:
+    - texlive
+    - lmodern
+    - texlive-latex-recommended
+    - wget
+    - tar
+    - gzip
+deploy:
+  provider: releases
+  api_key:
+    secure: nFXWpWaCq0ZvJ4QE3xw50QsTJXSHzOPXChp/6ky8qoM/9oq/I4NjcedCb60YYlGGPFj0/8aixzXpyaZoYlVS2B8MMbvVxTWP5laISGoTUzNb5lrfQNN5Be9K9FpB2QHJ7i+Ytlp023kQGy20efovAEh85ZvLHaxl7A//+4pZm8ZtC/N7Z6+D8hzzVwTtgh/z9FsbhhqKfl0tOFk3jnovD1LgkA2pnRswk/eBY+5c/6Vy6x0nziVk7DZXv/UlZ3CS1lcUtnWNlbzXGymJ53MVGX7r1fNBiUe+wqEIWXwqfDhwUI87JI9/JJ5YgSbCUIqKHnK65CtGEJpZDnCuUNJVsL95dv9T06Yiq++iBtLyOqTo98JK/I9ZiuuHwvHHqTrFWz4gRxNqWFgLsRWHEzBdMouVWfZw6+1Dp3CCejNHxyF/d0nNlt2D8XZjCAh3ZrKzz8KLGNbbsXj5OUtWNEk38RuVlJ70VCbesp3JPk1q0bS7PnABl+hjE2ZxIqwoVhsN9voI3O87bOhXIHS345NbWgwvDjgNH/DLNI1iHSMmBlxtIqnWtVVbbmf9dKMijcXEAiEgiezSyRzXLGHzrl4rzBXW/tsXpj8thJIQuN/uvABYFKyPNrartVw6IDqrhND8FXfWeXja/I0eTjarDOYv5UiwyHJDrFeca6VCfp150H8=
+  file: rules.pdf
+  on:
+    tags: true
