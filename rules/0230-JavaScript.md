@@ -1,12 +1,25 @@
-## JavaScript
-*This section is under construction. Beware of the dragon, ye who enter his lair*.
+JavaScript
+----------
+
+*This section is under construction. Beware of the dragon, ye who enter his
+lair*.
 
 ### Snippets
-#### Floating point tests
-As written above, one shouldn't use `assertEquals` on floating point values, since the user might use another order of addition, and adding floating point numbers isn't associative. Therefore, you should plan a little threshold.
 
-ES6 provides `Number.EPSILON`, but that's actually a little bit too low for most cases. I usually use `1e-12`, which is _good enough_, or `1e-6` if the kata is about approximative results. Just change the value below to whatever you feel is best. Just keep in mind that any value lower than `Math.min(1e-15,Number.EPSILON)` is bogus.
-```javascript
+#### Floating point tests
+
+As written above, one shouldn't use `assertEquals` on floating point
+values, since the user might use another order of addition, and adding
+floating point numbers isn't associative. Therefore, you should plan a
+little threshold.
+
+ES6 provides `Number.EPSILON`, but that's actually a little bit too low for
+most cases. I usually use `1e-12`, which is *good enough*, or `1e-6` if the
+kata is about approximative results. Just change the value below to
+whatever you feel is best. Just keep in mind that any value lower than
+`Math.min(1e-15,Number.EPSILON)` is bogus.
+
+``` javascript
 var assertFuzzyEquals = function(actual, expected, msg){
     var inrange = Math.abs((actual - expected) / expected) <= 1e-12;
     Test.expect(inrange,
@@ -14,16 +27,26 @@ var assertFuzzyEquals = function(actual, expected, msg){
     );
 }
 ```
-#### Random tests
-Unlike Haskell, JavaScript doesn't provide an automatic framework like QuickCheck, although there is an [implementation for node](https://github.com/mcandre/node-quickcheck). Until the Codewars plattform provides an built-in way, you can use the following functions to create random tests in JavaScript.
 
-Note that both expect your solution to be pure (don't change the argument, for example if it's an object or an array) and cannot check side-effects, so you probably edit the functions for your needs. Also note that `randomAssertSimilar` is rather verbose.
+#### Random tests
+
+Unlike Haskell, JavaScript doesn't provide an automatic framework like
+QuickCheck, although there is an [implementation for
+node](https://github.com/mcandre/node-quickcheck). Until the Codewars
+plattform provides an built-in way, you can use the following functions to
+create random tests in JavaScript.
+
+Note that both expect your solution to be pure (don't change the argument,
+for example if it's an object or an array) and cannot check side-effects,
+so you probably edit the functions for your needs. Also note that
+`randomAssertSimilar` is rather verbose.
 
 `generator` should return an array.
 
-**NOTE:** The functions haven't been tested thoroughly. Use them with care and feel free to edit them if they contain any errors.
+**NOTE:** The functions haven't been tested thoroughly. Use them with care
+and feel free to edit them if they contain any errors.
 
-```javascript
+``` javascript
 /**
  * @brief Tests a user defined function against a reference function.
  * @param generator is a generator for random arguments, it must return an array
