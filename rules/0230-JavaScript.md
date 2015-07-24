@@ -23,7 +23,8 @@ whatever you feel is best. Just keep in mind that any value lower than
 var assertFuzzyEquals = function(actual, expected, msg){
     var inrange = Math.abs((actual - expected) / expected) <= 1e-12;
     Test.expect(inrange,
-      msg || "Expected value near " + expected.toExponential(13) +", but got " + actual.toExponential(13)
+      msg || "Expected value near " + expected.toExponential(13) +
+             ", but got " + actual.toExponential(13)
     );
 }
 ```
@@ -49,23 +50,23 @@ and feel free to edit them if they contain any errors.
 ``` javascript
 /**
  * @brief Tests a user defined function against a reference function.
- * @param generator is a generator for random arguments, it must return an array
+ * @param generator generates random arguments, it must return an array
  * @param userSolution is the solution provided by the user
- * @param referenceSolution is the solution provided by the original kata author
+ * @param refSolution is the solution provided by the original kata author
  * @param tests is the number of tests (optional)
  *
- * The `referenceSolution` should be pure, it shouldn't modify it's arguments,
+ * The `refSolution` should be pure, it shouldn't modify it's arguments,
  * since `userSolution` will work on the same array afterwards.
  *
  * The values are compared via equality (===), and the number of shown tests is
  * limited to three.
 */
-var randomAssertEquals = function(generator, userSolution, referenceSolution, tests){
+var randomAssertEquals = function(generator, userSolution, refSolution, tests){
   tests = tests || 100;
   var i = 0, user, reference, values;
   while( tests --> 0){
     values = generator();
-    reference = referenceSolution.apply(this, values);
+    reference = refSolution.apply(this, values);
     user      = userSolution.apply(this,      values);
     if(i++ < 3){
       Test.assertEquals(
@@ -83,24 +84,27 @@ var randomAssertEquals = function(generator, userSolution, referenceSolution, te
 
 /**
  * @brief Tests a user defined function against a reference function.
- * @param generator is a generator for random arguments, it must return an array
+ * @param generator generates random arguments, it must return an array
  * @param userSolution is the solution provided by the user
- * @param referenceSolution is the solution provided by the original kata author
+ * @param refSolution is the solution provided by the original kata author
  * @param tests is the number of tests (optional)
  *
- * The `referenceSolution` should be pure, it shouldn't modify it's arguments,
+ * The `refSolution` should be pure, it shouldn't modify it's arguments,
  * since `userSolution` will work on the same array afterwards.
  *
  * The values are compared via assertSimilar.
 */
-var randomAssertSimilar = function(generator, userSolution, referenceSolution, tests){
+var randomAssertSimilar = function(generator, userSolution, refSolution, tests){
   tests = tests || 100;
   var user, reference, values;
   while( tests --> 0){
     values = generator();
-    reference = referenceSolution.apply(this, values);
+    reference = refSolution.apply(this, values);
     user      = userSolution.apply(this,      values);
-    Test.assertSimilar(user, reference, "didn't work on the following argument array: " + values);
+    Test.assertSimilar(
+      user, reference, 
+      "didn't work on the following argument array: " + values
+    );
   }
 }
 ```

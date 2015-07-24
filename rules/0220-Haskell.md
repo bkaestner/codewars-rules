@@ -34,18 +34,18 @@ Hspec doesn't have such an operator, but you can easily write one yourself:
 import Control.Monad (when)
 
 shouldBeFuzzy :: (Fractional a, Ord a) => a -> a -> Expectation
-shouldBeFuzzy actual expected =
-  when (abs ((actual - expected) / expected) >= 1e-12) $ do
-    expectationFailure $ "Expected " ++ show expected ++ ", but got " ++ show actual
+shouldBeFuzzy a e =
+  when (abs ((a - e) / e) >= 1e-12) $ do
+    expectationFailure $ "Expected " ++ show e ++ ", but got " ++ show a
 ```
 
 Alternatively, if you don't want to import `Control.Monad`, you can use
 
 ``` haskell
 shouldBeFuzzy :: (Fractional a, Ord a) => a -> a -> Expectation
-shouldBeFuzzy actual expected =
-  if (abs ((actual - expected) / expected) >= 1e-12)
-    then expectationFailure $ "Expected " ++ show expected ++ ", but got " ++ show actual
+shouldBeFuzzy a e =
+  if (abs ((a - e) / e) >= 1e-12)
+    then expectationFailure $ "Expected " ++ show a ++ ", but got " ++ show e
     else return ()
 ```
 
@@ -53,9 +53,10 @@ shouldBeFuzzy actual expected =
 
 The QuickCheck DSL is a little bit too large to explain completely, but
 usually that's not necessary. If you want to use an arbitrary `Bool`, `Int`
-or anything else [from that
-list](http://hackage.haskell.org/package/QuickCheck-2.8.1/docs/Test-QuickCheck-Arbitrary.html#v:arbitrary),
-simply do so while wrapping your test with `property`:
+or anything else [from that list][q-arb], simply do so while wrapping 
+your test with `property`:
+
+ [q-arb]: http://hackage.haskell.org/package/QuickCheck-2.8.1/docs/Test-QuickCheck-Arbitrary.html#v:arbitrary
 
 ``` haskell
   it "should work for arbitrary integers" $ property $ \x ->
@@ -85,7 +86,7 @@ If you have several arguments which stem from different domains, use
 `forAll` per domain:
 
 ``` haskell
-  it "should return true if the first argument is a multiple of three and the second one a multiple of five" $
+  it "returns true if the first argument is 3*n and the second one is 5*k" $
     property $
       forAll (fmap (3*) arbitrary) $ \three ->
       forAll (fmap (5*) arbitrary) $ \five ->
@@ -94,7 +95,7 @@ If you have several arguments which stem from different domains, use
 
 And yes, `Gen` is a `Functor`. You should use this to your advance.
 
-#### Always import only the expected functions, and use `qualified` if necessary
+#### Always import only the expected functions
 
 To prevent name clashes, only import what you need from the user module.
 This enables the user to define additional helpers at global namespace.
@@ -106,7 +107,9 @@ module Codewars.MyPrefix.KataName.Test where
 import Codewars.MyPrefix.KataName (functionName1, functionName2, …)
 import Test.Hspec
 import Test.QuickCheck
-import Module.That.Solves.The.Kata -- e.g. Data.List, Data.Char, sometimes qualified
+
+-- Solving modules, e.g. Data.List, Data.Char, sometimes qualified:
+import Module.That.Solves.The.Kata
 import Text.Printf (printf) -- if you need to use printf
 
 main = hspec $ do
@@ -120,10 +123,13 @@ main = hspec $ do
 
     -- multiple tests per it; hand written failure message
     it "should work for some other examples" $ do
-      let test input result = let actual = functionName1 input
-                              in if actual /= result
-                                then expectationFailure $ printf "expected \"%s\" on input \"%s\", but got \"%s\"" result input actual
-                                else return ()
+      let test i r = if a /= r
+                      then expectationFailure $ p
+                      else return ()
+            where
+              a=functionName1 i
+              p=concat ["expected ",show r," on ",show i," but got ",show a]
+
       test "def" "def"
       test "123" ""
 
