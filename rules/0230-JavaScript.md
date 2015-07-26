@@ -10,8 +10,16 @@ lair*.
 
 As written above, one shouldn't use `assertEquals` on floating point
 values, since the user might use another order of addition, and adding
-floating point numbers isn't associative. Therefore, you should plan a
-little threshold.
+floating point numbers isn't associative:
+
+``` javascript
+console.log("Is + associative in JS on double values?")
+console.log(1 + (1e-12 + 3e-12) === (1 + 1e-12) + 3e-12)
+
+console.log("    :(    ")
+```
+
+Therefore, you should plan a little threshold.
 
 ES6 provides `Number.EPSILON`, but that's actually a little bit too low for
 most cases. I usually use `1e-12`, which is *good enough*, or `1e-6` if the
