@@ -4,7 +4,7 @@ author: github.com/bkaes
 language: english
 toc: true
 abstract: |
-  This document contains some rules I've employed for my katas and my
+  This document contains some rules I have employed for my katas and my
   translation on [Codewars](http://www.codewars.com). Some of them are very
   simple (e.g same arguments, same order), others are sometimes really hard
   to fulfill (random tests). This document contains also some tips, so that you
@@ -41,12 +41,12 @@ And this is fine. If you need to use serious magic just to create a
 translation to another language, consider whether the user will enjoy the
 kata, or whether he will disdain the hideous abomination. Always remember
 to use your language's idiomatic code. And if someone proposes a
-translation to your kata and you think it's not really idiomatic, ask them.
+translation to your kata and you think it is not really idiomatic, ask them.
 
 Consistency is key
 ------------------
 
-However, in some cases, it's better to strife away from idiomatic code,
+However, in some cases, it is better to strife away from idiomatic code,
 especially if it makes the kata *a lot* easier in the other language. It
 devalues the achievements of those who solved the harder version. In those
 cases make sure to block the library functions (see below).
@@ -69,7 +69,7 @@ a _task_. That way, a reader can enjoy the story without all those `x`s ,
 `i`s and numbers. Save that for your task.
 
 Essentially use the same kind of language you would like to read in a
-published programming book. It's hard to get it right, but it's worth the
+published programming book. it is hard to get right, but it is worth the
 additional time.
 
 Stringly typed code is bad
