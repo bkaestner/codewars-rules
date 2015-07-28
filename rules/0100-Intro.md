@@ -148,3 +148,16 @@ truncate, floor or ceil a floating point number. Instead, check the
 might some time need to find a good epsilon, I usually use `1e-12` if I
 want to have something "almost exact" and `1e-7` if I want something
 "near-ish" the correct solution.
+
+**Example:**
+
+```python
+def add_three(a,b,c):
+    return a + b + c
+
+def add_three_reference(a,b,c):
+    return a + (b + c)
+
+print(add_three_reference(1e-12,1e-12,1) == add_three(1e-12,1e-12,1))
+# False
+```
