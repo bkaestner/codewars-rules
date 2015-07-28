@@ -78,6 +78,27 @@ Stringly typed code is bad
 Nothing to say about that. Unless it leads to convoluted code avert
 stringly types. *Please.*
 
+Ok, maybe you're confused. "What's stringly typed code?", you ask.
+Well, stringly typed code is when you take a value that could be easily
+returned in its correct type (e.g. an `int`, a `double`, a `bool`) and wrap
+it in a `String` (or your language's equivalent).
+
+This has several drawbacks:
+
+1. Your users have to convert the value to a String, where another type would
+   be more natural, e.g. "YES"/"NO" instead of `true` and `false`.
+   It doesn't give you any more information than the boolean.
+2. Your users may have to convert the argument from a String to an array, list
+   or somewhat similar.
+3. It removes precision if used on a floating point value. See the section below
+   if you're worried about rounding in floating point values.
+4. It doesn't make testing easier for you, especially if you work with
+   stringified arrays.
+
+That being said, if you provide a fitting story or motivation, feel free to make
+the argument a string, or the return value. But use those strings with care. If
+possible, use the proper type.
+
 Have complete tests
 -------------------
 
