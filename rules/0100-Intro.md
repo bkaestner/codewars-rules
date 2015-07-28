@@ -55,6 +55,23 @@ But consistency should be taken in measurements. If this leads to
 completely unidiomatic code during your translation, consider creating a
 completely new kata instead.
 
+Use proper English
+-------------------
+
+While elaborate formulations may fancy ferocious fans of funny 
+alliterations (or similar), they're usually hard to read. If you write a
+kata that's meant for beginners, use simple words. Keep sentences short.
+Remove all run-on sentencens come on you don't want that kind of sentence
+in your kata description those sentences are bland and hard to comprehend.
+
+If you provide a story, break the description into a _story_ and
+a _task_. That way, a reader can enjoy the story without all those `x`s ,
+`i`s and numbers. Save that for your task.
+
+Essentially use the same kind of language you would like to read in a
+published programming book. It's hard to get it right, but it's worth the
+additional time.
+
 Stringly typed code is bad
 --------------------------
 
