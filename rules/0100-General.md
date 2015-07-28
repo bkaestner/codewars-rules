@@ -1,20 +1,3 @@
----
-title: The conjured Codewars codex
-author: github.com/bkaes
-language: english
-toc: true
-abstract: |
-  This document contains some rules I have employed for my katas and my
-  translation on [Codewars](http://www.codewars.com). Some of them are very
-  simple (e.g same arguments, same order), others are sometimes really hard
-  to fulfill (random tests). This document contains also some tips, so that you
-  (or I) can implement them.
----
-
-If you find an error, have a better idea, or think that all of this is a
-pile of unicorn misery, feel free to create an issue or a pull-request.
-Have a look at the LICENCE.
-
 General rules
 =============
 
