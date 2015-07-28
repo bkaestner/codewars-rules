@@ -20,6 +20,8 @@ the LICENCE before contributing (it's CC-BY-SA 4.0).
 # Getting a PDF
 
 Clone the repository and use `make`. You need to install a recent version
-of `pandoc`. However, since I'm using Travis to check that this really works,
+of [pandoc]. However, since I'm using Travis to check that this really works,
 I'm also releasing an automatically generated PDF from time to time, check the
 releases.
+
+ [pandoc]: http://pandoc.org/
