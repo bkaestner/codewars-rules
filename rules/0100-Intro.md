@@ -82,8 +82,11 @@ Have complete tests
 -------------------
 
 Tests are the bread and butter of Codewars. Without tests, you couldn't
-check whether the user has solved your kata, so they're damn important. Yet
+check whether the user has solved your kata, so they're very important. Yet
 some neglect them.
+
+Make sure to file an issue if you notice that a kata is lacking some tests.
+This will prevent a moderator from approving the kata.
 
 ### Always test all corner cases of your input domain
 
@@ -94,12 +97,14 @@ make sure that you actually test negative input.
 
 ### Use random tests
 
-Whenever when you state a kata, you have to write a solution. This is
-great, because when you write the tests, you can simply use exactly that
-function to check the users code. What's even better: it makes you think
-about the input domain. That's the hard part of creating random tests,
-sure; creating sufficient random input is most often harder than creating
-the kata itself. But it's worth every honor.
+Whenever when you state a kata you also have to write a solution. This is
+great, as you can use exactly that function to check the users code
+in the tests. What's even better: it makes you think
+about the input domain.
+
+This is usually the hard part of creating random tests. After all, creating
+sufficient random input is most often harder than creating the kata itself.
+But it is worth every honor.
 
 ### Always have some example tests
 
