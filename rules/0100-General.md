@@ -44,7 +44,7 @@ Use proper English
 While elaborate formulations may fancy ferocious fans of funny
 alliterations (or similar), they're usually hard to read. If you write a
 kata that is meant for beginners, use simple words. Keep sentences short.
-Remove all run-on sentencens come on you want to avoid that kind of sentence
+Remove all run-on sentences come on you want to avoid that kind of sentence
 in your kata description those sentences are bland and hard to comprehend.
 
 If you provide a story, break the description into a _story_ and
