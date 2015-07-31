@@ -81,3 +81,15 @@ This has several drawbacks:
 That being said, if you provide a fitting story or motivation, feel free to make
 the argument a string, or the return value. But use those strings with care. If
 possible, use the proper type.
+
+
+Use the preloaded section only for helpers or constraints
+---------------------------------------------------------
+While it might seem tempting to put your solution into the preloaded code
+section, don't. Some languages provide reflection or similar means to check your
+preloaded code, which enables a user to cheat rather easily.
+
+Also, if you're using a dynamic language like Python, JavaScript or Ruby, keep
+in mind that the user can change `Math.random` or similar features unless you
+use `Object.freeze` or similar. Java, Haskell, C# and potential other staticly
+typed languages don't share this problem.
