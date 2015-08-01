@@ -37,6 +37,23 @@ Therefore, it's dismissed as "The conjured Codewars codex". What can I say, I
 like arbitrary alliterations. The repository's description is a reference on
 `QuickCheck`'s `Arbitrary`.
 
+About the word "rules"
+----------------------
+
+You've read the previous section and therefore know that "rules" are more or
+less meant as "tips and tricks". But to make this a little bit more distinct,
+let's quote a (fictitious) pirate:
+
+> First, your return to shore was not part of our negotiations nor our
+> agreement so I must do nothing. And secondly, you must be a pirate for the
+> pirate's code to apply and you're not. And thirdly, the code is more what
+> you'd call "guidelines" than actual rules.
+>
+> -- Barbossa in "Pirates of the Caribbean: The Curse of the Black Pearl"
+
+This also means that whenever you read the word "rules" in this document, you
+can simply substitute it by "tips" or "guidelines". Heave ho!
+
 
 Contributing
 ------
