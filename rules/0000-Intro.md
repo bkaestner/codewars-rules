@@ -56,8 +56,17 @@ can simply substitute it by "tips" or "guidelines". Heave ho!
 
 
 Contributing
-------
+------------
 
 If you find an error, have a better idea, or think that all of this is a
 pile of unicorn misery, feel free to create an issue or a pull-request.
 Have a look at the LICENCE.
+
+Contributors
+------------
+*Note: This section might change or will be moved to another section in a later
+version*.
+
+Please check the GitHub pages for contributors. While some contributed code, one
+should not forget those who provided feedback via GitHub issues, so check them
+too.
