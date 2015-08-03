@@ -1,8 +1,17 @@
-General rules
-=============
+Writing a kata
+==============
 
-Here we inspect some general rules which I try to follow. They are mostly
-language agnostic.
+You want to write a kata? That's great! You've probably already solved a
+bunch of them, found issues and participated the beta process. If you haven't,
+I strongly suggest you to check katas in beta before you start your own. It
+gives you great insight about what you might forget in your tests or in your
+description. And since issues get resolved, but not deleted, you can check what
+kind of issues your favourite kata had during its early days or beta.
+
+So please, check things out. I'll wait here.
+
+You're back? Great! Now you're ready to write your own kata. Here are some tips
+and remarks you might find handy or want to keep in mind.
 
 A user solves a kata in a single language, not many
 ---------------------------------------------------
