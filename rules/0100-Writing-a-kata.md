@@ -10,21 +10,29 @@ kind of issues your favourite kata had during its early days or beta.
 
 So please, check things out. I'll wait here.
 
-You're back? Great! Now you're ready to write your own kata. Here are some tips
-and remarks you might find handy or want to keep in mind.
+You're back? Great! Now you're ready to write your own kata. Well, almost.
+There's another page, hidden in the inner depths of the [forums]:
+the [kata best practices]. You should also read them, as they provide
+additional insight.
+
+ [forums]: http://www.codewars.com/topics
+ [kata best practices]: http://www.codewars.com/topics/kata-best-practices
+
+Now that you've read all that's available on Codewars itself,
+here are some tips and remarks you might find handy or want to keep in mind.
 
 A user solves a kata in a single language, not many
 ---------------------------------------------------
 
 When your kata is out of beta, the typical user will solve it in his
 preferred language. He will either be fascinated and solve your kata
-multiple times (which is rather unlikely), or go on. Therefore, your kata
-should shine in that language.
+multiple times (which is rather unlikely, sorry), or go on. Therefore, 
+your kata should shine in that language.
 
 However, this concludes that you may need to change return types in some
 circumstances or the input. For example, JavaScript, Python, Ruby and
-CoffeeScript allow a variable number of arguments (JS, CS: `arguments`). C
-(without `varlist`), C++ (without variadic templates), Haskell, Java
+CoffeeScript allow a variable number of arguments (JS, CS: `arguments`),
+while C (without `varlist`), C++ (without variadic templates), Haskell, Java
 (without generics) and some other don't. Furthermore, some languages (like
 Haskell) don't allow list of heterogeneous types, which rules out some
 katas entirely.
@@ -47,8 +55,8 @@ But consistency should be taken in measurements. If this leads to
 completely unidiomatic code during your translation, consider creating a
 completely new kata instead.
 
-Use proper English
--------------------
+Use proper Grammar, Punctuation and Spelling
+--------------------------------------------
 
 While elaborate formulations may fancy ferocious fans of funny
 alliterations (or similar), they're usually hard to read. If you write a
