@@ -24,8 +24,8 @@ here are some tips and remarks you might find handy or want to keep in mind.
 A user solves a kata in a single language, not many
 ---------------------------------------------------
 
-When your kata is out of beta, the typical user will solve it in his
-preferred language. He will either be fascinated and solve your kata
+When your kata is out of beta, the typical user will solve it in their
+preferred language. They will either be fascinated and solve your kata
 multiple times (which is rather unlikely, sorry), or go on. Therefore, 
 your kata should shine in that language.
 
