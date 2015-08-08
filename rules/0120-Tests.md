@@ -11,7 +11,7 @@ This will prevent a moderator from approving the kata.
 ### Always test all corner cases of your input domain
 
 If you ask the user to create a function that should work for
-`1 <= N <=  1,000,000`, make sure that his function works for *both* 1 and
+`1 <= N <=  1,000,000`, make sure that their function works for *both* 1 and
 1,000,000. If you specified that "negative input should return a monkey",
 make sure that you actually test negative input.
 
