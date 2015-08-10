@@ -1,12 +1,18 @@
-Have complete tests
--------------------
+Tested testing theories
+------------------------
 
 Tests are the bread and butter of Codewars. Without tests, you couldn't
 check whether the user has solved your kata, so they're very important. Yet
 some neglect them.
 
 Make sure to file an issue if you notice that a kata is lacking some tests.
-This will prevent a moderator from approving the kata.
+This will prevent a moderator from approving the kata. This will increase the
+overall quality of the approved katas. Also, as long as [#123] stands, one
+cannot change the tests in approved katas with more than 500 solutions.
+
+ [#123]: https://github.com/Codewars/codewars.com/issues/123
+
+
 
 ### Always test all corner cases of your input domain
 
