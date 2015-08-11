@@ -70,7 +70,7 @@ need to add some types as can be seen above.
 
 What if you want to restrict the random elements on some domain? That's
 when you use `forAll` or `==>`. The first will generate only fitting
-values (if you use it correclty), the latter will discard values that don't fit:
+values (if you use it correctly), the latter will discard values that don't fit:
 
 ``` haskell
   it "should return true for even numbers" $ property $
