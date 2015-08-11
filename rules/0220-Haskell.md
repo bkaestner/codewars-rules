@@ -82,7 +82,9 @@ values (if you use it correclty), the latter will discard values that don't fit:
 ```
 
 Beware! The latter variant might seem a lot easier, but if your domain is
-small, QuickCheck might give up.
+small, QuickCheck might give up. Note that this will also happen in the first
+case. If you want to generate a value, it's often better to generate an
+arbitrary value and then `fmap`, e.g. `forAll (fmap (2*) arbitrary)`.
 
 If you have several arguments which stem from different domains, use
 `forAll` per domain:
@@ -94,8 +96,21 @@ If you have several arguments which stem from different domains, use
       forAll (fmap (5*) arbitrary) $ \five ->
         isFizzBuzz three five `shouldBe` True
 ```
+You could also multiply the values later, but that will change the error message
+QuickCheck returns:
 
-And yes, `Gen` is a `Functor`. You should use this to your advance.
+```haskell
+  it "returns true on even values" $
+    forAll (arbitrary) $ \x ->
+      -- bad, prints `x`, not `2 * x`
+      isEven (2 * x) `shouldBe` True
+
+  it "returns true on even values" $
+    forAll (fmap (2*) arbitrary) $ \x ->
+      -- better, still prints x, but after
+      -- the application of (2*)
+      isEven x `shouldBe` True
+```
 
 #### Always import only the expected functions
 
