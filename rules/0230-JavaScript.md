@@ -42,7 +42,7 @@ var assertFuzzyEquals = function(actual, expected, msg){
 Unlike Haskell, JavaScript doesn't provide an automatic framework like
 QuickCheck, although there is an [implementation for
 node](https://github.com/mcandre/node-quickcheck). Until the Codewars
-plattform provides an built-in way, you can use the following functions to
+platform provides an built-in way, you can use the following functions to
 create random tests in JavaScript.
 
 Note that both expect your solution to be pure (don't change the argument,

@@ -13,6 +13,70 @@ cannot change the tests in approved katas with more than 500 solutions.
  [#123]: https://github.com/Codewars/codewars.com/issues/123
 
 
+### Make your test descriptive
+
+Let's have a look at the following test:
+
+```javascript
+Test.expect(fizzBuzz(15) === 'FizzBuzz', "Value not what's expected")
+```
+There are several things wrong with it. First of all, it uses `expect`. You
+should __never__ use `expect` in any language, __unless__ there isn't a fitting
+function in your test framework. But usually, there is a correct testing
+function. Here, one would use `Test.assertEquals`, but it might vary, depending
+on your language:
+
+```javascript
+Test.assertEquals(fizzBuzz(15), 'FizzBuzz', "Value not what's expected")
+```
+
+The additional message will be shown if the test failed. However, "Value not
+what's expected" is useless. It doesn't give the user any hint what's gone
+wrong:
+
+```
+  Expected: "FizzBuzz", actual: "Buzz". Value not what's expected.
+```
+Either drop the message in this case, or use a better one:
+
+```javascript
+Test.assertEquals(fizzBuzz(15), 'FizzBuzz', "testing on 15")
+```
+This tells the user immediately that their function failed on `15`.
+
+#### Group your tests
+
+Furthermore, you should group your tests with `describe` and `it`. After all,
+a tests _describes_ the behaviour of something, for example the behaviour
+of `fizzBuzz`. _It_ should pass several specifications:
+
+```javascript
+Test.describe('fizzBuzz', function(){
+  Test.it('should return "Fizz" on 3,6,9,12', function(){
+    for(let i = 1; i <= 4; ++i)
+      Test.assertEquals(fizzBuzz(3 * i), 'Fizz')
+  });
+
+  Test.it('should return "Buzz" on 5,10,20,25', function(){
+    for(let i = 1; i <= 4; i += 3)
+      Test.assertEquals(fizzBuzz(5 * i),       'Buzz')
+      Test.assertEquals(fizzBuzz(5 * (i + 1)), 'Buzz')
+  });
+
+  Test.it('should return "FizzBuzz" on 15*n', function(){
+    for(let i = 1; i <= 4; ++i)
+      Test.assertEquals(fizzBuzz(15 * i), 'FizzBuzz')
+  });
+});
+```
+Note that not every language provides `describe` and `it`. Refer to your
+language's test framework documentation to find out how to group tests there.
+
+#### Make errors obvious
+
+Especially if you use random tests (see below), you want to make sure that the
+user knows _why_ the test failed. You could print the arguments. You could
+show a hint. Either way, a user shouldn't be left alone in face of an error.
 
 ### Always test all corner cases of your input domain
 
@@ -30,7 +94,7 @@ about the input domain.
 
 This is usually the hard part of creating random tests. After all, creating
 sufficient random input is most often harder than creating the kata itself.
-But it is worth every honor.
+But it is worth every honour.
 
 ### Always have some example tests
 
