@@ -35,8 +35,8 @@ import Control.Monad (when)
 
 shouldBeFuzzy :: (Fractional a, Ord a) => a -> a -> Expectation
 shouldBeFuzzy a e =
-  when (abs ((a - e) / e) >= 1e-12) $ do
-    expectationFailure $ "Expected " ++ show e ++ ", but got " ++ show a
+    when (abs ((a - e) / e) >= 1e-12) $ expectationFailure msg
+  where msg = "Expected " ++ show e ++ ", but got " ++ show a
 ```
 
 Alternatively, if you don't want to import `Control.Monad`, you can use
@@ -44,16 +44,18 @@ Alternatively, if you don't want to import `Control.Monad`, you can use
 ``` haskell
 shouldBeFuzzy :: (Fractional a, Ord a) => a -> a -> Expectation
 shouldBeFuzzy a e =
-  if (abs ((a - e) / e) >= 1e-12)
-    then expectationFailure $ "Expected " ++ show a ++ ", but got " ++ show e
-    else return ()
+    if (abs ((a - e) / e) >= 1e-12)
+      then expectationFailure msg
+      else return ()
+  where msg = "Expected " ++ show a ++ ", but got " ++ show e
+
 ```
 
 #### Use QuickCheck's `forAll` to constraint random values
 
 The QuickCheck DSL is a little bit too large to explain completely, but
 usually that's not necessary. If you want to use an arbitrary `Bool`, `Int`
-or anything else [from that list][q-arb], simply do so while wrapping 
+or anything else [from that list][q-arb], simply do so while wrapping
 your test with `property`:
 
  [q-arb]: http://hackage.haskell.org/package/QuickCheck-2.8.1/docs/Test-QuickCheck-Arbitrary.html#v:arbitrary
@@ -68,7 +70,7 @@ need to add some types as can be seen above.
 
 What if you want to restrict the random elements on some domain? That's
 when you use `forAll` or `==>`. The first will generate only fitting
-values, the latter will discard values that don't fit:
+values (if you use it correclty), the latter will discard values that don't fit:
 
 ``` haskell
   it "should return true for even numbers" $ property $

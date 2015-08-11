@@ -8,7 +8,7 @@ gives you great insight about what you might forget in your tests or in your
 description. And since issues get resolved, but not deleted, you can check what
 kind of issues your favourite kata had during its early days or beta.
 
-So please, check things out. I'll wait here.
+So please, check things out. We'll wait here.
 
 You're back? Great! Now you're ready to write your own kata. Well, almost.
 There's another page, hidden in the inner depths of the [forums]:
@@ -26,7 +26,7 @@ A user solves a kata in a single language, not many
 
 When your kata is out of beta, the typical user will solve it in their
 preferred language. They will either be fascinated and solve your kata
-multiple times (which is rather unlikely, sorry), or go on. Therefore, 
+multiple times (which is rather unlikely, sorry), or go on. Therefore,
 your kata should shine in that language.
 
 However, this concludes that you may need to change return types in some
@@ -78,7 +78,7 @@ Stringly typed code is bad
 Nothing to say about that. Unless it leads to convoluted code avert
 stringly types. *Please.*
 
-Ok, maybe you're confused. "What's stringly typed code?", you ask.
+Maybe you're confused. "What's stringly typed code?", you ask.
 Well, stringly typed code is when you take a value that could be easily
 returned in its correct type (e.g. an `int`, a `double`, a `bool`) and wrap
 it in a `String` (or your language's equivalent).
@@ -108,5 +108,5 @@ preloaded code, which enables a user to cheat rather easily.
 
 Also, if you're using a dynamic language like Python, JavaScript or Ruby, keep
 in mind that the user can change `Math.random` or similar features unless you
-use `Object.freeze` or similar. Java, Haskell, C# and potential other staticly
+use `Object.freeze` or similar. Java, Haskell, C# and potential other statically
 typed languages don't share this problem.
