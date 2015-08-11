@@ -3,6 +3,7 @@ title: The conjured Codewars codex
 author: github.com/bkaes
 language: english
 documentclass: scrartcl
+links-as-notes: true
 toc: true
 abstract: |
   This document contains some rules I have employed for my katas and my
