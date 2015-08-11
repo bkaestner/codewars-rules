@@ -90,7 +90,7 @@ If you have several arguments which stem from different domains, use
 `forAll` per domain:
 
 ``` haskell
-  it "returns true if the first argument is 3*n and the second one is 5*k" $
+  it "returns true on (3*n) (5*k)" $
     property $
       forAll (fmap (3*) arbitrary) $ \three ->
       forAll (fmap (5*) arbitrary) $ \five ->
@@ -144,8 +144,10 @@ main = hspec $ do
                       then expectationFailure $ p
                       else return ()
             where
-              a=functionName1 i
-              p=concat ["expected ",show r," on ",show i," but got ",show a]
+              a = functionName1 i
+              p = concat ["expected ", show r, " on "
+                         , show i, " but got ", show a
+                         ]
 
       test "def" "def"
       test "123" ""

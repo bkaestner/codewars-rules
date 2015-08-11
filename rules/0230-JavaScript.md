@@ -58,24 +58,24 @@ and feel free to edit them if they contain any errors.
 ``` javascript
 /**
  * @brief Tests a user defined function against a reference function.
- * @param generator generates random arguments, it must return an array
- * @param userSolution is the solution provided by the user
- * @param refSolution is the solution provided by the original kata author
+ * @param generator generates random arguments (must return an array)
+ * @param userSol is the solution provided by the user
+ * @param refSol is the solution provided by the original kata author
  * @param tests is the number of tests (optional)
  *
- * The `refSolution` should be pure, it shouldn't modify it's arguments,
- * since `userSolution` will work on the same array afterwards.
+ * The `refSol` should be pure, it shouldn't modify it's arguments,
+ * since `userSol` will work on the same array afterwards.
  *
- * The values are compared via equality (===), and the number of shown tests is
- * limited to three.
+ * The values are compared via equality (===), and the number of
+ * shown tests is limited to three.
 */
-var randomAssertEquals = function(generator, userSolution, refSolution, tests){
+var randomAssertEquals = function(generator, userSol, refSol, tests){
   tests = tests || 100;
   var i = 0, user, reference, values;
   while( tests --> 0){
     values = generator();
-    reference = refSolution.apply(this, values);
-    user      = userSolution.apply(this,      values);
+    reference = refSol.apply(this, values);
+    user      = userSol.apply(this,      values);
     if(i++ < 3){
       Test.assertEquals(
         user, reference,
@@ -92,25 +92,25 @@ var randomAssertEquals = function(generator, userSolution, refSolution, tests){
 
 /**
  * @brief Tests a user defined function against a reference function.
- * @param generator generates random arguments, it must return an array
- * @param userSolution is the solution provided by the user
- * @param refSolution is the solution provided by the original kata author
+ * @param generator generates random arguments (must return an array)
+ * @param userSol is the solution provided by the user
+ * @param refSol is the solution provided by the original kata author
  * @param tests is the number of tests (optional)
  *
- * The `refSolution` should be pure, it shouldn't modify it's arguments,
- * since `userSolution` will work on the same array afterwards.
+ * The `refSol` should be pure, it shouldn't modify it's arguments,
+ * since `userSol` will work on the same array afterwards.
  *
  * The values are compared via assertSimilar.
 */
-var randomAssertSimilar = function(generator, userSolution, refSolution, tests){
+var randomAssertSimilar = function(generator, userSol, refSol, tests){
   tests = tests || 100;
   var user, reference, values;
   while( tests --> 0){
     values = generator();
-    reference = refSolution.apply(this, values);
-    user      = userSolution.apply(this,      values);
+    reference = refSol.apply(this, values);
+    user      = userSol.apply(this,      values);
     Test.assertSimilar(
-      user, reference, 
+      user, reference,
       "didn't work on the following argument array: " + values
     );
   }
