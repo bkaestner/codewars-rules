@@ -52,3 +52,11 @@ __will__ confuse anyone who fails to pass your assertion.
 
  [Assert]: http://www.nunit.org/index.php?p=equalityAsserts&r=2.6.4
 
+### Use descriptive test names
+This was already addressed in the previous section, but it's rather important
+in CSharp. NUnit doesn't give you any method to label a test. Instead, a test
+is simply a public static method with a `[Test]` attribute inside a class with
+the `[TestFixture]` attribute. The _name_ of your test is the method's name.
+
+Make that name descriptive. A method called `test1` doesn't help.
+
