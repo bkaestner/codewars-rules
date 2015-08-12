@@ -2,13 +2,17 @@ Haskell
 -------
 
 [Haskell](http://www.haskell.org) has been my main translation target on
-Codewars so far, so it's probably fair that I start with it. QuickCheck
+Codewars so far, so it's probably fair that I start with it. [QuickCheck]
 makes it rather easy to create random tests, and Hspec provides a very easy
 test framework.
 
-Codewars has QuickCheck, Hspec and HUnit installed. Unfortunately, it
+Codewars has QuickCheck, [Hspec] and [HUnit] installed. Unfortunately, it
 doesn't use a recent version of this libraries, but they're recent enough
 for most stuff you'll encounter.
+
+ [QuickCheck]: http://hackage.haskell.org/package/QuickCheck
+ [Hspec]: http://hackage.haskell.org/package/hspec/
+ [HUnit]: http://hackage.haskell.org/package/HUnit/
 
 ### Use Hspec with enough information for the user
 
