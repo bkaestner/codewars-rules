@@ -2,8 +2,8 @@ Haskell
 -------
 
 [Haskell](http://www.haskell.org) has been my main translation target on
-Codewars so far, so it's probably fair that I start with it. [QuickCheck]
-makes it rather easy to create random tests, and Hspec provides a very easy
+Codewars so far, so it's probably the one I know most. [QuickCheck] makes it #
+tremendously easy to create random tests, and Hspec provides a very convenient
 test framework.
 
 Codewars has QuickCheck, [Hspec] and [HUnit] installed. Unfortunately, it
