@@ -52,18 +52,10 @@ the specific kata and mark it as "Question".
 Sure.
 
   Error message         |Interpretation / meaning
-  ----------------------|---------------------------------------------------------------------------------------------------
-  Submission timed out  |The Codewars platform has some problems. Try again later. Your code wasn't checked.
-  Process timed out     |Your code is to slow and has exceeded the time limit. Try another approach, algorithm, or optimize.
-
-#### For warriors
-
-There's a [wiki page] delegated to this error. You can use the following snippet
-to place a link:
-
-``` {.markdown}
-@---: This error is not kata related. Instead, it is caused by some hiccup in the Codewars system, don't worry. It's usually fixed after a while. For more information, see [this page on the github wiki](https://github.com/Codewars/codewars.com/wiki/Error-messages:-Submission-timed-out).
-```
+  ----------------------|-------------------------------------------------------
+  Submission timed out  |The Codewars platform has some problems. Try again later. \
+                         Your code wasn't checked.
+  Process timed out     |Your code is to slow and has exceeded the time limit. \
+                         Try another approach, algorithm, or optimize.
 
 [issue-18]: https://github.com/Codewars/codewars.com/issues/18 "Issue #18: Submission Timeouts / Poor messaging"
-[wiki page]: https://github.com/Codewars/codewars.com/wiki/Error-messages:-Submission-timed-out
