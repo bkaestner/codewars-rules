@@ -4,9 +4,7 @@ JavaScript
 *This section is under construction. Beware of the dragon, ye who enter his
 lair*.
 
-### Snippets
-
-#### Floating point tests
+### Floating point tests
 
 As written above, one shouldn't use `assertEquals` on floating point
 values, since the user might use another order of addition, and adding
@@ -37,7 +35,7 @@ var assertFuzzyEquals = function(actual, expected, msg){
 }
 ```
 
-#### Random tests
+### Random tests
 
 Unlike Haskell, JavaScript doesn't provide an automatic framework like
 QuickCheck, although there is an [implementation for

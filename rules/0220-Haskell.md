@@ -6,13 +6,11 @@ Codewars so far, so it's probably fair that I start with it. QuickCheck
 makes it rather easy to create random tests, and Hspec provides a very easy
 test framework.
 
-### Tests
-
 Codewars has QuickCheck, Hspec and HUnit installed. Unfortunately, it
 doesn't use a recent version of this libraries, but they're recent enough
 for most stuff you'll encounter.
 
-#### Use Hspec with enough information for the user
+### Use Hspec with enough information for the user
 
 Hspec's `describe` should be used with a *function name*, whereas `it`
 should be used with a sentence, so that `it "should be readable"`. There
@@ -21,7 +19,7 @@ use one test per `it` or a test by hand in accordance with
 `expecationFailure` instead of `shouldBe`. You can also use HUnit, but I
 usually stay within Hspec's DSL.
 
-#### Floating point tests
+### Floating point tests
 
 As written above, one shouldn't use `shouldBe` on floating point values,
 since the user might use another order of addition, and adding floating
@@ -51,7 +49,7 @@ shouldBeFuzzy a e =
 
 ```
 
-#### Use QuickCheck's `forAll` to constraint random values
+### Use QuickCheck's `forAll` to constraint random values
 
 The QuickCheck DSL is a little bit too large to explain completely, but
 usually that's not necessary. If you want to use an arbitrary `Bool`, `Int`
@@ -112,12 +110,12 @@ QuickCheck returns:
       isEven x `shouldBe` True
 ```
 
-#### Always import only the expected functions
+### Always import only the expected functions
 
 To prevent name clashes, only import what you need from the user module.
 This enables the user to define additional helpers at global namespace.
 
-#### Test template
+### Test template
 
 ``` haskell
 module Codewars.MyPrefix.KataName.Test where
