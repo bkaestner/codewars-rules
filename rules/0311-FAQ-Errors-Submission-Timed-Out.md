@@ -22,8 +22,8 @@ that takes too much resources from a Codewars virtual machine.
 First of all, relax. Even if the submission timed out, your code is usually
 saved. However, you can copy your code into your clipboard and reload the
 kata submission page in order to check this: if the code is still there,
-you can come back later. If it isn't, paste it and try to submit it again ÔÇô
-maybe it was just a lost server connection and you can go on.
+you can come back later. If it isn't, paste it and try to submit it again
+&ndash; maybe it was just a lost server connection and you can go on.
 
 **If the problem persists** you can notify Jake or at least report the
 incident in [the aforementioned issue topic (#18)][issue-18]. You can
