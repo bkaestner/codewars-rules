@@ -2,7 +2,7 @@
 title: The conjured Codewars codex
 author: github.com/bkaes
 language: english
-documentclass: scrartcl
+documentclass: scrreprt
 links-as-notes: true
 toc: true
 abstract: |
