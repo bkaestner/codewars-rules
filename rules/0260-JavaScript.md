@@ -1,8 +1,17 @@
-JavaScript
-----------
+JavaScript / CoffeeScript
+-------------------------
 
-*This section is under construction. Beware of the dragon, ye who enter his
-lair*.
+The JavaScript tests on CodeWars use a [custom] test framework. Any kata written
+in CoffeeScript will use the same framework, since CoffeeScript gets compiled
+to JavaScript.
+
+Therefore, you won't find a section about CoffeeScript in this document. Also,
+keep in mind that the current support of ES2015 is implemented via [Babel], so
+you won't get the real source code if you use `.toString()`, but the result of
+the Babel compiler.
+
+ [custom]: http://www.codewars.com/docs/js-slash-coffeescript-test-reference
+ [Babel]: https://babeljs.io/
 
 ### Floating point tests
 
