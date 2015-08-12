@@ -115,7 +115,7 @@ QuickCheck returns:
 To prevent name clashes, only import what you need from the user module.
 This enables the user to define additional helpers at global namespace.
 
-### Test template
+### Test example
 
 ``` haskell
 module Codewars.MyPrefix.KataName.Test where

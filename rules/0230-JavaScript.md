@@ -51,7 +51,7 @@ so you probably edit the functions for your needs. Also note that
 `generator` should return an array.
 
 **NOTE:** The functions haven't been tested thoroughly. Use them with care
-and feel free to edit them if they contain any errors.
+and feel free to create an issue or a pull-request if they contain any errors.
 
 ``` javascript
 /**
@@ -87,7 +87,9 @@ var randomAssertEquals = function(generator, userSol, refSol, tests){
     }
   }
 }
+```
 
+``` javascript
 /**
  * @brief Tests a user defined function against a reference function.
  * @param generator generates random arguments (must return an array)
@@ -113,4 +115,37 @@ var randomAssertSimilar = function(generator, userSol, refSol, tests){
     );
   }
 }
+```
+
+### Test example
+
+``` javascript
+Test.describe("functionName1", function(){
+  var solution = function(){
+    // your solution
+  };
+  Test.it("should work for some simple examples", () => {
+    Test.assertEquals(functionName1("abc"), "abc");
+    Test.assertEquals(functionName1("xyz"), "xyz");
+    Test.assertEquals(functionName1("")   , ""); // corner case
+  });
+
+  Test.it("should not return strings longer than 3 chars", () => {
+    for(let i = 0; i < 100; ++i){
+      const str = Test.randomToken();
+      Test.expect(functionName1(str).length <= 3,
+                  'returned more than 3 characters on' + str);
+    }
+  });
+
+  Test.it("returns the correct string", () => {
+    for(let i = 0; i < 100; ++i){
+      const str = Test.randomToken();
+      Test.assertEquals(
+        functionName1(str),
+        solution(str)
+      );
+    }
+  });
+});
 ```
