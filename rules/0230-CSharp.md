@@ -60,3 +60,62 @@ the `[TestFixture]` attribute. The _name_ of your test is the method's name.
 
 Make that name descriptive. A method called `test1` doesn't help.
 
+### Use `[TestCase]` for multiple test cases
+The [TestCase] attribute enables you to specify the arguments for a test
+function. This works best if you use `TestCase` together with `Result`:
+
+ [TestCase]: http://www.nunit.org/index.php?p=testCase&r=2.6.4
+
+```csharp
+[Test]
+[TestCase(2, Result=true)]
+[TestCase(4, Result=true)]
+[TestCase(6, Result=true)]
+[TestCase(-10, Result=true)]
+public static bool ReturnsTrueOnEven(int n){
+  return Evener.isEven(n);
+}
+
+[Test]
+[TestCase(3, Result=false)]
+[TestCase(5, Result=false)]
+[TestCase(7, Result=false)]
+[TestCase(-1, Result=false)]
+public static bool ReturnsFalseOnOdd(int n){
+  return Evener.isEven(n);
+}
+```
+
+### Use `[Random]` for simple random values
+The `Random` attribute can be used on arguments. This enables you to create
+random integers or doubles within a range:
+
+```csharp
+[Test]
+public static void RandomTests([Random(10, 500000, 100)] int n)) {
+    Assert.AreEqual(PersistTests.Sol(n), Persist.Persistence(n));
+}
+```
+This would draw random integers between 10 and 500000 (inclusive) and run a
+total of 100 tests.
+
+### Use `[Theory]` for a QuickCheck light experience
+Haskell's QuickCheck enables you to test only certain combinations of random
+values via `forAll`. That's also possible with `[Theory]` and `Assume`:
+
+```csharp
+[Theory]
+public static void ReturnsTrueOnEven([Random(1, 50000, 100)] int n){
+  Assume.That(n % 2 == 0);
+  Assert.That(Evener.isEven(n));
+}
+
+[Theory]
+public static void ReturnsFalseOnOdd([Random(1, 50000, 100)] int n){
+  Assume.That(n % 2 == 1);
+  Assert.That(! Evener.isEven(n));
+}
+```
+However, this should be used with care. After all, NUnit will still check only
+100 random values, and if they don't hold the assumption, the test case is
+still completely executed but any failed assertion is disregarded.
