@@ -26,10 +26,9 @@ you can come back later. If it isn't, paste it and try to submit it again ÔÇô
 maybe it was just a lost server connection and you can go on.
 
 **If the problem persists** you can notify Jake or at least report the
-incident in \[the aforementioned issue topic (\#18)\]\[issue-18\]. You can
-also check [the status page](http://status.codewars.com). Note that at
-least at the moment of writing this text (2015-04-07), the status page
-isn't always accurate. Also have a look at the dashboard. People usually
+incident in [the aforementioned issue topic (#18)][issue-18]. You can
+also check [the status page](http://status.codewars.com). Note that the status
+page isn't always accurate. Also have a look at the dashboard. People usually
 post issues or comments about "submission timed out" if this happens.
 
 Again, this error doesn't solely happen to you, and it doesn't have
