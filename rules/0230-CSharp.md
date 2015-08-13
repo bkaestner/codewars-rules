@@ -48,7 +48,9 @@ Test.assert_equals(actual, expected, message)
 ```
 
 Keep this in mind. Your tests won't fail if your swap the arguments, but they
-__will__ confuse anyone who fails to pass your assertion.
+__will__ confuse anyone who fails to pass your assertion. By the way, Java
+uses the same convention. This isn't surprising, since NUnit was inspired by
+JUnit.
 
  [Assert]: http://www.nunit.org/index.php?p=equalityAsserts&r=2.6.4
 
