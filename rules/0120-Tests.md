@@ -118,7 +118,7 @@ might some time need to find a good epsilon, I usually use `1e-12` if I
 want to have something "almost exact" and `1e-7` if I want something
 "near-ish" the correct solution.
 
-**Example:**
+#### An example of floating point dangers
 
 ```python
 def add_three(a,b,c):
@@ -130,3 +130,10 @@ def add_three_reference(a,b,c):
 print(add_three_reference(1e-12,1e-12,1) == add_three(1e-12,1e-12,1))
 # False
 ```
+
+#### Consider integral tests
+
+If your number is guaranteed to be an integral number, use `int`, `long`
+or your language's equivalent instead of floating point numbers. However, keep
+in mind that all values, either input, output, or intermediate should fit in
+this type, otherwise you might encounter overflow or underflow issues.
