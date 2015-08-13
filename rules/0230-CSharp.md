@@ -12,7 +12,7 @@ as _CSharp_ instead.
 
 ### Beware of the assert arguments!
 NUnit differs from the other frameworks. Very. Much. Well, overall it doesn't,
-it still has it's `Assert.AreEqual` and `Assert.Greater` and others. __But__ the
+it still has `Assert.AreEqual`, `Assert.Greater` and others. But the
 order of arguments is swapped.
 
 Where CoffeeScript, Ruby, Python and Haskell expect the first argument of
@@ -47,23 +47,27 @@ Test.assert_equals(actual, expected, message)
 Test.assert_equals(actual, expected, message)
 ```
 
-Keep this in mind. Your tests won't fail if your swap the arguments, but they
-__will__ confuse anyone who fails to pass your assertion. By the way, Java
+Keep this in mind. Your tests won't fail on correct solutions if you swap the
+arguments, but they __will__ confuse anyone who fails them. By the way, Java
 uses the same convention. This isn't surprising, since NUnit was inspired by
 JUnit.
 
  [Assert]: http://www.nunit.org/index.php?p=equalityAsserts&r=2.6.4
 
 ### Use descriptive test names
-This was already addressed in the previous section, but it's rather important
+This was already addressed in the previous chapter, but it's rather important
 in CSharp. NUnit doesn't give you any method to label a test. Instead, a test
 is simply a public static method with a `[Test]` attribute inside a class with
 the `[TestFixture]` attribute. The _name_ of your test is the method's name.
 
-Make that name descriptive. A method called `test1` doesn't help.
+Make that name descriptive. A method called `test1` doesn't help. Name it after
+the property you're testing, e.g. `ReturnsTrueOnEven`, or
+`ThrowsExceptionOnNull`.
 
-### Use `[TestCase]` for multiple test cases
-The [TestCase] attribute enables you to specify the arguments for a test
+### Use `[TestCase]` to create parametrized tests
+A test function doesn't have to be of type `void ...(void)`. You can use
+parameters, which will be shown automatically. This is possible via the
+[TestCase] attribute. It enables you to specify the arguments for a test
 function. This works best if you use `TestCase` together with `Result`:
 
  [TestCase]: http://www.nunit.org/index.php?p=testCase&r=2.6.4
@@ -87,9 +91,10 @@ public static bool ReturnsFalseOnOdd(int n){
   return Evener.isEven(n);
 }
 ```
+You can also use your regular `Assert.*` functions instead.
 
 ### Use `[Random]` for simple random values
-The `Random` attribute can be used on arguments. This enables you to create
+The [Random] attribute can be used on arguments. This enables you to create
 random integers or doubles within a range:
 
 ```csharp
@@ -101,9 +106,11 @@ public static void RandomTests([Random(10, 500000, 100)] int n)) {
 This would draw random integers between 10 and 500000 (inclusive) and run a
 total of 100 tests.
 
+ [Random]: http://www.nunit.org/index.php?p=random&r=2.6.4
+
 ### Use `[Theory]` for a QuickCheck light experience
 Haskell's QuickCheck enables you to test only certain combinations of random
-values via `forAll`. That's also possible with `[Theory]` and `Assume`:
+values via `forAll`. That's also possible with [Theory] and `Assume`:
 
 ```csharp
 [Theory]
@@ -121,3 +128,5 @@ public static void ReturnsFalseOnOdd([Random(1, 50000, 100)] int n){
 However, this should be used with care. After all, NUnit will still check only
 100 random values, and if they don't hold the assumption, the test case is
 still completely executed but any failed assertion is disregarded.
+
+ [Theory]: http://www.nunit.org/index.php?p=theory&r=2.6.4
