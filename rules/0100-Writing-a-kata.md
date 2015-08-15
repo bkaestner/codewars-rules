@@ -72,18 +72,33 @@ Essentially use the same kind of language you would like to read in a
 published programming book. it is hard to get right, but it is worth the
 additional time.
 
-Stringly typed code is bad
---------------------------
+Use the proper types whenever possible
+--------------------------------------
 
-Nothing to say about that. Unless it leads to convoluted code avert
-stringly types. *Please.*
+Have a look at the following function:
 
-Maybe you're confused. "What's stringly typed code?", you ask.
-Well, stringly typed code is when you take a value that could be easily
-returned in its correct type (e.g. an `int`, a `double`, a `bool`) and wrap
-it in a `String` (or your language's equivalent).
+```java
+static public string do_the_thing(string){
+  // ...
+}
+```
+What does this function do? It takes a string, and it returns a string. But
+it's not clear what happens there. Does the string need to follow a certain
+pattern, like `/\s*(\d+\s+)+\s*/g`? Is the string actually an array or a 
+list, but as a text?
 
-This has several drawbacks:
+Compare the function above with the function below:
+
+```java
+static public int sum_all_things(int[] numbers){
+  // ...
+}
+```
+The function's type already tells you that you'll get a bunch of numbers, 
+and if this compiles, the caller probably gave you a bunch of numbers
+(or no number or `null`, but that's not important).
+
+Using a string has several drawbacks, some of them mentioned above:
 
 1. Your users have to convert the value to a String, where another type would
    be more natural, e.g. "YES"/"NO" instead of `true` and `false`.
@@ -97,7 +112,7 @@ This has several drawbacks:
 
 That being said, if you provide a fitting story or motivation, feel free to make
 the argument a string, or the return value. But use those strings with care. If
-possible, use the proper type.
+possible, use the proper type and avoid string, unless it leads to convoluted code.
 
 
 Use the preloaded section only for helpers or constraints
