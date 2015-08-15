@@ -109,6 +109,8 @@ Using a string has several drawbacks, some of them mentioned above:
    if you're worried about rounding in floating point values.
 4. It doesn't make testing easier for you, especially if you work with
    stringified arrays.
+5. The current error message doesn't preserve whitespace, so if a user returns
+   `"a      value"` instead of `"a value"`, he might not notice this.
 
 That being said, if you provide a fitting story or motivation, feel free to make
 the argument a string, or the return value. But use those strings with care. If
