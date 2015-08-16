@@ -84,7 +84,7 @@ static public string do_the_thing(string){
 ```
 What does this function do? It takes a string, and it returns a string. But
 it's not clear what happens there. Does the string need to follow a certain
-pattern, like `/\s*(\d+\s+)+\s*/g`? Is the string actually an array or a 
+pattern, like `/\s*(\d+\s+)+\s*/g`? Is the string actually an array or a
 list, but as a text?
 
 Compare the function above with the function below:
@@ -94,7 +94,7 @@ static public int sum_all_things(int[] numbers){
   // ...
 }
 ```
-The function's type already tells you that you'll get a bunch of numbers, 
+The function's type already tells you that you'll get a bunch of numbers,
 and if this compiles, the caller probably gave you a bunch of numbers
 (or no number or `null`, but that's not important).
 
@@ -127,3 +127,12 @@ Also, if you're using a dynamic language like Python, JavaScript or Ruby, keep
 in mind that the user can change `Math.random` or similar features unless you
 use `Object.freeze` or similar. Java, Haskell, C# and potential other statically
 typed languages don't share this problem.
+
+
+Provide helpers for tasks that are dull
+---------------------------------------
+Sometimes, you'll ask your user to provide the answer in a given format, or to
+use certain pre-defined values. Those values should be preloaded too. For the
+format, either a fixed format string (`printf` style) or a full-fledged wonders
+helps you to get rid of a bunch of troublels, like additional whitespace,
+ambiguous syntax and so on.
