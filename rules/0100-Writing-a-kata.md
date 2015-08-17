@@ -2,7 +2,7 @@ Writing a kata
 ==============
 
 You want to write a kata? That's great! You've probably already solved a
-bunch of them, found issues and participated the beta process. If you haven't,
+bunch of them, found issues and participated in the beta process. If you haven't,
 I strongly suggest you to check katas in beta before you start your own. It
 gives you great insight about what you might forget in your tests or in your
 description. And since issues get resolved, but not deleted, you can check what
