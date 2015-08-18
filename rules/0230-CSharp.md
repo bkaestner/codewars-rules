@@ -91,7 +91,20 @@ public static bool ReturnsFalseOnOdd(int n){
   return Evener.isEven(n);
 }
 ```
-You can also use your regular `Assert.*` functions instead.
+Unfortunately, `[TestCase]` does not report the used parameters on a failed
+test. An alternative is to use `Assert.*` with a custom message:
+
+```csharp
+[Test]
+[TestCase(3, false)]
+[TestCase(5, false)]
+[TestCase(7, false)]
+[TestCase(-1, false)]
+public static void ReturnsFalseOnOdd(int n, bool result){
+  Assert.AreEqual(result, Evener.isEven(n),
+    String.Format("Returned the wrong result on {}", n));
+}
+```
 
 ### Use `[Random]` for simple random values
 The [Random] attribute can be used on arguments. This enables you to create
@@ -104,7 +117,9 @@ public static void RandomTests([Random(10, 500000, 100)] int n)) {
 }
 ```
 This would draw random integers between 10 and 500000 (inclusive) and run a
-total of 100 tests.
+total of 100 tests. Note that the drawbacks of `[TestCase]` also affect
+`[Random]`, `NUnit` does not report the generated random values. Provide a
+message if you want your users to know what arguments they didn't get right.
 
  [Random]: http://www.nunit.org/index.php?p=random&r=2.6.4
 
@@ -127,6 +142,7 @@ public static void ReturnsFalseOnOdd([Random(1, 50000, 100)] int n){
 ```
 However, this should be used with care. After all, NUnit will still check only
 100 random values, and if they don't hold the assumption, the test case is
-still completely executed but any failed assertion is disregarded.
+still completely executed but any failed assertion is disregarded. And yes, this
+will also not report the used values.
 
  [Theory]: http://www.nunit.org/index.php?p=theory&r=2.6.4
