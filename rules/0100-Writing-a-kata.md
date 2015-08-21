@@ -69,8 +69,33 @@ a _task_. That way, a reader can enjoy the story without all those `x`s ,
 `i`s and numbers. Save that for your task.
 
 Essentially use the same kind of language you would like to read in a
-published programming book. it is hard to get right, but it is worth the
+published programming book. It is hard to get right, but it is worth the
 additional time.
+
+
+Use proper formatting
+---------------------
+
+Even with proper grammar and spelling your kata can be hard to read.
+
+Especially if you use arbitrary newlines or code without proper formatting, like
+
+do_something(1) = "Hello world"
+
+or similar. That's not really something your readers enjoy. Instead, use
+[proper markdown][GFM].
+While it might seem tempting to use plain HTML and CSS, it's not future
+proof, as the Codewars style might change. Learning GitHub flavored markdown
+doesn't take long so make sure to read it.
+
+Also make sure that your text isn't [ragged] too much.
+Getting typographic features right is hard and can take a while. Just play
+around with different paragraph lengths, headings and tables. But __always__
+format your code. You don't want to have something like the aforementioned
+`do_something` in your description.
+
+ [GFM]: https://help.github.com/articles/github-flavored-markdown/
+ [ragged]: https://en.wikipedia.org/wiki/Typographic_alignment
 
 Use the proper types whenever possible
 --------------------------------------
