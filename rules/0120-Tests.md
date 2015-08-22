@@ -138,7 +138,7 @@ or your language's equivalent instead of floating point numbers. However, keep
 in mind that all values, either input, output, or intermediate should fit in
 this type, otherwise you might encounter overflow or underflow issues.
 
-### Fix broken tests early or fix them right
+### Fix broken tests early and fix them right
 
 While [#163](https://github.com/Codewars/codewars.com/issues/163) will give you
 the tools to fix a kata even late, you should take every reported test issue by
@@ -154,3 +154,27 @@ However, sometimes your reference solution is wrong. People have know adjusted
 their submitted functions to yours, so that they still solve the kata, even
 though their logic is broken. If you now fix your reference solution, the
 results of many users might get rejected.
+
+So what can you do?
+
+#### Change description to address the bug
+You should definitely tell your users if your kata is broken. Especially if your
+tests have a defect in only one particular language. It's not the best you can
+do, but as long as #163 is still there, it might be the only thing you can do.
+
+#### Reject old solutions, they didn't follow the description
+This is fine as long as there haven't been many solutions. If your kata has been
+solved by hundreds, it might seem a little bit unfair, but correct tests are
+a little bit more important.
+
+#### Experimental solutions
+There are also other alternatives:
+
+- check the time: if the kata solution is submitted after a certain point in
+time, use the new tests, otherwise the old. This can lead to problems with
+the anti-cheat measurements.
+- test against both results: this basically duplicates all your tests, which
+  can be hard to maintain if you do it wrong.
+
+Either way, fix them, otherwise it will lead to submitted issues and therefore
+to negative honour.
