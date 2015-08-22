@@ -137,3 +137,20 @@ If your number is guaranteed to be an integral number, use `int`, `long`
 or your language's equivalent instead of floating point numbers. However, keep
 in mind that all values, either input, output, or intermediate should fit in
 this type, otherwise you might encounter overflow or underflow issues.
+
+### Fix broken tests early or fix them right
+
+While [#163](https://github.com/Codewars/codewars.com/issues/163) will give you
+the tools to fix a kata even late, you should take every reported test issue by
+heart. If the tests are failing for some only, check whether your current
+example tests contain enough corner cases. Ask them for their code
+(in spoilers).
+
+There are several ways your tests can be wrong. For examples, your tests can be
+too strict. This is usually the case with floating points, where one expects the
+user to do things in a certain way.
+
+However, sometimes your reference solution is wrong. People have know adjusted
+their submitted functions to yours, so that they still solve the kata, even
+though their logic is broken. If you now fix your reference solution, the
+results of many users might get rejected.
