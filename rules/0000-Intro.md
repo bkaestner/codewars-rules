@@ -1,6 +1,6 @@
 ---
 title: The conjured Codewars codex
-author: github.com/bkaes
+author: Benjamin Kästner
 language: english
 documentclass: scrreprt
 links-as-notes: true
