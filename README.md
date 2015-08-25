@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bkaes/codewars-rules.svg?branch=master)](https://travis-ci.org/bkaes/codewars-rules) [![Join the chat at https://gitter.im/bkaes/codewars-rules](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bkaes/codewars-rules?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/bkaestner/codewars-rules.svg?branch=master)](https://travis-ci.org/bkaestner/codewars-rules) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bkaestner/codewars-rules?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # About these documents
 

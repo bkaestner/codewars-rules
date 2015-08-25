@@ -31,7 +31,7 @@ up answering the same questions in the comments
 
 To prevent repeating myself over and over again, and to have some kind of
 reference for some nifty tricks, I've started writing this "guide". And while
-its [GitHub repository](https://github.com/bkaes/codewars-rules) is called
+its [GitHub repository](https://github.com/bkaestner/codewars-rules) is called
 "codewars-rules", it's meant as a light-hearted lecture for the interested
 reader.
 
