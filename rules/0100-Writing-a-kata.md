@@ -159,5 +159,5 @@ Provide helpers for tasks that are dull
 Sometimes, you'll ask your user to provide the answer in a given format, or to
 use certain pre-defined values. Those values should be preloaded too. For the
 format, either a fixed format string (`printf` style) or a full-fledged wonders
-helps you to get rid of a bunch of troublels, like additional whitespace,
+helps you to get rid of a bunch of troubles, like additional whitespace,
 ambiguous syntax and so on.
