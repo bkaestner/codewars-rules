@@ -144,14 +144,14 @@ possible, use the proper type and avoid string, unless it leads to convoluted co
 
 Use the preloaded section only for helpers or constraints
 ---------------------------------------------------------
-While it might seem tempting to put your solution into the preloaded code
-section, don't. Some languages provide reflection or similar means to check your
-preloaded code, which enables a user to cheat rather easily.
+The preloaded code is both usable by you and the user. It's the perfect place to
+put helpers or data structures that the user should use, or to freeze objects in
+dynamic languages.
 
-Also, if you're using a dynamic language like Python, JavaScript or Ruby, keep
-in mind that the user can change `Math.random` or similar features unless you
-use `Object.freeze` or similar. Java, Haskell, C# and potential other statically
-typed languages don't share this problem.
+However, __never__ put your solution into the preloaded code! Some languages
+provide reflection or similar means to check your preloaded code, which enables
+a user to cheat rather easily. Instead, put your solution into a local scope
+(see "Hide your solution").
 
 
 Provide helpers for tasks that are dull
