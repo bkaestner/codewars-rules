@@ -96,6 +96,38 @@ This is usually the hard part of creating random tests. After all, creating
 sufficient random input is most often harder than creating the kata itself.
 But it is worth every honour.
 
+### Hide your solution
+If you use random tests, make sure to hide your solution. In Java or C#, this
+includes making your function `private`. Haskell doesn't allow mutual imports,
+so the user cannot import the tests either way. However, in dynamic languages,
+one can sometimes simply use `solve = solution`.
+
+You can prevent this kind of cheating if you
+
+- add static tests (not only random ones),
+- move your solution into a local scope.
+
+The first one is obvious. The second one can be realized if you don't provide
+a `solution` with the same interface, but instead a `testAgainstSolution`:
+
+```javascript
+// bad!
+var solution = function(a, b){
+  // ...
+}
+
+// better
+var testFunction = function(a,b){
+  var solution = function(a, b) {
+    // ...
+  }
+  Test.assertEquals(userFunc(a,b), solution(a,b));
+}
+```
+There are more creative ways to hide/store the function, but that's one way
+at least. Note that all dynamic languages on Codewars (Ruby, Python, CS, JS)
+support this kind of local scopes.
+
 ### Always have some example tests
 
 Unless you're creating a puzzle where the user has to find *the answer*,
