@@ -182,7 +182,7 @@ There are several ways your tests can be wrong. For examples, your tests can be
 too strict. This is usually the case with floating points, where one expects the
 user to do things in a certain way.
 
-However, sometimes your reference solution is wrong. People have know adjusted
+However, sometimes your reference solution is wrong. People have now adjusted
 their submitted functions to yours, so that they still solve the kata, even
 though their logic is broken. If you now fix your reference solution, the
 results of many users might get rejected.
