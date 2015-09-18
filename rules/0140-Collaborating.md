@@ -23,11 +23,11 @@ Now you can see their tests (both example and hidden), solution (both
 hidden and initial), and the description. There are several things
 you want to check before accepting a translation:
 
-- [ ] Is the kata as hard as in you original languages?
- - [ ] Does it use the same or comparable tests?
- - [ ] Does it use the same or comparable input/output types?
-- [ ] Does the description provide some examples in that language?
-- [ ] Do the description changes break your description style?
+- is the kata as hard as in you original languages?
+    - does it use the same or comparable tests?
+    - does it use the same or comparable input/output types?
+- does the description provide some examples in that language?
+- do the description changes break your description style?
 
 Those are basically questions that follow from the rules
 "Consistency is key" and "A user solves a kata in a single language, not many".
