@@ -43,6 +43,8 @@ kata, or whether he will disdain the hideous abomination. Always remember
 to use your language's idiomatic code. And if someone proposes a
 translation to your kata and you think it is not really idiomatic, ask them.
 
+See also the section on translations.
+
 Consistency is key
 ------------------
 
