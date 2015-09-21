@@ -96,6 +96,41 @@ This is usually the hard part of creating random tests. After all, creating
 sufficient random input is most often harder than creating the kata itself.
 But it is worth every honour.
 
+### Use __more__ random tests
+
+While it's nice to have a random test which validates that the user returns
+the same as your hidden solution, there's no guarantee that your solution
+provides the _correct result_. If you provide a predicate that checks whether
+the solution makes sense, you can use it in both the hidden _and_ public tests.
+
+For example, if `foo` should always return `false` on negative
+inputs, add the following test:
+
+```javascript
+Test.it('should return false for negative numbers', function(){
+  for (let i = 0; i < 100; ++i) {
+    Test.assertEquals(foo(-Math.random() * 1000000), false);
+  }
+});
+```
+
+This prevents both you and the user to forget about those inputs. Generally
+this pattern will look like this:
+
+```javascript
+Test.it('returns something valid', function(){
+  for (let i = 0; i < 100; ++i) {
+    var some   = ...
+    var random = ...
+    var args   = ...
+    Test.expect(
+      isValid(foo(some, random, args)),
+      "predicate failed, invalid answer returned"
+    );
+  }
+});
+```
+
 ### Hide your solution
 If you use random tests, make sure to hide your solution. In Java or C#, this
 includes making your function `private`. Haskell doesn't allow mutual imports,
