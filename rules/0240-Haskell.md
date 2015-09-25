@@ -46,11 +46,14 @@ Alternatively, if you don't want to import `Control.Monad`, you can use
 ``` haskell
 shouldBeFuzzy :: (Fractional a, Ord a) => a -> a -> Expectation
 shouldBeFuzzy a e =
-    if (abs ((a - e) / e) >= 1e-12)
+    if cond
       then expectationFailure msg
       else return ()
-  where msg = "Expected " ++ show a ++ ", but got " ++ show e
-
+  where
+    msg = "Expected " ++ show a ++ ", but got " ++ show e
+    cond
+      | e == 0    = abs a >= 1e-12
+      | otherwise = (abs $ (a - e) / e) >= 1e-12
 ```
 
 ### Use QuickCheck's `forAll` to constraint random values

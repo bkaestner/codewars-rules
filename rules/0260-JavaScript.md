@@ -37,7 +37,7 @@ whatever you feel is best. Just keep in mind that any value lower than
 ``` javascript
 var assertFuzzyEquals = function(actual, expected, msg){
     var inrange = Math.abs((actual - expected) / expected) <= 1e-12;
-    Test.expect(inrange,
+    Test.expect(expected !== 0 ? inrange : Math.abs(actual) <= 1e-12,
       msg || "Expected value near " + expected.toExponential(13) +
              ", but got " + actual.toExponential(13)
     );
