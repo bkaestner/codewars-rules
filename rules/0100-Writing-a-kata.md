@@ -163,3 +163,65 @@ use certain pre-defined values. Those values should be preloaded too. For the
 format, either a fixed format string (`printf` style) or a full-fledged wonders
 helps you to get rid of a bunch of troubles, like additional whitespace,
 ambiguous syntax and so on.
+
+
+A word of warning
+-----------------
+
+Before we dive into tests in the next section, here's a word of warning.
+The next section does not replace the documentation of your testing framework.
+It gives _general tips_. However, in order to write good tests, a deep
+understanding of your testing framework is mandatory. Otherwise, it will
+take much time to write those, especially if you don't know the programming
+language well enough yet.
+
+Have a look at the following test:
+
+```haskell
+  main = do
+    if solution 1 /= 1 
+      then exitFailure
+      else 
+        if solution 2 /= 1
+          then exitFailure
+          else 
+            if solution 3 /= 2 
+              then exitFailure
+              else
+                if solution 4 /= 3
+                  then exitFailure
+                  else 
+                    if solution 5 /= 3
+                      then exitFailure
+                      else return ()
+```
+This test checks whether `solution` returns the first five Fibonacci numbers.
+It's bad for several reasons: 
+
+- it doesn't return any helpful error message if the solution is wrong
+- it's not modular
+- it's not compatible to the CodeWars testing framework
+
+Another variant, which uses `hspec` and random tests could be written as
+
+```haskell
+main = do
+  rs <- replicateM 100 (randomRIO (1,100))
+  hspec $ do
+    describe "fibonacci" $ do
+      forM_ rs $ \x ->
+        it ("works for " ++ show x) $ 
+          fibonacci x `shouldBe` solution x
+```
+While better, it doesn't use Hspecs interoperability with QuickCheck:
+
+```haskell
+main =   
+  hspec $ do
+    describe "fibonacci" $ do
+      prop "works for random numbers" $ \x ->        
+        fibonacci x `shouldBe` solution x
+```
+
+So before you dive into the next section, make sure that you have at least
+a rough overview of the capabilities of your language's testing framework.
