@@ -87,7 +87,7 @@ do_something(1) = "Hello world"
 or similar. That's not really something your readers enjoy. Instead, use
 [proper markdown][GFM].
 While it might seem tempting to use plain HTML and CSS, it's not future
-proof, as the Codewars style might change. Learning GitHub flavored markdown
+proof, as the Codewars style might change. Learning GitHub flavoured markdown
 doesn't take long so make sure to read it.
 
 Also make sure that your text isn't [ragged] too much.
