@@ -126,7 +126,7 @@ This enables the user to define additional helpers at global namespace.
 
 ``` haskell
 module Codewars.MyPrefix.KataName.Test where
-import Codewars.MyPrefix.KataName (functionName1, functionName2, …)
+import Codewars.MyPrefix.KataName (functionName1, functionName2, ...)
 import Test.Hspec
 import Test.QuickCheck
 
@@ -165,5 +165,5 @@ main = hspec $ do
       functionName1 xs `shouldBe` solution1 xs
 
   describe "functionName2" $ do
-    -- … similar to above
+    -- ... similar to above
 ```
