@@ -10,6 +10,7 @@ in your test cases (see section
 That's where translations and collaboration kick in.
 
 ### Accepting a translation
+
 Let's stay in the mentioned scenario for a while. You wrote a  kata,
 it's currently in beta, and suddenly, you get a notification that someone
 provided a translation. So where can you find that translation?
@@ -41,6 +42,7 @@ translation. Discuss your concerns with the translator until both of you are
 happy. If you don't think that the translation is salvageable, decline it.
 
 ### Writing a translation
+
 Now you found a kata in JavaScript. You liked it, and want to translate it into
 Python. There should be a "+" sign next to the language icons after you solved
 it. Click on it and you'll land on the list of current translations. After

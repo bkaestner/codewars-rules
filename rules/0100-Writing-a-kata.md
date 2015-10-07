@@ -57,6 +57,27 @@ But consistency should be taken in measurements. If this leads to
 completely unidiomatic code during your translation, consider creating a
 completely new kata instead.
 
+
+Follow your language's naming conventions
+-----------------------------------------
+
+Every language has its quirks. Some of them get discussed in the later sections.
+However, there's one thing that should get mentioned at this point:
+
+- make sure to use your language's proposed naming convention, if there exists
+  one.
+
+This includes simle character cases like capitalized class names (almost all
+object oriented languages) or method names (CSharp), and whether a multi word
+function should be written with underscores (also called `snake_case`, e.g.
+`my_awesome_function`, Ruby, Python) or in *camelCase* (Haskell,
+JavaScript CoffeeScript).
+
+This obviously concludes that the function will differ in different languages.
+But then again, remember the previous rule, *a user solves a kata in a single
+language, not many*. Make the user feel at home.
+
+
 Use proper Grammar, Punctuation and Spelling
 --------------------------------------------
 
@@ -179,24 +200,24 @@ Have a look at the following test:
 
 ```haskell
   main = do
-    if solution 1 /= 1 
+    if solution 1 /= 1
       then exitFailure
-      else 
+      else
         if solution 2 /= 1
           then exitFailure
-          else 
-            if solution 3 /= 2 
+          else
+            if solution 3 /= 2
               then exitFailure
               else
                 if solution 4 /= 3
                   then exitFailure
-                  else 
+                  else
                     if solution 5 /= 3
                       then exitFailure
                       else return ()
 ```
 This test checks whether `solution` returns the first five Fibonacci numbers.
-It's bad for several reasons: 
+It's bad for several reasons:
 
 - it doesn't return any helpful error message if the solution is wrong
 - it's not modular
@@ -210,16 +231,16 @@ main = do
   hspec $ do
     describe "fibonacci" $ do
       forM_ rs $ \x ->
-        it ("works for " ++ show x) $ 
+        it ("works for " ++ show x) $
           fibonacci x `shouldBe` solution x
 ```
 While better, it doesn't use Hspecs interoperability with QuickCheck:
 
 ```haskell
-main =   
+main =
   hspec $ do
     describe "fibonacci" $ do
-      prop "works for random numbers" $ \x ->        
+      prop "works for random numbers" $ \x ->
         fibonacci x `shouldBe` solution x
 ```
 
