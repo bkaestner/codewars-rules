@@ -20,7 +20,7 @@ Where CoffeeScript, Ruby, Python and Haskell expect the first argument of
 the second to be the expected, NUnit swaps the order, see the documentation of
 [Assert]:
 
-``` charp
+``` cs
 Assert.AreEqual( int expected, int actual );
 Assert.AreEqual( int expected, int actual, string message );
 Assert.AreEqual( int expected, int actual, string message,
@@ -72,7 +72,7 @@ function. This works best if you use `TestCase` together with `Result`:
 
  [TestCase]: http://www.nunit.org/index.php?p=testCase&r=2.6.4
 
-```csharp
+``` cs
 [Test]
 [TestCase(2, Result=true)]
 [TestCase(4, Result=true)]
@@ -94,7 +94,7 @@ public static bool ReturnsFalseOnOdd(int n){
 Unfortunately, `[TestCase]` does not report the used parameters on a failed
 test. An alternative is to use `Assert.*` with a custom message:
 
-```csharp
+``` cs
 [Test]
 [TestCase(3, false)]
 [TestCase(5, false)]
@@ -110,7 +110,7 @@ public static void ReturnsFalseOnOdd(int n, bool result){
 The [Random] attribute can be used on arguments. This enables you to create
 random integers or doubles within a range:
 
-```csharp
+``` cs
 [Test]
 public static void RandomTests([Random(10, 500000, 100)] int n)) {
     Assert.AreEqual(PersistTests.Sol(n), Persist.Persistence(n));
@@ -127,7 +127,7 @@ message if you want your users to know what arguments they didn't get right.
 Haskell's QuickCheck enables you to test only certain combinations of random
 values via `forAll`. That's also possible with [Theory] and `Assume`:
 
-```csharp
+``` cs
 [Theory]
 public static void ReturnsTrueOnEven([Random(1, 50000, 100)] int n){
   Assume.That(n % 2 == 0);
