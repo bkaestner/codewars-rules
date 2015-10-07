@@ -1,5 +1,6 @@
 PANDOC=pandoc
-PFLAGS=-N -s --toc
+HIGHLIGHT_STYLE=tango
+PFLAGS=-N -s --toc --highlight-style=$(HIGHLIGHT_STYLE)
 
 rules.pdf: rules/*.md
 	$(PANDOC) $(sort $^) -f markdown -t latex -o $@ $(PFLAGS)
