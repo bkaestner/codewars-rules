@@ -27,18 +27,21 @@ print ("    :(    ")
 ```
 
 Therefore, you should plan a little threshold. I usually use `1e-12`,
-which is *good enough*, or `1e-6` if the kata is about approximative
-results. Just change the value below to whatever you feel is best.
-Just keep in mind that any value lower than `1e-15` is bogus.
+which is most often good enough, or `1e-6` if the kata is about
+approximative results. Just change the value below to whatever you
+feel is best. Keep in mind that any value lower than `1e-15` is bogus.
 
 ``` python
 def assertFuzzyEquals(actual, expected, msg=""):
     import math
 
+    # max error
+    merr = 1e-12
+
     if expected == 0:
-        inrange = math.fabs(actual) <= 1e-12
+        inrange = math.fabs(actual) <= merr
     else:
-        inrange = math.fabs((actual - expected) / expected) <= 1e-12
+        inrange = math.fabs((actual - expected) / expected) <= merr
 
     if msg == "":
         msg = "Expected value near {:.12f}, but got {:.12f}"
