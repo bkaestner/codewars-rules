@@ -178,8 +178,8 @@ in the same order as you, and therefore end up with a slightly different
 number. Equality tests will always fail for that poor user.
 
 Unless you want to write a kata were the user needs to round a floating
-point value to a certain precision, never ever tell the user to round,
-truncate, floor or ceil a floating point number. Instead, check the
+point value to a certain precision, never ever tell the user to round up/down
+or truncate a floating point number. Instead, check the
 [*relative error*](https://en.wikipedia.org/wiki/Approximation_error). You
 might some time need to find a good epsilon, I usually use `1e-12` if I
 want to have something "almost exact" and `1e-7` if I want something
