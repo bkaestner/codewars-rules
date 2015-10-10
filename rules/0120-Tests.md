@@ -198,6 +198,33 @@ print(add_three_reference(1e-12,1e-12,1) == add_three(1e-12,1e-12,1))
 # False
 ```
 
+#### Relative error testing
+
+The following example shows one way to check floating point values in a more
+sane way:
+
+``` python
+def assertFuzzyEquals(actual, expected, msg=""):
+    import math
+
+    # max error
+    merr = 1e-12
+
+    if expected == 0:
+        inrange = math.fabs(actual) <= merr
+    else:
+        inrange = math.fabs((actual - expected) / expected) <= merr
+
+    if msg == "":
+        msg = "Expected value near {:.12f}, but got {:.12f}"
+        msg = msg.format(expected, actual)
+
+    return Test.expect(inrange, msg)
+```
+
+Most language sections contain their equivalent and use `expect` or a similar
+function of their test framework.
+
 #### Consider integral tests
 
 If your number is guaranteed to be an integral number, use `int`, `long`
