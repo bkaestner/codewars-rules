@@ -8,11 +8,12 @@ test framework.
 
 Codewars has QuickCheck, [Hspec] and [HUnit] installed. Unfortunately, it
 doesn't use a recent version of this libraries, but they're recent enough
-for most stuff you'll encounter.
+for most stuff you'll encounter [^haskell-libs].
 
  [QuickCheck]: http://hackage.haskell.org/package/QuickCheck
  [Hspec]: http://hackage.haskell.org/package/hspec/
  [HUnit]: http://hackage.haskell.org/package/HUnit/
+ [^haskell-libs]: Apparently, the libraries _do_ get updated from time to time, but there's no reference at the moment.
 
 ### Use Hspec with enough information for the user
 
@@ -121,6 +122,11 @@ QuickCheck returns:
 
 To prevent name clashes, only import what you need from the user module.
 This enables the user to define additional helpers at global namespace.
+
+Additionally, don't name your helper functions like QuickCheck, Hspec or
+HUnit operators or functions, even if they aren't currently available on
+Codewars. The administrators might update the package, and you end up with
+a defunct test due to ambiguity.
 
 ### Test example
 
