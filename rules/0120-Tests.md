@@ -72,6 +72,22 @@ Test.describe('fizzBuzz', function(){
 Note that not every language provides `describe` and `it`. Refer to your
 language's test framework documentation to find out how to group tests there.
 
+If you use `describe`, keep in mind that you _describe_ __one__ thing:
+
+```javascript
+Test.describe('bar', function(){
+  Test.it('returns "bar"', function(){
+    Test.assertEquals(bar(), "bar");
+  });
+});
+
+Test.describe('foo', function(){
+  Test.it('returns "foo"', function(){
+    Test.assertEquals(foo(), "foo");
+  });
+});
+```
+
 #### Make errors obvious
 
 Especially if you use random tests (see below), you want to make sure that the
