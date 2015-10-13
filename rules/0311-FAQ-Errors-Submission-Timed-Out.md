@@ -12,7 +12,7 @@ code wasn't even tested. The very process of *submitting the code* timed
 out. This can happen under heavy load, if all worker pools are exhausted,
 all queues are full, or some other behind the scenes detail gave up.
 
-The actual source of the problem \[isn't fully known yet\]\[issue-18\].
+The actual source of the problem [isn't fully known yet][issue-18].
 Sometimes, it's background jobs not processing items from the job queue.
 Sometimes, it's another, completely unrelated process on the same machine,
 that takes too much resources from a Codewars virtual machine.
