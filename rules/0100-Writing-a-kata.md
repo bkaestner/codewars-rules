@@ -62,12 +62,11 @@ Follow your language's naming conventions
 -----------------------------------------
 
 Every language has its quirks. Some of them get discussed in the later sections.
-However, there's one thing that should get mentioned at this point:
+However, there's one thing that should get mentioned at this point: 
+**make sure to use your language's proposed naming convention, if there exists
+one.**
 
-- make sure to use your language's proposed naming convention, if there exists
-  one.
-
-This includes simle character cases like capitalized class names (almost all
+This includes simple character cases like capitalized class names (almost all
 object oriented languages) or method names (CSharp), and whether a multi word
 function should be written with underscores (also called `snake_case`, e.g.
 `my_awesome_function`, Ruby, Python) or in *camelCase* (Haskell,
