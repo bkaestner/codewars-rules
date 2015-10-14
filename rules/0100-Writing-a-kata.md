@@ -102,10 +102,24 @@ Even with proper grammar and spelling your kata can be hard to read.
 
 Especially if you use arbitrary newlines or code without proper formatting, like
 
-do_something(1) = "Hello world"
+\# do_something(1) should return "Hello world"
+do_something(1) == "Hello world"
 
 or similar. That's not really something your readers enjoy. Instead, use
-[proper markdown][GFM].
+[proper markdown][GFM]:
+
+    ``` python
+    # do_something(1) should return "Hello world"
+    do_something(1) = "Hello world"
+    ```
+
+``` python
+# do_something(1) should return "Hello world"
+do_something(1) = "Hello world"
+```
+
+This looks a lot nicer than the previous one.
+
 While it might seem tempting to use plain HTML and CSS, it's not future
 proof, as the Codewars style might change. Learning GitHub flavoured markdown
 doesn't take long so make sure to read it.
