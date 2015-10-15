@@ -236,7 +236,7 @@ It's bad for several reasons:
 - it's not modular
 - it's not compatible to the CodeWars testing framework
 
-Another variant, which uses `hspec` and random tests could be written as
+Another variant, which uses Hspec and random tests could be written as
 
 ```haskell
 main = do
