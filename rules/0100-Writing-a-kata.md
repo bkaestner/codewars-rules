@@ -250,11 +250,11 @@ main = do
 While better, it doesn't use Hspecs interoperability with QuickCheck:
 
 ```haskell
-main =
-  hspec $ do
-    describe "fibonacci" $ do
-      prop "works for random numbers" $ \x ->
-        fibonacci x `shouldBe` solution x
+main = hspec $ describe "fibonacci" $ do
+    prop "works for random numbers" $ \x ->
+      fibonacci x `shouldBe` solution x
+  where
+    solution = ...
 ```
 
 So before you dive into the next section, make sure that you have at least
