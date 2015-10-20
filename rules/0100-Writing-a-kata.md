@@ -170,7 +170,7 @@ Using a string has several drawbacks, some of them mentioned above:
    if you're worried about rounding in floating point values.
 4. It doesn't make testing easier for you, especially if you work with
    stringified arrays.
-5. The current error message doesn't preserve whitespace, so if a user returns
+5. The current error message doesn't preserve white space, so if a user returns
    `"a      value"` instead of `"a value"`, he might not notice this.
 
 That being said, if you provide a fitting story or motivation, feel free to make
@@ -195,7 +195,7 @@ Provide helpers for tasks that are dull
 Sometimes, you'll ask your user to provide the answer in a given format, or to
 use certain pre-defined values. Those values should be preloaded too. For the
 format, either a fixed format string (`printf` style) or a full-fledged wonders
-helps you to get rid of a bunch of troubles, like additional whitespace,
+helps you to get rid of a bunch of troubles, like additional white space,
 ambiguous syntax and so on.
 
 
