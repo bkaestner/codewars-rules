@@ -212,22 +212,22 @@ language well enough yet.
 Have a look at the following test:
 
 ```haskell
-  main = do
-    if solution 1 /= 1
-      then exitFailure
-      else
-        if solution 2 /= 1
-          then exitFailure
-          else
-            if solution 3 /= 2
-              then exitFailure
-              else
-                if solution 4 /= 3
-                  then exitFailure
-                  else
-                    if solution 5 /= 3
-                      then exitFailure
-                      else return ()
+main = do
+  if solution 1 /= 1
+    then exitFailure
+    else
+      if solution 2 /= 1
+        then exitFailure
+        else
+          if solution 3 /= 2
+            then exitFailure
+            else
+              if solution 4 /= 3
+                then exitFailure
+                else
+                  if solution 5 /= 3
+                    then exitFailure
+                    else return ()
 ```
 This test checks whether `solution` returns the first five Fibonacci numbers.
 It's bad for several reasons:
@@ -247,7 +247,7 @@ main = do
         it ("works for " ++ show x) $
           fibonacci x `shouldBe` solution x
 ```
-While better, it doesn't use Hspecs interoperability with QuickCheck:
+While better, it doesn't use Hspec's interoperability with QuickCheck:
 
 ```haskell
 main = hspec $ describe "fibonacci" $ do
