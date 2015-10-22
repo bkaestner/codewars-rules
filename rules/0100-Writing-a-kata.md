@@ -86,13 +86,17 @@ kata that is meant for beginners, use simple words. Keep sentences short.
 Remove all run-on sentences come on you want to avoid that kind of sentence
 in your kata description those sentences are bland and hard to comprehend.
 
-If you provide a story, break the description into a _story_ and
-a _task_. That way, a reader can enjoy the story without all those `x`s ,
-`i`s and numbers. Save that for your task.
-
 Essentially use the same kind of language you would like to read in a
 published programming book. It is hard to get right, but it is worth the
 additional time.
+
+
+Split story and task
+--------------------------
+
+If you provide a story, break the description into a _story_ and
+a _task_. That way, a reader can enjoy the story without all those `x`s ,
+`i`s and numbers. Save that for your task.
 
 
 Use proper formatting
