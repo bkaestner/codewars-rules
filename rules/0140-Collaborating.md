@@ -34,12 +34,18 @@ Those are basically questions that follow from the rules
 "Consistency is key" and "A user solves a kata in a single language, not many".
 
 If all questions above can be answered with yes, you can approve the
-translation. If Codewars mentions some problems, try to fork the translation
-or instruct the translator with a comment to fork it on their own.
-
-If one or more questions were answered with no, write a comment on the
-translation. Discuss your concerns with the translator until both of you are
+translation. If one or more questions were answered with no, write a comment on
+the translation. Discuss your concerns with the translator until both of you are
 happy. If you don't think that the translation is salvageable, decline it.
+
+### Handling merge conflicts
+A translation basically copies the description at the time one has started
+writing the translation. If the kata's description changes before the translation
+got approved, the variants often cannot get merged together. This is called
+a *merge conflict*.
+
+Either the translator or the kata author has to *fork* the translation, fix the
+merge conflict by hand, and publish the translation again.
 
 ### Writing a translation
 
