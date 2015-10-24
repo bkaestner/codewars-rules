@@ -42,7 +42,7 @@ happy. If you don't think that the translation is salvageable, decline it.
 A translation basically copies the description at the time one has started
 writing the translation. If the kata's description changes before the translation
 got approved, the variants often cannot get merged together. This is called
-a *merge conflict*.
+a *merge conflict*. (By the way, Codewars uses a [3-way merge](https://en.wikipedia.org/wiki/Merge_%28version_control%29#Three-way_merge)).
 
 Either the translator or the kata author has to *fork* the translation, fix the
 merge conflict by hand, and publish the translation again.
