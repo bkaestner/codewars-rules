@@ -76,6 +76,9 @@ This obviously concludes that the function will differ in different languages.
 But then again, remember the previous rule, *a user solves a kata in a single
 language, not many*. Make the user feel at home.
 
+By the way, if you use abbreviations for your function's name, make sure that
+they are common. Otherwise just use the full name.
+
 
 Use proper Grammar, Punctuation and Spelling
 --------------------------------------------
