@@ -4,7 +4,6 @@ author: Benjamin Kästner
 language: english
 documentclass: scrreprt
 links-as-notes: true
-toc: true
 abstract: |
   This document contains some rules I have employed for my katas and my
   translation on [Codewars](http://www.codewars.com). Some of them are very
