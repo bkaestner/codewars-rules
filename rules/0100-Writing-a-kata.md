@@ -62,7 +62,7 @@ Follow your language's naming conventions
 -----------------------------------------
 
 Every language has its quirks. Some of them get discussed in the later sections.
-However, there's one thing that should get mentioned at this point: 
+However, there's one thing that should get mentioned at this point:
 **make sure to use your language's proposed naming convention, if there exists
 one.**
 
@@ -140,8 +140,22 @@ format your code. You don't want to have something like the aforementioned
  [GFM]: https://help.github.com/articles/github-flavored-markdown/
  [ragged]: https://en.wikipedia.org/wiki/Typographic_alignment
 
+
 Use the proper types whenever possible
 --------------------------------------
+
+Types are everywhere. Even if you use dynamic typed languages, you've at
+least encountered some quirks of your language, like `"12345" + 1` in
+JavaScript, or "xy isn't a ab" in Python or Ruby.
+
+There are basically two things that can go wrong with types: you can
+ask the user for the wrong return type, or __you__ accidentally use
+the wrong type in your reference solution.
+
+The second one is a lot harder to notice, so lets keep this for later.
+Instead let us look at one often used wrong return type first: the string.
+
+### The problem with strings
 
 Have a look at the following function:
 
@@ -184,6 +198,78 @@ That being said, if you provide a fitting story or motivation, feel free to make
 the argument a string, or the return value. But use those strings with care. If
 possible, use the proper type and avoid string, unless it leads to convoluted code.
 
+
+### The wrong return type
+
+Even if you don't use strings, you can end up with the wrong type. Let us
+motivate this with an example.
+
+The Fibonacci sequence is defined as follows
+
+$$
+f_n = \begin{cases}
+ 1 & n = 1\\
+ 1 & n = 2\\
+ f_{n-1} + f_{n-2} & \text{otherwise} \\
+\end{cases}
+$$
+
+Now, lets say you want a user to write a function that returns arbitrary
+Fibonacci numbers up to `N = 100`:
+
+``` c
+int32_t fibonacci(int8_t N);
+```
+
+You might already note where I'm going with this, if not, read on.
+Lets have a look at $f_{45}$, $f_{46}$ and $f_{47}$:
+$1134903170, 1836311903, 2971215073$. And if you're familiar with the bounds
+of signed 32bit integer numbers, you should already see the problem.
+
+The number $2971215073$ cannot get represented with 32 bits (if signed integers
+are used), since $\log_2 (2971215073) > 31$. If you were to ask the user for
+$f_{50}$ (or even $N = 100$), you (and they!) end up with a wrong answer:
+
+``` c
+printf("f 47: %d\n", fibonacci(47));
+// prints -1323752223
+```
+
+This indicates that `int32_t` isn't enough for your kata. Even `uint64_t` isn't,
+since $\log_2 (f_{100}) > 64$,
+so you have to switch to your languages `BigInteger` variant, e.g. `BigInt`,
+`bignum`, `Integer`.
+
+By the way, this particular error could have been prevented by a test that
+checks that every returned number is positive. Also, if you use a dynamic
+typed language, make sure to check the return type in one of the first tests:
+
+``` ruby
+Test.expect (fib(0) is Bignum, "Your function doesn't return a BigNum")
+```
+
+### Wrong internal types
+
+This is usually a mess. Your return type is correct, and you check for the
+correct type, but your users complain about invalid results. This indicates
+that you accidentally used the wrong type somewhere in your own computation,
+for example `int16_t` in a helper function. This is __really__ hard to spot,
+so you should add some static test values. More on that in the later sections.
+
+### Integral vs floating point arithmetic
+There's a later section on floating point numbers, but this section is also
+fitting for the delicate problem. As you (hopefully) know, floating point
+arithmetic isn't exact. The usual double value has 54 bits for its significant,
+which is better than `int32_t`, but worse than `int64_t`. So if you ask for an
+__exact__ solution, you should ask for an integral type and also check
+that the user returns an integral type (in dynamic typed languages).
+
+Note that JavaScript doesn't really differ between integral and floating point
+numbers. You can force numbers to behave as `int32` (or `uint32`), but you
+cannot help the user with an appropriate error message in this case.
+
+Also, JavaScript doesn't have a large integer class/type, so you need to
+improvise a little bit.
 
 Use the preloaded section only for helpers or constraints
 ---------------------------------------------------------
