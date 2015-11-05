@@ -15,7 +15,16 @@ the LICENCE before contributing (it's CC-BY-SA 4.0).
 
  [Codewars]: http://www.codewars.com
 
-# Getting a PDF
+# Online versions
+Since all of the files are written in Markdown, you can simply browse the
+`rules` directory. However, there are some things that cannot get shown on
+GitHub, such as included TeX math commands.
+
+There's a [hosted version on GitHub](https://bkaestner.github.io/codewars-rules/).
+However, that version gets updated by hand, so it might lag a little bit. You
+can build a version with `make html` on your own.
+
+# Offline versions
 
 Clone the repository and use `make`. You need to install a recent version
 of [pandoc]. However, since I'm using Travis to check that this really works,
