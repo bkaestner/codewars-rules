@@ -6,8 +6,6 @@ html{
 nav {
     background-color: #160;
     color:#eee;
-    overflow: hidden;
-    transition: 0.5s ease height;
     position: fixed;
     top:0; left:0;
     padding:1ex;
@@ -21,6 +19,7 @@ nav > ul li:last-of-type {margin-bottom: 1em;}
 nav a {
     color:#eee;
     font-family: sans-serif;
+    text-decoration: none;
 }
 nav a code{
     background: none;
@@ -110,21 +109,27 @@ code {
 
 .author{display: none;}
 
-h1.title {
-    font-size: 200%;
-    font-weight: bold;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
-    text-align: left;
-    border: none;
-}
 h1, h2, h3, h4, h5{
+    color: #270;
     margin-top:1.5em;
     font-family: sans-serif;
 }
 h3, h4, h5 {
     border-bottom: 1px dotted black;
-    color: #270;
+}
+
+h1.title {
+    background-color: #270;
+    color:#fff;
+    font-size: 2.8em;
+    font-weight: bold;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    text-align: center;
+    border: none;
+    margin-top: 1ex;
+    margin-left: -1ex;
+    margin-right: -1ex;
 }
 
 h1 {
