@@ -1,0 +1,139 @@
+html{
+    background-color: #ccc;
+}
+
+/* NAVIGATION */
+nav {
+    background-color: #160;
+    color:#eee;
+    overflow: hidden;
+    transition: 0.5s ease height;
+    position: fixed;
+    top:0; left:0;
+    padding:1ex;
+    overflow: auto;
+}
+nav:hover{bottom: 0;}
+nav > ul {display: none;}
+nav:hover > ul {display:block;}
+nav > ul li:last-of-type {margin-bottom: 1em;}
+
+nav a {
+    color:#eee;
+    font-family: sans-serif;
+}
+nav a code{
+    background: none;
+}
+nav a:hover{
+    background-color: #055500;
+}
+nav ul {list-style:none; padding-left: 1ex;}
+
+nav::before{
+    padding: 1ex;
+    display: block;
+    font-family: sans-serif;
+    font-size: large;
+    font-variant: small-caps;
+}
+nav:hover::before{
+    content:"The conjured Codewars codex";
+}
+@media only screen and (min-width: 1360px) {
+nav::before{ content:"The conjured Codewars codex";}
+}
+@media only screen and (max-width: 1360px) and (min-width: 990px) {
+nav::before{ content:"The Codex";}
+}
+@media only screen and (max-width: 990px) and (min-width: 920px) {
+nav::before{ content:"Codex";}
+}
+@media only screen and (max-width: 920px){
+nav::before{ content:"C";}
+}
+
+/* NAVIGATION  END */
+
+
+a:hover{
+    text-decoration: none
+}
+
+body {
+    background-color: #fefefe;
+    margin: auto;
+    padding-right: 1em;
+    padding-left: 1em;
+    max-width: 44em;
+    font-family: Verdana, sans-serif;
+}
+pre {
+    border: 1px dotted gray;
+    color: #1111111;
+    padding: 0.5em;
+    position: relative;
+}
+pre::after{
+    display:block;
+    position: absolute;
+    top:1ex; right:1ex;
+    color:#555;
+}
+pre.c:after{
+    content:"C";
+}
+pre.cs:after{
+    content:"C#";
+}
+pre.java:after{
+    content:"Java";
+}
+pre.javascript:after{
+    content:"JavaScript";
+}
+pre.haskell:after{
+    content:"Haskell";
+}
+pre.python:after{
+    content:"Python";
+}
+pre.ruby:after{
+    content:"Ruby";
+}
+pre.c:after{
+    content:"C";
+}
+code {
+ /*   font-family: monospace; */
+}
+
+.author{display: none;}
+
+h1.title {
+    font-size: 200%;
+    font-weight: bold;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    text-align: left;
+    border: none;
+}
+h1, h2, h3, h4, h5{
+    margin-top:1.5em;
+    font-family: sans-serif;
+}
+h3, h4, h5 {
+    border-bottom: 1px dotted black;
+    color: #270;
+}
+
+h1 {
+    border-bottom: 1px solid;
+}
+h2 {
+    border-bottom: 1px dashed silver;
+}
+
+table {border: 1px solid; border-collapse: collapse;}
+table thead th {border-bottom: 2px solid; padding: 1ex;}
+table th, table td {border: 1px solid; padding: 1ex;}
