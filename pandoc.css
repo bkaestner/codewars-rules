@@ -10,6 +10,7 @@ nav {
     top:0; left:0;
     padding:1ex;
     overflow: auto;
+    z-index:2;
 }
 nav:hover{bottom: 0;}
 nav > ul {display: none;}
