@@ -280,7 +280,7 @@ dynamic languages.
 However, __never__ put your solution into the preloaded code! Some languages
 provide reflection or similar means to check your preloaded code, which enables
 a user to cheat rather easily. Instead, put your solution into a local scope
-(see "Hide your solution").
+(see [Hide your solution](#hide-your-solution)).
 
 
 Provide helpers for tasks that are dull
