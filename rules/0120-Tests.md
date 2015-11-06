@@ -201,6 +201,9 @@ might some time need to find a good epsilon, I usually use `1e-12` if I
 want to have something "almost exact" and `1e-7` if I want something
 "near-ish" the correct solution.
 
+For more information about floating-point arithmetic, read
+[What Every Computer Scientist Should Know About Floating-Point Arithmetic](https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html).
+
 #### An example of floating point dangers
 
 ```python
