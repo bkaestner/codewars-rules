@@ -60,6 +60,30 @@ a:hover{
     text-decoration: none
 }
 
+blockquote {
+    border-left: 1ex gray solid;
+    padding-left: 2em;
+    position: relative;
+}
+blockquote::before{
+    content: "“";
+    display: block;
+    position: absolute;
+    color:#ccc;
+    font-size:1.5em;
+    top:0;
+    left:1ex;
+}
+blockquote::after{
+    content: "”";
+    display: block;
+    position: absolute;
+    color:#ccc;
+    font-size:1.5em;
+    top:0;
+    right:1ex;
+}
+
 body {
     background-color: #fefefe;
     margin: auto;
