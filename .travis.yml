@@ -4,7 +4,11 @@ before_script:
 - ar vx pandoc-1.15.0.6-1-amd64.deb
 - tar -vzxf data.tar.gz
 - export PATH="$PATH:`pwd`/usr/bin"
-script: make
+script:
+- make
+- make html
+after_success:
+- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
 addons:
   apt:
     packages:
@@ -24,7 +28,10 @@ deploy:
 notifications:
   webhooks:
     urls:
-      - https://webhooks.gitter.im/e/41aa5d0486197ca85cda
+    - https://webhooks.gitter.im/e/41aa5d0486197ca85cda
     on_success: change
     on_failure: always
     on_start: never
+env:
+  global:
+    secure: GDS2UYMuJPc1HBArd9hjRMnvsrFQJJWwgx1sJBiZfrL3Rov66unXvOk+y3IVrPY8e7DCdvb8GmWJIirtrkmzOkntbmBhUDsGDGFkSLo7povSdX1SQocSzVezieiLTIX6X+8rDmX68uqyFqf1TGEltCQgoGGMaMU6kNT4ZPYIedOzjVJlq/T6y0+I3c5cJx+9G17udv2VXkZF4fu6oVDJLaTCbUbIGnHzWPWxMonesoSKbT4sTcDJPjuE23lxyU+cxauEpH/5E4YCExC/aDPYdTHzjxVjTwFRTw3YWDSzbJRxnQSVbJ6TOW2aeO87835a9kTofzKVqX1wKhPoNXka+5/N1KDWfw7pT/LGQi2PtBCIf0GHKcM9QV/qZL9ubP1gyBODfl3iz9nKkhWDOyyeU2KWGMk7Cw7eRKbhi/WC5Xxp0yWNMER3IMc3DnQ6oOFQj+PDHvjZgsvFqscnm1ii7a32GM8/RYC0V861TzGGLtETGDpI//JHyI7UpHJadqXzjTaa0sN9kuMY+cfT95Wr/9HcAUMFuBPkVNm40dgsKOEc5l3xqBu+hHCq0GyhCS3CUW4fYnWOiSJJW8EhZQfOL6lrBcOaq24fhvhFEqLpGnnAsOpg3MoshQ08VZefhw0Pc5GIOc0LEI32+7p4dMKVFlzBpDgIpm6Tj73hxK+pUPQ=
