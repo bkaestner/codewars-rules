@@ -60,14 +60,15 @@ If you find an error, have a better idea, or think that all of this is a
 pile of unicorn misery, feel free to create an issue or a pull-request.
 Have a look at the LICENCE.
 
-Contributors
-------------
-*Note: This section might change or will be moved to another section in a later
-version*.
 
-Please check the GitHub pages for contributors. While some contributed code, one
-should not forget those who provided feedback via GitHub issues, so check them
-too.
+About me (the author)
+-----------------
+Hi all. I'm a random Codewars user. I'm not affiliated to Entrefuse Inc.
+(the company behind Codewars) in any way, except for being a user of their
+product. So if you encounter any Codewars specific problem, make sure
+to head over [to their issue tracker](https://github.com/Codewars/codewars.com/issues),
+as I cannot change anything. Thanks!
+
 
 Copyright
 ---------
