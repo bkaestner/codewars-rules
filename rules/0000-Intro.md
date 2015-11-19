@@ -74,8 +74,5 @@ Copyright
 ---------
 &copy; 2015 Benjamin Kästner. This document is licenced under the [Creative
 Commons Attribution-ShareAlike 4.0 International Public License][CC-BY-SA].
-Additionally, all code fragments used throughout the document are licenced
-under the [Unlicense](http://unlicense.org/) and can be used without
-attribution, UNLESS stated otherwise.
 
  [CC-BY-SA]: http://creativecommons.org/licenses/by-sa/4.0/.
