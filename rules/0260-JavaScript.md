@@ -44,6 +44,19 @@ var assertFuzzyEquals = function(actual, expected, msg){
 }
 ```
 
+### Testing HTML
+
+As html actual and expected results get displayed and interpreted on your browser, it might be a little annoying to debug your kata if an HTML output was expected.
+
+For this reason, is highly advisable to use this testing function to escape angular parentheses:
+
+```
+var yourFancyComparingFunctionName = function(result,expected,msg){
+  if (result==expected) Test.assertEquals(result,expected);
+  else Test.expect(result==expected,["Expected: ",result.replace(/</g,"&lt;").replace(/>/g,"&gt;")," - instead got: ", expected.replace(/</g,"&lt;").replace(/>/g,"&gt;")].join(""));
+}
+```
+
 ### Random tests
 
 Unlike Haskell, JavaScript doesn't provide an automatic framework like
