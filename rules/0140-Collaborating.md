@@ -9,6 +9,7 @@ in your test cases (see section
 
 That's where translations and collaboration kick in.
 
+
 ### Accepting a translation
 
 Let's stay in the mentioned scenario for a while. You wrote a  kata,
@@ -38,7 +39,9 @@ translation. If one or more questions were answered with no, write a comment on
 the translation. Discuss your concerns with the translator until both of you are
 happy. If you don't think that the translation is salvageable, decline it.
 
+
 ### Handling merge conflicts
+
 A translation basically copies the description at the time one has started
 writing the translation. If the kata's description changes before the translation
 got approved, the variants often cannot get merged together. This is called
@@ -46,6 +49,7 @@ a *merge conflict*. (By the way, Codewars uses a [3-way merge](https://en.wikipe
 
 Either the translator or the kata author has to *fork* the translation, fix the
 merge conflict by hand, and publish the translation again.
+
 
 ### Writing a translation
 

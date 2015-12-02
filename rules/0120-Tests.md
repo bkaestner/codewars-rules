@@ -44,6 +44,7 @@ Test.assertEquals(fizzBuzz(15), 'FizzBuzz', "testing on 15")
 ```
 This tells the user immediately that their function failed on `15`.
 
+
 #### Group your tests
 
 Furthermore, you should group your tests with `describe` and `it`. After all,
@@ -88,6 +89,7 @@ Test.describe('foo', function(){
 });
 ```
 
+
 #### Make errors obvious
 
 Especially if you use random tests (see below), you want to make sure that the
@@ -101,6 +103,7 @@ If you ask the user to create a function that should work for
 1,000,000. If you specified that "negative input should return a monkey",
 make sure that you actually test negative input.
 
+
 ### Use random tests
 
 Whenever when you state a kata you also have to write a solution. This is
@@ -111,6 +114,7 @@ about the input domain.
 This is usually the hard part of creating random tests. After all, creating
 sufficient random input is most often harder than creating the kata itself.
 But it is worth every honour.
+
 
 ### Use __more__ random tests
 
@@ -147,7 +151,9 @@ Test.it('returns something valid', function(){
 });
 ```
 
+
 ### Hide your solution
+
 If you use random tests, make sure to hide your solution. In Java or C#, this
 includes making your function `private`. Haskell doesn't allow mutual imports,
 so the user cannot import the tests either way. However, in dynamic languages,

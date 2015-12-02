@@ -155,6 +155,7 @@ the wrong type in your reference solution.
 The second one is a lot harder to notice, so lets keep this for later.
 Instead let us look at one often used wrong return type first: the string.
 
+
 ### The problem with strings
 
 Have a look at the following function:
@@ -248,6 +249,7 @@ typed language, make sure to check the return type in one of the first tests:
 Test.expect (fib(0) is Bignum, "Your function doesn't return a BigNum")
 ```
 
+
 ### Wrong internal types
 
 This is usually a mess. Your return type is correct, and you check for the
@@ -271,8 +273,10 @@ cannot help the user with an appropriate error message in this case.
 Also, JavaScript doesn't have a large integer class/type, so you need to
 improvise a little bit.
 
+
 Use the preloaded section only for helpers or constraints
 ---------------------------------------------------------
+
 The preloaded code is both usable by you and the user. It's the perfect place to
 put helpers or data structures that the user should use, or to freeze objects in
 dynamic languages.
@@ -285,6 +289,7 @@ a user to cheat rather easily. Instead, put your solution into a local scope
 
 Provide helpers for tasks that are dull
 ---------------------------------------
+
 Sometimes, you'll ask your user to provide the answer in a given format, or to
 use certain pre-defined values. Those values should be preloaded too. For the
 format, either a fixed format string (`printf` style) or a full-fledged wonders

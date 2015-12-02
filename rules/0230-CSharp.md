@@ -1,4 +1,6 @@
-## CSharp
+CSharp
+------
+
 CSharp is the only language that doesn't have a proper documentation on Codewars
 currently. This will probably change at some point. The test framework is
 [NUnit](http://www.nunit.org/), initially a port from JUnit. It's rather large,
@@ -10,7 +12,9 @@ as _CSharp_ instead.
 
  [Nunit doc]: http://www.nunit.org/index.php?p=docHome&r=2.6.4
 
+
 ### Beware of the assert arguments!
+
 NUnit differs from the other frameworks. Very. Much. Well, overall it doesn't,
 it still has `Assert.AreEqual`, `Assert.Greater` and others. But the
 order of arguments is swapped.
@@ -64,7 +68,9 @@ Make that name descriptive. A method called `test1` doesn't help. Name it after
 the property you're testing, e.g. `ReturnsTrueOnEven`, or
 `ThrowsExceptionOnNull`.
 
+
 ### Use `[TestCase]` to create parametrized tests
+
 A test function doesn't have to be of type `void ...(void)`. You can use
 parameters, which will be shown automatically. This is possible via the
 [TestCase] attribute. It enables you to specify the arguments for a test

@@ -13,6 +13,7 @@ the Babel compiler.
  [custom]: http://www.codewars.com/docs/js-slash-coffeescript-test-reference
  [Babel]: https://babeljs.io/
 
+
 ### Floating point tests
 
 As written above, one shouldn't use `assertEquals` on floating point
@@ -43,6 +44,7 @@ var assertFuzzyEquals = function(actual, expected, msg){
     );
 }
 ```
+
 
 ### Random tests
 
@@ -125,6 +127,7 @@ var randomAssertSimilar = function(generator, userSol, refSol, tests){
   }
 }
 ```
+
 
 ### Test example
 

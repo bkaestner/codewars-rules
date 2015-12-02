@@ -13,6 +13,7 @@ If you have some ideas for this section, head over to [GitHub][GH-python-issue].
 [python-pep20]: https://www.python.org/dev/peps/pep-0020/ "The Zen of Python"
 [GH-python-issue]: https://github.com/bkaestner/codewars-rules/issues/7
 
+
 ### Floating point tests
 
 As written above, one shouldn't use `assert_equals` on floating point

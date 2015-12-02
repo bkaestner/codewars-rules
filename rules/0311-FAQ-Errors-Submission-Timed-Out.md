@@ -4,6 +4,7 @@ Once in a while, you can encounter the following error:
 
 > Submission timed out. Please try again.
 
+
 #### What does this mean?
 
 First of all, don't worry. This doesn't mean that your code is wrong.
@@ -16,6 +17,7 @@ The actual source of the problem [isn't fully known yet][issue-18].
 Sometimes, it's background jobs not processing items from the job queue.
 Sometimes, it's another, completely unrelated process on the same machine,
 that takes too much resources from a Codewars virtual machine.
+
 
 #### What should I do?
 
@@ -45,6 +47,7 @@ this is an error you *can* fix. You need to perform optimizations on your
 code. This includes [memoization], dynamic programming or even better
 algorithms and depends on the kata. If you get stuck, submit a comment on
 the specific kata and mark it as "Question".
+
 
 #### Can I get a TL;DR?
 

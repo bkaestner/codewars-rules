@@ -15,6 +15,7 @@ for most stuff you'll encounter [^haskell-libs].
  [HUnit]: http://hackage.haskell.org/package/HUnit/
  [^haskell-libs]: Apparently, the libraries _do_ get updated from time to time, but there's no reference at the moment.
 
+
 ### Use Hspec with enough information for the user
 
 Hspec's `describe` should be used with a *function name*, whereas `it`
@@ -23,6 +24,7 @@ can be many tests per `it`, but depending on your input you might want to
 use one test per `it` or a test by hand in accordance with
 `expecationFailure` instead of `shouldBe`. You can also use HUnit, but I
 usually stay within Hspec's DSL.
+
 
 ### Floating point tests
 
@@ -56,6 +58,7 @@ shouldBeFuzzy a e =
       | e == 0    = abs a >= 1e-12
       | otherwise = (abs $ (a - e) / e) >= 1e-12
 ```
+
 
 ### Use QuickCheck's `forAll` to constraint random values
 
@@ -118,6 +121,7 @@ QuickCheck returns:
       isEven x `shouldBe` True
 ```
 
+
 ### Always import only the expected functions
 
 To prevent name clashes, only import what you need from the user module.
@@ -127,6 +131,7 @@ Additionally, don't name your helper functions like QuickCheck, Hspec or
 HUnit operators or functions, even if they aren't currently available on
 Codewars. The administrators might update the package, and you end up with
 a defunct test due to ambiguity.
+
 
 ### Test example
 
