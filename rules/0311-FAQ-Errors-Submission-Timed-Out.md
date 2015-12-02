@@ -42,7 +42,7 @@ That, on the other hand, *is* a code related error. It means that *your
 code* wasn't able to perform the necessary operations in the given time.
 The time limit varies between languages, but it's usually \~6s. Therefore,
 this is an error you *can* fix. You need to perform optimizations on your
-code. This includes memoization, dynamic programming or even better
+code. This includes [memoization], dynamic programming or even better
 algorithms and depends on the kata. If you get stuck, submit a comment on
 the specific kata and mark it as "Question".
 
@@ -58,3 +58,4 @@ Sure.
                          Try another approach, algorithm, or optimize.
 
 [issue-18]: https://github.com/Codewars/codewars.com/issues/18 "Issue #18: Submission Timeouts / Poor messaging"
+[memoization]: https://en.wikipedia.org/wiki/Memoization

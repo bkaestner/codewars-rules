@@ -8,7 +8,7 @@ abstract: |
   This document contains some rules I have employed for my katas and my
   translation on [Codewars](http://www.codewars.com). Some of them are very
   simple (e.g same arguments, same order), others are sometimes really hard
-  to fulfill (random tests). This document contains also some tips, so that you
+  to fulfil (random tests). This document contains also some tips, so that you
   (or I) can implement them.
 ---
 

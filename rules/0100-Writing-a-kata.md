@@ -256,7 +256,7 @@ that you accidentally used the wrong type somewhere in your own computation,
 for example `int16_t` in a helper function. This is __really__ hard to spot,
 so you should add some static test values. More on that in the later sections.
 
-### Integral vs floating point arithmetic
+### Integral versus floating point arithmetic
 There's a later section on floating point numbers, but this section is also
 fitting for the delicate problem. As you (hopefully) know, floating point
 arithmetic isn't exact. The usual double value has 54 bits for its significant,
