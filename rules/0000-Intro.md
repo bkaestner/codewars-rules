@@ -12,6 +12,7 @@ abstract: |
   (or I) can implement them.
 ---
 
+
 Preface
 =======
 
@@ -38,6 +39,7 @@ Therefore, it's dismissed as "The conjured Codewars codex". What can I say, I
 like arbitrary alliterations. The repository's description is a reference on
 `QuickCheck`'s `Arbitrary`.
 
+
 About the word "rules"
 ----------------------
 
@@ -63,6 +65,7 @@ Have a look at the LICENCE.
 
 About me (the author)
 -----------------
+
 Hi all. I'm a random Codewars user. I'm not affiliated to Entrefuse Inc.
 (the company behind Codewars) in any way, except for being a user of their
 product. So if you encounter any Codewars specific problem, make sure to head
@@ -73,7 +76,9 @@ over [to their issue tracker][tracker] as I cannot change anything. Thanks!
 
 Copyright
 ---------
+
 &copy; 2015 Benjamin Kästner. This document is licenced under the [Creative
 Commons Attribution-ShareAlike 4.0 International Public License][CC-BY-SA].
+For a list of all contributors, check the contributors on GitHub.
 
  [CC-BY-SA]: http://creativecommons.org/licenses/by-sa/4.0/.
