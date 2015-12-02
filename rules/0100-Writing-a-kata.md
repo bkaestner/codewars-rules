@@ -21,6 +21,7 @@ additional insight.
 Now that you've read all that's available on Codewars itself,
 here are some tips and remarks you might find handy or want to keep in mind.
 
+
 A user solves a kata in a single language, not many
 ---------------------------------------------------
 
@@ -44,6 +45,7 @@ to use your language's idiomatic code. And if someone proposes a
 translation to your kata and you think it is not really idiomatic, ask them.
 
 See also the section on translations.
+
 
 Consistency is key
 ------------------

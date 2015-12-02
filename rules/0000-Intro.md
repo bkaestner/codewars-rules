@@ -6,7 +6,7 @@ documentclass: scrreprt
 links-as-notes: true
 abstract: |
   This document contains some rules I have employed for my katas and my
-  translation on [Codewars](http://www.codewars.com). Some of them are very
+  translation on [Codewars](http://www.codewars.com).  Some of them are very
   simple (e.g same arguments, same order), others are sometimes really hard
   to fulfil (random tests). This document contains also some tips, so that you
   (or I) can implement them.
@@ -16,8 +16,8 @@ Preface
 =======
 
 When I started using Codewars, there were only a handful of Haskell warriors,
-and Haskell support was only recent. While I was eager to solve the Haskell
-katas, there weren't many of them, so I started translating. I've translated
+and Haskell support was only recent.  While I was eager to solve the Haskell
+katas, there weren't many of them, so I started translating.  I've translated
 about 23% of my solved katas, either to Haskell or to another language.
 
 And while Codewars provides
@@ -65,9 +65,10 @@ About me (the author)
 -----------------
 Hi all. I'm a random Codewars user. I'm not affiliated to Entrefuse Inc.
 (the company behind Codewars) in any way, except for being a user of their
-product. So if you encounter any Codewars specific problem, make sure
-to head over [to their issue tracker](https://github.com/Codewars/codewars.com/issues),
-as I cannot change anything. Thanks!
+product. So if you encounter any Codewars specific problem, make sure to head
+over [to their issue tracker][tracker] as I cannot change anything. Thanks!
+
+ [tracker]: https://github.com/Codewars/codewars.com/issues
 
 
 Copyright
