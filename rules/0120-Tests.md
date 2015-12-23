@@ -1,5 +1,4 @@
-Tested testing theories
-------------------------
+# Tested testing theories
 
 Tests are the bread and butter of Codewars. Without tests, you couldn't
 check whether the user has solved your kata, so they're very important. Yet
@@ -13,7 +12,7 @@ cannot change the tests in approved katas with more than 500 solutions.
  [#123]: https://github.com/Codewars/codewars.com/issues/123
 
 
-### Make your test descriptive
+## Make your test descriptive
 
 Let's have a look at the following test:
 
@@ -45,7 +44,7 @@ Test.assertEquals(fizzBuzz(15), 'FizzBuzz', "testing on 15")
 This tells the user immediately that their function failed on `15`.
 
 
-#### Group your tests
+### Group your tests
 
 Furthermore, you should group your tests with `describe` and `it`. After all,
 a tests _describes_ the behaviour of something, for example the behaviour
@@ -90,13 +89,13 @@ Test.describe('foo', function(){
 ```
 
 
-#### Make errors obvious
+### Make errors obvious
 
 Especially if you use random tests (see below), you want to make sure that the
 user knows _why_ the test failed. You could print the arguments. You could
 show a hint. Either way, a user shouldn't be left alone in face of an error.
 
-### Always test all corner cases of your input domain
+## Always test all corner cases of your input domain
 
 If you ask the user to create a function that should work for
 `1 <= N <=  1,000,000`, make sure that their function works for *both* 1 and
@@ -104,7 +103,7 @@ If you ask the user to create a function that should work for
 make sure that you actually test negative input.
 
 
-### Use random tests
+## Use random tests
 
 Whenever when you state a kata you also have to write a solution. This is
 great, as you can use exactly that function to check the users code
@@ -116,7 +115,7 @@ sufficient random input is most often harder than creating the kata itself.
 But it is worth every honour.
 
 
-### Use __more__ random tests
+## Use __more__ random tests
 
 While it's nice to have a random test which validates that the user returns
 the same as your hidden solution, there's no guarantee that your solution
@@ -152,7 +151,7 @@ Test.it('returns something valid', function(){
 ```
 
 
-### Hide your solution
+## Hide your solution
 
 If you use random tests, make sure to hide your solution. In Java or C#, this
 includes making your function `private`. Haskell doesn't allow mutual imports,
@@ -185,14 +184,14 @@ There are more creative ways to hide/store the function, but that's one way
 at least. Note that all dynamic languages on Codewars (Ruby, Python, CS, JS)
 support this kind of local scopes.
 
-### Always have some example tests
+## Always have some example tests
 
 Unless you're creating a puzzle where the user has to find *the answer*,
 present some example tests. Those tests should also contain the corner
 cases and some easy random tests, e.g. check that the user actually returns
 a number for arbitrary negative numbers.
 
-### Handle floating point values the right way
+## Handle floating point values the right way
 
 Whenever the user returns a floating point number, make sure that you take
 floating point behaviour into account. The user might not add the numbers
@@ -210,7 +209,7 @@ want to have something "almost exact" and `1e-7` if I want something
 For more information about floating-point arithmetic, read
 [What Every Computer Scientist Should Know About Floating-Point Arithmetic](https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html).
 
-#### An example of floating point dangers
+### An example of floating point dangers
 
 ```python
 def add_three(a,b,c):
@@ -223,7 +222,7 @@ print(add_three_reference(1e-12,1e-12,1) == add_three(1e-12,1e-12,1))
 # False
 ```
 
-#### Relative error testing
+### Relative error testing
 
 The following example shows one way to check floating point values in a more
 sane way:
@@ -250,14 +249,14 @@ def assertFuzzyEquals(actual, expected, msg=""):
 Most language sections contain their equivalent and use `expect` or a similar
 function of their test framework.
 
-#### Consider integral tests
+### Consider integral tests
 
 If your number is guaranteed to be an integral number, use `int`, `long`
 or your language's equivalent instead of floating point numbers. However, keep
 in mind that all values, either input, output, or intermediate should fit in
 this type, otherwise you might encounter overflow or underflow issues.
 
-### Fix broken tests early and fix them right
+## Fix broken tests early and fix them right
 
 While [#163](https://github.com/Codewars/codewars.com/issues/163) will give you
 the tools to fix a kata even late, you should take every reported test issue by
@@ -277,17 +276,17 @@ might get rejected.
 
 So what can you do?
 
-#### Change description to address the bug
+### Change description to address the bug
 You should definitely tell your users if your kata is broken. Especially if your
 tests have a defect in only one particular language. It's not the best you can
 do, but as long as #163 is still there, it might be the only thing you can do.
 
-#### Reject old solutions, they didn't follow the description
+### Reject old solutions, they didn't follow the description
 This is fine as long as there haven't been many solutions. If your kata has been
 solved by hundreds, it might seem a little bit unfair, but correct tests are
 a little bit more important.
 
-#### Experimental solutions
+### Experimental solutions
 There are also other alternatives:
 
 - check the time: if the kata solution is submitted after a certain point in

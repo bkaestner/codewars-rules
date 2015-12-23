@@ -1,5 +1,5 @@
 Intermezzo: The Codewars platform
-------------------------
+=================================
 
 Now that you have read all those tips and tricks, you probably cannot
 wait to write your next kata, right?  However, before you jump in, you
@@ -7,7 +7,7 @@ should learn a little bit about the Codewars platform, if you want to
 run random tests or use the "preload" section.
 
 
-### How Codewars works
+## How Codewars works
 
 Whenever you write a kata, you have at least six input windows:
 
@@ -90,7 +90,7 @@ as it would give a user immediate access to the tests.
  [babel]: http://babeljs.io/
 
 
-### The "preloaded" section {#the-preload-section}
+## The "preloaded" section {#the-preload-section}
 
 The preloaded section in the kata editor is meant for things that should
 be done first, before any other code (beside the import of the test framework)
