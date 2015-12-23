@@ -3,6 +3,8 @@ set -x
 rev=$(git rev-parse --short HEAD)
 branch=$(git rev-parse --abbrev-ref HEAD)
 
+echo Previous branch was $branch
+
 # If we cannot checkout master, stop immediately
 git checkout master || exit 1
 
@@ -14,7 +16,7 @@ git checkout --orphan gh-pages || exit 1
 
 # Ignore all already added files, but stop if we would forget
 # changes.
-git rm --cached \* || git checkout $branch && exit 1
+git rm --cached \* || exit 1
 
 # Create the page
 make html
