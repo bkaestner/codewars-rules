@@ -95,12 +95,21 @@ Especially if you use random tests (see below), you want to make sure that the
 user knows _why_ the test failed. You could print the arguments. You could
 show a hint. Either way, a user shouldn't be left alone in face of an error.
 
+
 ## Always test all corner cases of your input domain
 
 If you ask the user to create a function that should work for
 `1 <= N <=  1,000,000`, make sure that their function works for *both* 1 and
 1,000,000. If you specified that "negative input should return a monkey",
 make sure that you actually test negative input.
+
+
+## Use the tools of your testing framework
+
+If possible, try to use multiple kinds of assertions, e.g. `assertEquals`
+and `assertNotEquals`, or `shouldSatisfy` and `shouldNotSatisfy`.  That
+way, a cheating user will have some more work to circumvent equality or
+predicate based tests.
 
 
 ## Use random tests
