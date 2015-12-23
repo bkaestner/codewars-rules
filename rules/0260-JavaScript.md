@@ -11,7 +11,6 @@ you won't get the real source code if you use `.toString()`, but the result of
 the Babel compiler.
 
  [custom]: http://www.codewars.com/docs/js-slash-coffeescript-test-reference
- [Babel]: https://babeljs.io/
 
 
 ### Floating point tests
