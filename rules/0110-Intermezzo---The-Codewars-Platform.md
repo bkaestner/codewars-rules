@@ -86,7 +86,5 @@ By the way, this is the reason you cannot use `process.argv` in Node,
 as it would give a user immediate access to the tests.
 
  [issue-214]: https://github.com/Codewars/codewars.com/issues/214
-
-
  [runner]: https://github.com/Codewars/codewars-runner
  [babel]: http://babeljs.io/
