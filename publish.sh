@@ -28,5 +28,4 @@ git commit -m "Publish GitHub pages, based on $rev"
 # Publish GH pages
 git push origin gh-pages -f
 
-# Go back to previous branch
-git checkout $branch -f
+echo Use 'git checkout $branch -f' to change back to the previous branch.
