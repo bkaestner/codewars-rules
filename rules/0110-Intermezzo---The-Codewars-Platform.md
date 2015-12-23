@@ -88,3 +88,26 @@ as it would give a user immediate access to the tests.
  [issue-214]: https://github.com/Codewars/codewars.com/issues/214
  [runner]: https://github.com/Codewars/codewars-runner
  [babel]: http://babeljs.io/
+
+
+### The "preloaded" section {#the-preload-section}
+
+The preloaded section in the kata editor is meant for things that should
+be done first, before any other code (beside the import of the test framework)
+is being read, evaluated or executed (in interpreted languages).
+
+You want to provide some extra functions for the user?  Put them in the preloaded
+section.
+You want to disable features, like `Math.random` or `Math.abs`?  Do
+so in the preloaded section.
+You want to make sure that no one panders the testing framework?  Freeze it in
+the preloaded section.
+
+I think you get it. In interpreted languages, use the preloaded section for
+whatever helper you think the user might need, and for whatever security measures
+you want to enable. It's the first thing that gets read during the execution, so
+you're still in charge at that point.
+
+In Haskell, the preloaded section needs a module name and can be imported. It's
+handy for additional functions or data types, as disabling features is done there
+with `hidden`.
