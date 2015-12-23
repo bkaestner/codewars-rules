@@ -336,7 +336,7 @@ It's bad for several reasons:
 
 - it doesn't return any helpful error message if the solution is wrong
 - it's not modular
-- it's not compatible to the CodeWars testing framework
+- it's not compatible to the Codewars testing framework
 
 Another variant, which uses Hspec and random tests could be written as
 

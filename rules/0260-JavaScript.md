@@ -1,7 +1,7 @@
 JavaScript / CoffeeScript
 -------------------------
 
-The JavaScript tests on CodeWars use a [custom] test framework. Any kata written
+The JavaScript tests on Codewars use a [custom] test framework. Any kata written
 in CoffeeScript will use the same framework, since CoffeeScript gets compiled
 to JavaScript.
 
