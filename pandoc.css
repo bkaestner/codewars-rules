@@ -107,6 +107,9 @@ pre::after{
 pre.c:after{
     content:"C";
 }
+pre.bash:after{
+    content:"bash";
+}
 pre.cs:after{
     content:"C#";
 }
@@ -125,9 +128,7 @@ pre.python:after{
 pre.ruby:after{
     content:"Ruby";
 }
-pre.c:after{
-    content:"C";
-}
+
 code {
  /*   font-family: monospace; */
 }
