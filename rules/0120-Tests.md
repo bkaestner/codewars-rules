@@ -96,6 +96,23 @@ user knows _why_ the test failed. You could print the arguments. You could
 show a hint. Either way, a user shouldn't be left alone in face of an error.
 
 
+### Think of the HTML
+
+Keep in mind that every output will be interpreted as HTML.  If you want to
+use `<`, `>` or `&` in your error messages or description, make sure to
+escape it---unless you actually want to use HTML tags:
+
+Character | [HTML entity] | Mnemonic
+----------|---------------|-------------------------------------------
+ `<`      | `&lt;`        | **l**esser **t**han
+ `>`      | `&gt;`        | **g**reater **t**han
+ `&`      | `&amp;`       | **amp**ersand
+
+All other characters are usually safe to use in UTF8 encoded documents.
+
+  [HTML entity]: http://dev.w3.org/html5/html-author/charref
+
+
 ## Always test all corner cases of your input domain
 
 If you ask the user to create a function that should work for
