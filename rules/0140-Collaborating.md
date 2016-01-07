@@ -1,7 +1,6 @@
-Collaborative Codewars Catches
-------------------------------
+## Collaborative Codewars Catches
 
-The previous section mentioned some practices for your tests. However,
+The previous sections mentioned some practices for your tests. However,
 what if you don't know Haskell? Or Java? Or Ruby? You shouldn't provide
 tests for a language you don't know, as this will usually lead to bugs
 in your test cases (see section

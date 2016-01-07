@@ -288,6 +288,8 @@ provide reflection or similar means to check your preloaded code, which enables
 a user to cheat rather easily. Instead, put your solution into a local scope
 (see [Hide your solution](#hide-your-solution)).
 
+For more information about preloaded code, see [the next section](#the-preload-section).
+
 
 Provide helpers for tasks that are dull
 ---------------------------------------
@@ -334,7 +336,7 @@ It's bad for several reasons:
 
 - it doesn't return any helpful error message if the solution is wrong
 - it's not modular
-- it's not compatible to the CodeWars testing framework
+- it's not compatible to the Codewars testing framework
 
 Another variant, which uses Hspec and random tests could be written as
 
