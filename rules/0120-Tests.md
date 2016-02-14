@@ -10,7 +10,31 @@ overall quality of the approved katas. Also, as long as [#123] stands, one
 cannot change the tests in approved katas with more than 500 solutions.
 
  [#123]: https://github.com/Codewars/codewars.com/issues/123
+ 
+ 
+## Consider writing your tests first
 
+Before we actually dive into the many tips one can follow on Codewars, you 
+should get familiar with the test driven development (TDD) cycle.  It's not
+required to follow it in order to write katas for Codewars, but _recommended_.
+
+So what is the cycle? Essentially, it's the following:
+
+1. Add a test
+2. Run tests and verify that the new one fails
+3. Adjust your solution
+4. Run tests and verify that the new solution passes all tests
+5. Refactor your solution (optional)
+
+That's it.  Note that the important part is the very first step: you write the
+tests first.  "Why?", you're probably asking.  "I know my solution already!"
+Well, are you sure about that?  Some katas have long standing issues since the
+original author didn't check a few edge cases.
+
+However, since Codewars isn't running on your own machine, you should adjust
+the cycle a little bit and add more than a single test.  The cycle works best
+with fast iterations, and the remote nature of Codewars makes this a little bit
+hard.  Still, writing at least part of your tests first is __very__ recommended.
 
 ## Make your test descriptive
 
@@ -245,7 +269,7 @@ def add_three_reference(a,b,c):
     return a + (b + c)
 
 print(add_three_reference(1e-12,1e-12,1) == add_three(1e-12,1e-12,1))
-# False
+ # False
 ```
 
 ### Relative error testing
