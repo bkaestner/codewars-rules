@@ -45,6 +45,41 @@ var assertFuzzyEquals = function(actual, expected, msg){
 ```
 
 
+### Checking user code
+
+[@slothpie][gh-slothpie] provided the following code to check the user's code
+for forbidden functions:
+
+ [gh-slothpie]: https://github.com/slothpie
+
+``` javascript
+Test.describe("Reinforcement Test Cases:", function() {
+  // get the code as text, (this also grabs test case code)
+  var dump = arguments.callee.caller.caller.caller.toString();
+
+  // The length of our test case code.
+  const FIXED = arguments.callee.caller.caller.toString().length;
+
+  // Slice out our test case code so we just have users
+  const USER_CODE = dump.slice(0,dump.length-FIXED);
+
+  check_user_code_for_stuff(USER_CODE);
+});
+```
+
+However, there are two things you have to keep in mind:
+
+1. `USER_CODE` does not contain actual user code, but the one returned by
+   babel.js.  You never get access to the actual source code (until node
+   supports ES6 and gets updated on Codwars).
+2. `arguments.callee` and `arguments.caller` only work if you don't run your
+   script in strict mode. A stray `"use strict";` in the user's code will
+   lead to an error, even if the code is otherwise OK.
+
+Other than that, it's an easy way to check whether the user uses any loops
+or similar.
+
+
 ### Random tests
 
 In [August 2015][gitter-chat-quickcheck] the [`node-quickeck`][node-quickeck]
