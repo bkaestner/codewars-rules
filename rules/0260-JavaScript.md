@@ -47,18 +47,22 @@ var assertFuzzyEquals = function(actual, expected, msg){
 
 ### Random tests
 
-Unlike Haskell, JavaScript doesn't provide an automatic framework like
-QuickCheck, although there is an [implementation for
-node](https://github.com/mcandre/node-quickcheck). Until the Codewars
-platform provides an built-in way, you can use the following functions to
-create random tests in JavaScript.
+In [August 2015][gitter-chat-quickcheck] the [`node-quickeck`][node-quickeck]
+package was added to the available JavaScript packages.  This section predates
+the inclusion of the package.  If you want to use `node-quickcheck`, have a
+look at it's documentation.  If you prefer to write your random tests by hand,
+read on.
 
-Note that both expect your solution to be pure (don't change the argument,
-for example if it's an object or an array) and cannot check side-effects,
-so you probably edit the functions for your needs. Also note that
-`randomAssertSimilar` is rather verbose.
+ [gitter-chat-quickcheck]: https://gitter.im/Codewars/codewars.com?at=55d376c5bdd5d6c9362b6e79
+ [node-quickeck]: https://github.com/mcandre/node-quickcheck
 
-`generator` should return an array.
+The following functions can be used for random tests. Note that both expect
+your solution to be pure (don't change the argument, for example if it's an
+object or an array) and cannot check side-effects, so you probably edit the
+functions for your needs. Also note that `randomAssertSimilar` is rather
+verbose.
+
+In both functions, `generator` should return an array.
 
 **NOTE:** The functions haven't been tested thoroughly. Use them with care
 and feel free to create an issue or a pull-request if they contain any errors.
