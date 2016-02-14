@@ -112,6 +112,22 @@ Test.describe('foo', function(){
 });
 ```
 
+A final remark on test grouping: if you have a look into some TDD books,
+you'll notice that they encourage you to use a _single_ assertion in a
+test, not multiple as in this section's first example.  This is also
+the subject [of a programmers SE question][programmers-tdd-assert].
+
+However, some languages on Codewars don't provide the proper means to
+couple tests (label/text) with assertions, for example Python.  It would
+be cumbersome to add a single `it("...")` for every assertion and clutters
+the test code.  In those cases, you should write a helper that takes care
+of this.
+
+Either way, you should always make sure that the user knows the reason for
+failing tests (see next section).
+
+ [programmers-tdd-assert]: http://programmers.stackexchange.com/q/7823/7515
+
 
 ### Make errors obvious
 
