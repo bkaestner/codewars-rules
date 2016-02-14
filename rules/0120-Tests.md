@@ -26,6 +26,15 @@ So what is the cycle? Essentially, it's the following:
 4. Run tests and verify that the new solution passes all tests
 5. Refactor your solution (optional)
 
+That's it.  Note that the important part is the very first step: you write the
+tests first.  "Why?", you're probably asking.  "I know my solution already!"
+Well, are you sure about that?  Some katas have long standing issues since the
+original author didn't check a few edge cases.
+
+However, since Codewars isn't running on your own machine, you should adjust
+the cycle a little bit and add more than a single test.  The cycle works best
+with fast iterations, and the remote nature of Codewars makes this a little bit
+hard.  Still, writing at least part of your tests first is __very__ recommended.
 
 ## Make your test descriptive
 
