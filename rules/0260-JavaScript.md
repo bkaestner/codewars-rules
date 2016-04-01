@@ -47,7 +47,7 @@ var assertFuzzyEquals = function(actual, expected, msg){
 
 ### Checking user code
 
-[@slothpie][gh-slothpie] provided the following code to check the user's code
+[\@slothpie][gh-slothpie] provided the following code to check the user's code
 for forbidden functions:
 
  [gh-slothpie]: https://github.com/slothpie
