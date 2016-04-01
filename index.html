@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Benjamin Kästner">
+  <title>The conjured Codewars codex</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="pandoc.css">
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<header>
+<h1 class="title">The conjured Codewars codex</h1>
+<h2 class="author">Benjamin Kästner</h2>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#preface"><span class="toc-section-number">1</span> Preface</a><ul>
+<li><a href="#about-the-word-rules"><span class="toc-section-number">1.1</span> About the word &quot;rules&quot;</a></li>
+<li><a href="#contributing"><span class="toc-section-number">1.2</span> Contributing</a></li>
+<li><a href="#about-me-the-author"><span class="toc-section-number">1.3</span> About me (the author)</a></li>
+<li><a href="#copyright"><span class="toc-section-number">1.4</span> Copyright</a></li>
+</ul></li>
+<li><a href="#writing-a-kata"><span class="toc-section-number">2</span> Writing a kata</a><ul>
+<li><a href="#a-user-solves-a-kata-in-a-single-language-not-many"><span class="toc-section-number">2.1</span> A user solves a kata in a single language, not many</a></li>
+<li><a href="#consistency-is-key"><span class="toc-section-number">2.2</span> Consistency is key</a></li>
+<li><a href="#follow-your-languages-naming-conventions"><span class="toc-section-number">2.3</span> Follow your language's naming conventions</a></li>
+<li><a href="#use-proper-grammar-punctuation-and-spelling"><span class="toc-section-number">2.4</span> Use proper Grammar, Punctuation and Spelling</a></li>
+<li><a href="#split-story-and-task"><span class="toc-section-number">2.5</span> Split story and task</a></li>
+<li><a href="#use-proper-formatting"><span class="toc-section-number">2.6</span> Use proper formatting</a></li>
+<li><a href="#use-the-proper-types-whenever-possible"><span class="toc-section-number">2.7</span> Use the proper types whenever possible</a><ul>
+<li><a href="#the-problem-with-strings"><span class="toc-section-number">2.7.1</span> The problem with strings</a></li>
+<li><a href="#the-wrong-return-type"><span class="toc-section-number">2.7.2</span> The wrong return type</a></li>
+<li><a href="#wrong-internal-types"><span class="toc-section-number">2.7.3</span> Wrong internal types</a></li>
+<li><a href="#integral-versus-floating-point-arithmetic"><span class="toc-section-number">2.7.4</span> Integral versus floating point arithmetic</a></li>
+</ul></li>
+<li><a href="#use-the-preloaded-section-only-for-helpers-or-constraints"><span class="toc-section-number">2.8</span> Use the preloaded section only for helpers or constraints</a></li>
+<li><a href="#provide-helpers-for-tasks-that-are-dull"><span class="toc-section-number">2.9</span> Provide helpers for tasks that are dull</a></li>
+<li><a href="#a-word-of-warning"><span class="toc-section-number">2.10</span> A word of warning</a></li>
+</ul></li>
+<li><a href="#intermezzo-the-codewars-platform"><span class="toc-section-number">3</span> Intermezzo: The Codewars platform</a><ul>
+<li><a href="#how-codewars-works"><span class="toc-section-number">3.1</span> How Codewars works</a></li>
+<li><a href="#the-preload-section"><span class="toc-section-number">3.2</span> The &quot;preloaded&quot; section</a></li>
+</ul></li>
+<li><a href="#tested-testing-theories"><span class="toc-section-number">4</span> Tested testing theories</a><ul>
+<li><a href="#consider-writing-your-tests-first"><span class="toc-section-number">4.1</span> Consider writing your tests first</a></li>
+<li><a href="#make-your-test-descriptive"><span class="toc-section-number">4.2</span> Make your test descriptive</a><ul>
+<li><a href="#group-your-tests"><span class="toc-section-number">4.2.1</span> Group your tests</a></li>
+<li><a href="#make-errors-obvious"><span class="toc-section-number">4.2.2</span> Make errors obvious</a></li>
+<li><a href="#think-of-the-html"><span class="toc-section-number">4.2.3</span> Think of the HTML</a></li>
+</ul></li>
+<li><a href="#always-test-all-corner-cases-of-your-input-domain"><span class="toc-section-number">4.3</span> Always test all corner cases of your input domain</a></li>
+<li><a href="#use-the-tools-of-your-testing-framework"><span class="toc-section-number">4.4</span> Use the tools of your testing framework</a></li>
+<li><a href="#use-random-tests"><span class="toc-section-number">4.5</span> Use random tests</a></li>
+<li><a href="#use-more-random-tests"><span class="toc-section-number">4.6</span> Use <strong>more</strong> random tests</a></li>
+<li><a href="#hide-your-solution"><span class="toc-section-number">4.7</span> Hide your solution</a></li>
+<li><a href="#always-have-some-example-tests"><span class="toc-section-number">4.8</span> Always have some example tests</a></li>
+<li><a href="#handle-floating-point-values-the-right-way"><span class="toc-section-number">4.9</span> Handle floating point values the right way</a><ul>
+<li><a href="#an-example-of-floating-point-dangers"><span class="toc-section-number">4.9.1</span> An example of floating point dangers</a></li>
+<li><a href="#relative-error-testing"><span class="toc-section-number">4.9.2</span> Relative error testing</a></li>
+<li><a href="#consider-integral-tests"><span class="toc-section-number">4.9.3</span> Consider integral tests</a></li>
+</ul></li>
+<li><a href="#fix-broken-tests-early-and-fix-them-right"><span class="toc-section-number">4.10</span> Fix broken tests early and fix them right</a><ul>
+<li><a href="#change-description-to-address-the-bug"><span class="toc-section-number">4.10.1</span> Change description to address the bug</a></li>
+<li><a href="#reject-old-solutions-they-didnt-follow-the-description"><span class="toc-section-number">4.10.2</span> Reject old solutions, they didn't follow the description</a></li>
+<li><a href="#experimental-solutions"><span class="toc-section-number">4.10.3</span> Experimental solutions</a></li>
+</ul></li>
+<li><a href="#collaborative-codewars-catches"><span class="toc-section-number">4.11</span> Collaborative Codewars Catches</a><ul>
+<li><a href="#accepting-a-translation"><span class="toc-section-number">4.11.1</span> Accepting a translation</a></li>
+<li><a href="#handling-merge-conflicts"><span class="toc-section-number">4.11.2</span> Handling merge conflicts</a></li>
+<li><a href="#writing-a-translation"><span class="toc-section-number">4.11.3</span> Writing a translation</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#language-specific-remarks"><span class="toc-section-number">5</span> Language specific remarks</a><ul>
+<li><a href="#csharp"><span class="toc-section-number">5.1</span> CSharp</a><ul>
+<li><a href="#beware-of-the-assert-arguments"><span class="toc-section-number">5.1.1</span> Beware of the assert arguments!</a></li>
+<li><a href="#use-descriptive-test-names"><span class="toc-section-number">5.1.2</span> Use descriptive test names</a></li>
+<li><a href="#use-testcase-to-create-parametrized-tests"><span class="toc-section-number">5.1.3</span> Use <code>[TestCase]</code> to create parametrized tests</a></li>
+<li><a href="#use-random-for-simple-random-values"><span class="toc-section-number">5.1.4</span> Use <code>[Random]</code> for simple random values</a></li>
+<li><a href="#use-theory-for-a-quickcheck-light-experience"><span class="toc-section-number">5.1.5</span> Use <code>[Theory]</code> for a QuickCheck light experience</a></li>
+</ul></li>
+<li><a href="#haskell"><span class="toc-section-number">5.2</span> Haskell</a><ul>
+<li><a href="#use-hspec-with-enough-information-for-the-user"><span class="toc-section-number">5.2.1</span> Use Hspec with enough information for the user</a></li>
+<li><a href="#floating-point-tests"><span class="toc-section-number">5.2.2</span> Floating point tests</a></li>
+<li><a href="#use-quickchecks-forall-to-constraint-random-values"><span class="toc-section-number">5.2.3</span> Use QuickCheck's <code>forAll</code> to constraint random values</a></li>
+<li><a href="#always-import-only-the-expected-functions"><span class="toc-section-number">5.2.4</span> Always import only the expected functions</a></li>
+<li><a href="#test-example"><span class="toc-section-number">5.2.5</span> Test example</a></li>
+</ul></li>
+<li><a href="#java"><span class="toc-section-number">5.3</span> Java</a><ul>
+<li><a href="#beware-of-the-assert-arguments-1"><span class="toc-section-number">5.3.1</span> Beware of the assert arguments!</a></li>
+</ul></li>
+<li><a href="#javascript-coffeescript"><span class="toc-section-number">5.4</span> JavaScript / CoffeeScript</a><ul>
+<li><a href="#floating-point-tests-1"><span class="toc-section-number">5.4.1</span> Floating point tests</a></li>
+<li><a href="#checking-user-code"><span class="toc-section-number">5.4.2</span> Checking user code</a></li>
+<li><a href="#random-tests"><span class="toc-section-number">5.4.3</span> Random tests</a></li>
+<li><a href="#test-example-1"><span class="toc-section-number">5.4.4</span> Test example</a></li>
+</ul></li>
+<li><a href="#python"><span class="toc-section-number">5.5</span> Python</a><ul>
+<li><a href="#floating-point-tests-2"><span class="toc-section-number">5.5.1</span> Floating point tests</a></li>
+</ul></li>
+<li><a href="#ruby"><span class="toc-section-number">5.6</span> Ruby</a></li>
+</ul></li>
+<li><a href="#faq"><span class="toc-section-number">6</span> FAQ</a><ul>
+<li><a href="#errors"><span class="toc-section-number">6.1</span> Errors</a><ul>
+<li><a href="#what-does-submission-timed-out-mean"><span class="toc-section-number">6.1.1</span> What does &quot;Submission timed out&quot; mean?</a></li>
+<li><a href="#what-is-an-unknown-error"><span class="toc-section-number">6.1.2</span> What is an &quot;Unknown Error&quot;?</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="preface"><span class="header-section-number">1</span> Preface</h1>
+<p>When I started using Codewars, there were only a handful of Haskell warriors, and Haskell support was only recent. While I was eager to solve the Haskell katas, there weren't many of them, so I started translating. I've translated about 23% of my solved katas, either to Haskell or to another language.</p>
+<p>And while Codewars provides <a href="http://www.codewars.com/docs/kata-creator">some documentation</a>, I often ended up answering the same questions in the comments</p>
+<ul>
+<li>&quot;Why no strings?&quot;</li>
+<li>&quot;Why random tests?&quot;</li>
+<li>&quot;How do I write those random tests?&quot;</li>
+</ul>
+<p>To prevent repeating myself over and over again, and to have some kind of reference for some nifty tricks, I've started writing this &quot;guide&quot;. And while its <a href="https://github.com/bkaestner/codewars-rules">GitHub repository</a> is called &quot;codewars-rules&quot;, it's meant as a light-hearted lecture for the interested reader.</p>
+<p>Therefore, it's dismissed as &quot;The conjured Codewars codex&quot;. What can I say, I like arbitrary alliterations. The repository's description is a reference on <code>QuickCheck</code>'s <code>Arbitrary</code>.</p>
+<h2 id="about-the-word-rules"><span class="header-section-number">1.1</span> About the word &quot;rules&quot;</h2>
+<p>You've read the previous section and therefore know that &quot;rules&quot; are more or less meant as &quot;tips and tricks&quot;. But to make this a little bit more distinct, let's quote a (fictitious) pirate:</p>
+<blockquote>
+<p>[T]he code is more what you'd call &quot;guidelines&quot; than actual rules.</p>
+<p>-- Barbossa in &quot;Pirates of the Caribbean: The Curse of the Black Pearl&quot;</p>
+</blockquote>
+<p>This also means that whenever you read the word &quot;rules&quot; in this document, you can simply substitute it by &quot;tips&quot; or &quot;guidelines&quot;. Heave ho!</p>
+<h2 id="contributing"><span class="header-section-number">1.2</span> Contributing</h2>
+<p>If you find an error, have a better idea, or think that all of this is a pile of unicorn misery, feel free to create an issue or a pull-request. Have a look at the LICENCE.</p>
+<h2 id="about-me-the-author"><span class="header-section-number">1.3</span> About me (the author)</h2>
+<p>Hi all. I'm a random Codewars user. I'm not affiliated to Entrefuse Inc. (the company behind Codewars) in any way, except for being a user of their product. So if you encounter any Codewars specific problem, make sure to head over <a href="https://github.com/Codewars/codewars.com/issues">to their issue tracker</a> as I cannot change anything. Thanks!</p>
+<h2 id="copyright"><span class="header-section-number">1.4</span> Copyright</h2>
+<p>© 2015 Benjamin Kästner. This document is licenced under the <a href="http://creativecommons.org/licenses/by-sa/4.0/.">Creative Commons Attribution-ShareAlike 4.0 International Public License</a>. For a list of all contributors, check the contributors on GitHub.</p>
+<h1 id="writing-a-kata"><span class="header-section-number">2</span> Writing a kata</h1>
+<p>You want to write a kata? That's great! You've probably already solved a bunch of them, found issues and participated in the beta process. If you haven't, I strongly suggest you to check katas in beta before you start your own. It gives you great insight about what you might forget in your tests or in your description. And since issues get resolved, but not deleted, you can check what kind of issues your favourite kata had during its early days or beta.</p>
+<p>So please, check things out. We'll wait here.</p>
+<p>You're back? Great! Now you're ready to write your own kata. Well, almost. There's another page, hidden in the inner depths of the <a href="http://www.codewars.com/topics">forums</a>: the <a href="http://www.codewars.com/topics/kata-best-practices">kata best practices</a>. You should also read them, as they provide additional insight.</p>
+<p>Now that you've read all that's available on Codewars itself, here are some tips and remarks you might find handy or want to keep in mind.</p>
+<h2 id="a-user-solves-a-kata-in-a-single-language-not-many"><span class="header-section-number">2.1</span> A user solves a kata in a single language, not many</h2>
+<p>When your kata is out of beta, the typical user will solve it in their preferred language. They will either be fascinated and solve your kata multiple times (which is rather unlikely, sorry), or go on. Therefore, your kata should shine in that language.</p>
+<p>However, this concludes that you may need to change return types in some circumstances or the input. For example, JavaScript, Python, Ruby and CoffeeScript allow a variable number of arguments (JS, CS: <code>arguments</code>), while C (without <code>varlist</code>), C++ (without variadic templates), Haskell, Java (without generics) and some other don't. Furthermore, some languages (like Haskell) don't allow list of heterogeneous types, which rules out some katas entirely.</p>
+<p>And this is fine. If you need to use serious magic just to create a translation to another language, consider whether the user will enjoy the kata, or whether he will disdain the hideous abomination. Always remember to use your language's idiomatic code. And if someone proposes a translation to your kata and you think it is not really idiomatic, ask them.</p>
+<p>See also the section on translations.</p>
+<h2 id="consistency-is-key"><span class="header-section-number">2.2</span> Consistency is key</h2>
+<p>However, in some cases, it is better to strife away from idiomatic code, especially if it makes the kata <em>a lot</em> easier in the other language. It devalues the achievements of those who solved the harder version. In those cases make sure to block the library functions (see below).</p>
+<p>But consistency should be taken in measurements. If this leads to completely unidiomatic code during your translation, consider creating a completely new kata instead.</p>
+<h2 id="follow-your-languages-naming-conventions"><span class="header-section-number">2.3</span> Follow your language's naming conventions</h2>
+<p>Every language has its quirks. Some of them get discussed in the later sections. However, there's one thing that should get mentioned at this point: <strong>make sure to use your language's proposed naming convention, if there exists one.</strong></p>
+<p>This includes simple character cases like capitalized class names (almost all object oriented languages) or method names (CSharp), and whether a multi word function should be written with underscores (also called <code>snake_case</code>, e.g. <code>my_awesome_function</code>, Ruby, Python) or in <em>camelCase</em> (Haskell, JavaScript CoffeeScript).</p>
+<p>This obviously concludes that the function will differ in different languages. But then again, remember the previous rule, <em>a user solves a kata in a single language, not many</em>. Make the user feel at home.</p>
+<p>By the way, if you use abbreviations for your function's name, make sure that they are common. Otherwise just use the full name.</p>
+<h2 id="use-proper-grammar-punctuation-and-spelling"><span class="header-section-number">2.4</span> Use proper Grammar, Punctuation and Spelling</h2>
+<p>While elaborate formulations may fancy ferocious fans of funny alliterations (or similar), they're usually hard to read. If you write a kata that is meant for beginners, use simple words. Keep sentences short. Remove all run-on sentences come on you want to avoid that kind of sentence in your kata description those sentences are bland and hard to comprehend.</p>
+<p>Essentially use the same kind of language you would like to read in a published programming book. It is hard to get right, but it is worth the additional time.</p>
+<h2 id="split-story-and-task"><span class="header-section-number">2.5</span> Split story and task</h2>
+<p>If you provide a story, break the description into a <em>story</em> and a <em>task</em>. That way, a reader can enjoy the story without all those <code>x</code>s , <code>i</code>s and numbers. Save that for your task.</p>
+<h2 id="use-proper-formatting"><span class="header-section-number">2.6</span> Use proper formatting</h2>
+<p>Even with proper grammar and spelling your kata can be hard to read.</p>
+<p>Especially if you use arbitrary newlines or code without proper formatting, like</p>
+<p># do_something(1) should return &quot;Hello world&quot; do_something(1) == &quot;Hello world&quot;</p>
+<p>or similar. That's not really something your readers enjoy. Instead, use <a href="https://help.github.com/articles/github-flavored-markdown/">proper markdown</a>:</p>
+<pre><code>``` python
+# do_something(1) should return &quot;Hello world&quot;
+do_something(1) = &quot;Hello world&quot;
+```</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># do_something(1) should return &quot;Hello world&quot;</span>
+do_something(<span class="dv">1</span>) <span class="op">=</span> <span class="st">&quot;Hello world&quot;</span></code></pre></div>
+<p>This looks a lot nicer than the previous one.</p>
+<p>While it might seem tempting to use plain HTML and CSS, it's not future proof, as the Codewars style might change. Learning GitHub flavoured markdown doesn't take long so make sure to read it.</p>
+<p>Also make sure that your text isn't <a href="https://en.wikipedia.org/wiki/Typographic_alignment">ragged</a> too much. Getting typographic features right is hard and can take a while. Just play around with different paragraph lengths, headings and tables. But <strong>always</strong> format your code. You don't want to have something like the aforementioned <code>do_something</code> in your description.</p>
+<h2 id="use-the-proper-types-whenever-possible"><span class="header-section-number">2.7</span> Use the proper types whenever possible</h2>
+<p>Types are everywhere. Even if you use dynamic typed languages, you've at least encountered some quirks of your language, like <code>&quot;12345&quot; + 1</code> in JavaScript, or &quot;xy isn't a ab&quot; in Python or Ruby.</p>
+<p>There are basically two things that can go wrong with types: you can ask the user for the wrong return type, or <strong>you</strong> accidentally use the wrong type in your reference solution.</p>
+<p>The second one is a lot harder to notice, so lets keep this for later. Instead let us look at one often used wrong return type first: the string.</p>
+<h3 id="the-problem-with-strings"><span class="header-section-number">2.7.1</span> The problem with strings</h3>
+<p>Have a look at the following function:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="dt">static</span> <span class="kw">public</span> string <span class="fu">do_the_thing</span>(string){
+  <span class="co">// ...</span>
+}</code></pre></div>
+<p>What does this function do? It takes a string, and it returns a string. But it's not clear what happens there. Does the string need to follow a certain pattern, like <code>/\s*(\d+\s+)+\s*/g</code>? Is the string actually an array or a list, but as a text?</p>
+<p>Compare the function above with the function below:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="dt">static</span> <span class="kw">public</span> <span class="dt">int</span> <span class="fu">sum_all_things</span>(<span class="dt">int</span>[] numbers){
+  <span class="co">// ...</span>
+}</code></pre></div>
+<p>The function's type already tells you that you'll get a bunch of numbers, and if this compiles, the caller probably gave you a bunch of numbers (or no number or <code>null</code>, but that's not important).</p>
+<p>Using a string has several drawbacks, some of them mentioned above:</p>
+<ol type="1">
+<li>Your users have to convert the value to a String, where another type would be more natural, e.g. &quot;YES&quot;/&quot;NO&quot; instead of <code>true</code> and <code>false</code>. It doesn't give you any more information than the boolean.</li>
+<li>Your users may have to convert the argument from a String to an array, list or somewhat similar.</li>
+<li>It removes precision if used on a floating point value. See the section below if you're worried about rounding in floating point values.</li>
+<li>It doesn't make testing easier for you, especially if you work with stringified arrays.</li>
+<li>The current error message doesn't preserve white space, so if a user returns <code>&quot;a      value&quot;</code> instead of <code>&quot;a value&quot;</code>, he might not notice this.</li>
+</ol>
+<p>That being said, if you provide a fitting story or motivation, feel free to make the argument a string, or the return value. But use those strings with care. If possible, use the proper type and avoid string, unless it leads to convoluted code.</p>
+<h3 id="the-wrong-return-type"><span class="header-section-number">2.7.2</span> The wrong return type</h3>
+<p>Even if you don't use strings, you can end up with the wrong type. Let us motivate this with an example.</p>
+<p>The Fibonacci sequence is defined as follows</p>
+<p><span class="math display">\[
+f_n = \begin{cases}
+ 1 &amp; n = 1\\
+ 1 &amp; n = 2\\
+ f_{n-1} + f_{n-2} &amp; \text{otherwise} \\
+\end{cases}
+\]</span></p>
+<p>Now, lets say you want a user to write a function that returns arbitrary Fibonacci numbers up to <code>N = 100</code>:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">int32_t</span> fibonacci(<span class="dt">int8_t</span> N);</code></pre></div>
+<p>You might already note where I'm going with this, if not, read on. Lets have a look at <span class="math inline">\(f_{45}\)</span>, <span class="math inline">\(f_{46}\)</span> and <span class="math inline">\(f_{47}\)</span>: <span class="math inline">\(1134903170, 1836311903, 2971215073\)</span>. And if you're familiar with the bounds of signed 32bit integer numbers, you should already see the problem.</p>
+<p>The number <span class="math inline">\(2971215073\)</span> cannot get represented with 32 bits (if signed integers are used), since <span class="math inline">\(\log_2 (2971215073) &gt; 31\)</span>. If you were to ask the user for <span class="math inline">\(f_{50}\)</span> (or even <span class="math inline">\(N = 100\)</span>), you (and they!) end up with a wrong answer:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">printf(<span class="st">&quot;f 47: %d</span><span class="ch">\n</span><span class="st">&quot;</span>, fibonacci(<span class="dv">47</span>));
+<span class="co">// prints -1323752223</span></code></pre></div>
+<p>This indicates that <code>int32_t</code> isn't enough for your kata. Even <code>uint64_t</code> isn't, since <span class="math inline">\(\log_2 (f_{100}) &gt; 64\)</span>, so you have to switch to your languages <code>BigInteger</code> variant, e.g. <code>BigInt</code>, <code>bignum</code>, <code>Integer</code>.</p>
+<p>By the way, this particular error could have been prevented by a test that checks that every returned number is positive. Also, if you use a dynamic typed language, make sure to check the return type in one of the first tests:</p>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="dt">Test</span>.expect (fib(<span class="dv">0</span>) is <span class="dt">Bignum</span>, <span class="st">&quot;Your function doesn&#39;t return a BigNum&quot;</span>)</code></pre></div>
+<h3 id="wrong-internal-types"><span class="header-section-number">2.7.3</span> Wrong internal types</h3>
+<p>This is usually a mess. Your return type is correct, and you check for the correct type, but your users complain about invalid results. This indicates that you accidentally used the wrong type somewhere in your own computation, for example <code>int16_t</code> in a helper function. This is <strong>really</strong> hard to spot, so you should add some static test values. More on that in the later sections.</p>
+<h3 id="integral-versus-floating-point-arithmetic"><span class="header-section-number">2.7.4</span> Integral versus floating point arithmetic</h3>
+<p>There's a later section on floating point numbers, but this section is also fitting for the delicate problem. As you (hopefully) know, floating point arithmetic isn't exact. The usual double value has 54 bits for its significant, which is better than <code>int32_t</code>, but worse than <code>int64_t</code>. So if you ask for an <strong>exact</strong> solution, you should ask for an integral type and also check that the user returns an integral type (in dynamic typed languages).</p>
+<p>Note that JavaScript doesn't really differ between integral and floating point numbers. You can force numbers to behave as <code>int32</code> (or <code>uint32</code>), but you cannot help the user with an appropriate error message in this case.</p>
+<p>Also, JavaScript doesn't have a large integer class/type, so you need to improvise a little bit.</p>
+<h2 id="use-the-preloaded-section-only-for-helpers-or-constraints"><span class="header-section-number">2.8</span> Use the preloaded section only for helpers or constraints</h2>
+<p>The preloaded code is both usable by you and the user. It's the perfect place to put helpers or data structures that the user should use, or to freeze objects in dynamic languages.</p>
+<p>However, <strong>never</strong> put your solution into the preloaded code! Some languages provide reflection or similar means to check your preloaded code, which enables a user to cheat rather easily. Instead, put your solution into a local scope (see <a href="#hide-your-solution">Hide your solution</a>).</p>
+<p>For more information about preloaded code, see <a href="#the-preload-section">the next section</a>.</p>
+<h2 id="provide-helpers-for-tasks-that-are-dull"><span class="header-section-number">2.9</span> Provide helpers for tasks that are dull</h2>
+<p>Sometimes, you'll ask your user to provide the answer in a given format, or to use certain pre-defined values. Those values should be preloaded too. For the format, either a fixed format string (<code>printf</code> style) or a full-fledged wonders helps you to get rid of a bunch of troubles, like additional white space, ambiguous syntax and so on.</p>
+<h2 id="a-word-of-warning"><span class="header-section-number">2.10</span> A word of warning</h2>
+<p>Before we dive into tests in the next section, here's a word of warning. The next section does not replace the documentation of your testing framework. It gives <em>general tips</em>. However, in order to write good tests, a deep understanding of your testing framework is mandatory. Otherwise, it will take much time to write those, especially if you don't know the programming language well enough yet.</p>
+<p>Have a look at the following test:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">main <span class="fu">=</span> <span class="kw">do</span>
+  <span class="kw">if</span> solution <span class="dv">1</span> <span class="fu">/=</span> <span class="dv">1</span>
+    <span class="kw">then</span> exitFailure
+    <span class="kw">else</span>
+      <span class="kw">if</span> solution <span class="dv">2</span> <span class="fu">/=</span> <span class="dv">1</span>
+        <span class="kw">then</span> exitFailure
+        <span class="kw">else</span>
+          <span class="kw">if</span> solution <span class="dv">3</span> <span class="fu">/=</span> <span class="dv">2</span>
+            <span class="kw">then</span> exitFailure
+            <span class="kw">else</span>
+              <span class="kw">if</span> solution <span class="dv">4</span> <span class="fu">/=</span> <span class="dv">3</span>
+                <span class="kw">then</span> exitFailure
+                <span class="kw">else</span>
+                  <span class="kw">if</span> solution <span class="dv">5</span> <span class="fu">/=</span> <span class="dv">3</span>
+                    <span class="kw">then</span> exitFailure
+                    <span class="kw">else</span> return ()</code></pre></div>
+<p>This test checks whether <code>solution</code> returns the first five Fibonacci numbers. It's bad for several reasons:</p>
+<ul>
+<li>it doesn't return any helpful error message if the solution is wrong</li>
+<li>it's not modular</li>
+<li>it's not compatible to the Codewars testing framework</li>
+</ul>
+<p>Another variant, which uses Hspec and random tests could be written as</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">main <span class="fu">=</span> <span class="kw">do</span>
+  rs <span class="ot">&lt;-</span> replicateM <span class="dv">100</span> (randomRIO (<span class="dv">1</span>,<span class="dv">100</span>))
+  hspec <span class="fu">$</span> <span class="kw">do</span>
+    describe <span class="st">&quot;fibonacci&quot;</span> <span class="fu">$</span> <span class="kw">do</span>
+      forM_ rs <span class="fu">$</span> \x <span class="ot">-&gt;</span>
+        it (<span class="st">&quot;works for &quot;</span> <span class="fu">++</span> show x) <span class="fu">$</span>
+          fibonacci x <span class="ot">`shouldBe`</span> solution x</code></pre></div>
+<p>While better, it doesn't use Hspec's interoperability with QuickCheck:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">main <span class="fu">=</span> hspec <span class="fu">$</span> describe <span class="st">&quot;fibonacci&quot;</span> <span class="fu">$</span> <span class="kw">do</span>
+    prop <span class="st">&quot;works for random numbers&quot;</span> <span class="fu">$</span> \x <span class="ot">-&gt;</span>
+      fibonacci x <span class="ot">`shouldBe`</span> solution x
+  <span class="kw">where</span>
+    solution <span class="fu">=</span> <span class="fu">...</span></code></pre></div>
+<p>So before you dive into the next section, make sure that you have at least a rough overview of the capabilities of your language's testing framework.</p>
+<h1 id="intermezzo-the-codewars-platform"><span class="header-section-number">3</span> Intermezzo: The Codewars platform</h1>
+<p>Now that you have read all those tips and tricks, you probably cannot wait to write your next kata, right? However, before you jump in, you should learn a little bit about the Codewars platform, if you want to run random tests or use the &quot;preload&quot; section.</p>
+<h2 id="how-codewars-works"><span class="header-section-number">3.1</span> How Codewars works</h2>
+<p>Whenever you write a kata, you have at least six input windows:</p>
+<ol type="1">
+<li>the description (cannot be blank)</li>
+<li>the initial solution (cannot be blank)</li>
+<li>the solution (cannot be blank)</li>
+<li>the example test fixtures</li>
+<li>the test fixtures (cannot be blank)</li>
+<li>the preloaded code</li>
+</ol>
+<p>All of this is used by the <a href="https://github.com/Codewars/codewars-runner">runner</a>. The runner is basically a <code>node</code> process, which calls the languages interpreter and either</p>
+<ul>
+<li>creates a temporary dictionary structure containing all code (Haskell, Java, CSharp or other module/file based languages)</li>
+<li>or <strong><em>concatenates</em></strong> and passes the code to the interpreter via command line argument (Ruby, JavaScript, CoffeeScript, Python).</li>
+</ul>
+<p>It then checks the output of the process for some fields, filters them, and shows the filtered text to the user. If the fields indicate that the user has passed the tests, they will have passed the kata.</p>
+<p>This is the big difference between Codewars and other code running sites like SPOJ, Hackerrank and other. There, you will have to read from STDIN, and give formatted answers to STDOUT. You often don't learn details about your failed tests, only that you've failed them, since the tests are often only different <code>*.txt</code> files that get streamed into your file.</p>
+<p>Unfortunately, the <em>running</em> parts of the Codewars runner are currently missing in the repository, but still available in its history. They are lacking new content like transpilers though.</p>
+<p>In case of JavaScript, the code will get transformed via <a href="http://babeljs.io/"><code>babel</code></a> <em>before</em> it is passed to <code>node</code>. All of this preprocessing is <em>not</em> counted into the users runtime.</p>
+<p>However, the important part is the concatenation in interpreted languages. That's the part where you have to look out, since it works like this:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cp</span> python-framework run.py <span class="co"># add framework</span>
+$ <span class="kw">echo</span>          <span class="st">&quot;&quot;</span> <span class="kw">&gt;&gt;</span> run.py
+$ <span class="kw">cat</span> preload.py   <span class="kw">&gt;&gt;</span> run.py <span class="co"># add preloaded code</span>
+$ <span class="kw">echo</span>          <span class="st">&quot;&quot;</span> <span class="kw">&gt;&gt;</span> run.py
+$ <span class="kw">cat</span> solution.py  <span class="kw">&gt;&gt;</span> run.py <span class="co"># add user solution</span>
+$ <span class="kw">echo</span>          <span class="st">&quot;&quot;</span> <span class="kw">&gt;&gt;</span> run.py
+$ <span class="kw">cat</span> tests.py     <span class="kw">&gt;&gt;</span> run.py <span class="co"># add tests</span>
+$ <span class="kw">cat</span> run.py <span class="kw">|</span> <span class="kw">python</span> -e -</code></pre></div>
+<p>The <code>echo &quot;&quot;</code> parts are there for newlines. Either way, as you can see, all of your <em>and</em> the user's code are in the same file. This means that while you have access on everything the user has defined, declared and written, it also means that they have access to everything you have written.</p>
+<p>They can also change the test framework unless it's frozen. Keep in mind that there's an asynchronous cheating test, that adds non-passing tests. For example if the user solution exits prematurely with a &quot;passed&quot; output, they will get a penalty.</p>
+<p>Note that there has been a <a href="https://github.com/Codewars/codewars.com/issues/214">heated discussion</a> about the tests in Ruby. <span class="citation" data-cites="danielpclark">@danielpclark</span> discusses some of the issues in the thread, and its worth a read.</p>
+<p>Now to the other languages. For Haskell, the runner will automatically create a temporary dictionary structure that matches the module names. This dictionary will reside in <code>/tmp/</code> and get run via <code>runhaskell</code>. The <code>hspec</code> framework has been replaced with another one that has some more features. Java and CSharp get handled similarly.</p>
+<p>So remember: in interpreted languages, all your code and the user's code will reside in the same context, whereas in compiled languages all code will reside in the same directory.</p>
+<p>By the way, this is the reason you cannot use <code>process.argv</code> in Node, as it would give a user immediate access to the tests.</p>
+<h2 id="the-preload-section"><span class="header-section-number">3.2</span> The &quot;preloaded&quot; section</h2>
+<p>The preloaded section in the kata editor is meant for things that should be done first, before any other code (beside the import of the test framework) is being read, evaluated or executed (in interpreted languages).</p>
+<p>You want to provide some extra functions for the user? Put them in the preloaded section. You want to disable features, like <code>Math.random</code> or <code>Math.abs</code>? Do so in the preloaded section. You want to make sure that no one panders the testing framework? Freeze it in the preloaded section.</p>
+<p>I think you get it. In interpreted languages, use the preloaded section for whatever helper you think the user might need, and for whatever security measures you want to enable. It's the first thing that gets read during the execution, so you're still in charge at that point.</p>
+<p>In Haskell, the preloaded section needs a module name and can be imported. It's handy for additional functions or data types, as disabling features is done there with <code>hidden</code>.</p>
+<h1 id="tested-testing-theories"><span class="header-section-number">4</span> Tested testing theories</h1>
+<p>Tests are the bread and butter of Codewars. Without tests, you couldn't check whether the user has solved your kata, so they're very important. Yet some neglect them.</p>
+<p>Make sure to file an issue if you notice that a kata is lacking some tests. This will prevent a moderator from approving the kata. This will increase the overall quality of the approved katas. Also, as long as <a href="https://github.com/Codewars/codewars.com/issues/123">#123</a> stands, one cannot change the tests in approved katas with more than 500 solutions.</p>
+<h2 id="consider-writing-your-tests-first"><span class="header-section-number">4.1</span> Consider writing your tests first</h2>
+<p>Before we actually dive into the many tips one can follow on Codewars, you should get familiar with the test driven development (TDD) cycle. It's not required to follow it in order to write katas for Codewars, but <em>recommended</em>.</p>
+<p>So what is the cycle? Essentially, it's the following:</p>
+<ol type="1">
+<li>Add a test</li>
+<li>Run tests and verify that the new one fails</li>
+<li>Adjust your solution</li>
+<li>Run tests and verify that the new solution passes all tests</li>
+<li>Refactor your solution (optional)</li>
+</ol>
+<p>That's it. Note that the important part is the very first step: you write the tests first. &quot;Why?&quot;, you're probably asking. &quot;I know my solution already!&quot; Well, are you sure about that? Some katas have long standing issues since the original author didn't check a few edge cases.</p>
+<p>However, since Codewars isn't running on your own machine, you should adjust the cycle a little bit and add more than a single test. The cycle works best with fast iterations, and the remote nature of Codewars makes this a little bit hard. Still, writing at least part of your tests first is <strong>very</strong> recommended.</p>
+<h2 id="make-your-test-descriptive"><span class="header-section-number">4.2</span> Make your test descriptive</h2>
+<p>Let's have a look at the following test:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Test</span>.<span class="at">expect</span>(<span class="at">fizzBuzz</span>(<span class="dv">15</span>) <span class="op">===</span> <span class="st">&#39;FizzBuzz&#39;</span><span class="op">,</span> <span class="st">&quot;Value not what&#39;s expected&quot;</span>)</code></pre></div>
+<p>There are several things wrong with it. First of all, it uses <code>expect</code>. You should <strong>never</strong> use <code>expect</code> in any language, <strong>unless</strong> there isn't a fitting function in your test framework. But usually, there is a correct testing function. Here, one would use <code>Test.assertEquals</code>, but it might vary, depending on your language:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Test</span>.<span class="at">assertEquals</span>(<span class="at">fizzBuzz</span>(<span class="dv">15</span>)<span class="op">,</span> <span class="st">&#39;FizzBuzz&#39;</span><span class="op">,</span> <span class="st">&quot;Value not what&#39;s expected&quot;</span>)</code></pre></div>
+<p>The additional message will be shown if the test failed. However, &quot;Value not what's expected&quot; is useless. It doesn't give the user any hint what's gone wrong:</p>
+<pre><code>  Expected: &quot;FizzBuzz&quot;, actual: &quot;Buzz&quot;. Value not what&#39;s expected.</code></pre>
+<p>Either drop the message in this case, or use a better one:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Test</span>.<span class="at">assertEquals</span>(<span class="at">fizzBuzz</span>(<span class="dv">15</span>)<span class="op">,</span> <span class="st">&#39;FizzBuzz&#39;</span><span class="op">,</span> <span class="st">&quot;testing on 15&quot;</span>)</code></pre></div>
+<p>This tells the user immediately that their function failed on <code>15</code>.</p>
+<h3 id="group-your-tests"><span class="header-section-number">4.2.1</span> Group your tests</h3>
+<p>Furthermore, you should group your tests with <code>describe</code> and <code>it</code>. After all, a tests <em>describes</em> the behaviour of something, for example the behaviour of <code>fizzBuzz</code>. <em>It</em> should pass several specifications:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Test</span>.<span class="at">describe</span>(<span class="st">&#39;fizzBuzz&#39;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span>
+  <span class="va">Test</span>.<span class="at">it</span>(<span class="st">&#39;should return &quot;Fizz&quot; on 3,6,9,12&#39;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span>
+    <span class="cf">for</span>(<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">4</span><span class="op">;</span> <span class="op">++</span>i)
+      <span class="va">Test</span>.<span class="at">assertEquals</span>(<span class="at">fizzBuzz</span>(<span class="dv">3</span> <span class="op">*</span> i)<span class="op">,</span> <span class="st">&#39;Fizz&#39;</span>)
+  <span class="op">}</span>)<span class="op">;</span>
+
+  <span class="va">Test</span>.<span class="at">it</span>(<span class="st">&#39;should return &quot;Buzz&quot; on 5,10,20,25&#39;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span>
+    <span class="cf">for</span>(<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">4</span><span class="op">;</span> i <span class="op">+=</span> <span class="dv">3</span>)
+      <span class="va">Test</span>.<span class="at">assertEquals</span>(<span class="at">fizzBuzz</span>(<span class="dv">5</span> <span class="op">*</span> i)<span class="op">,</span>       <span class="st">&#39;Buzz&#39;</span>)
+      <span class="va">Test</span>.<span class="at">assertEquals</span>(<span class="at">fizzBuzz</span>(<span class="dv">5</span> <span class="op">*</span> (i <span class="op">+</span> <span class="dv">1</span>))<span class="op">,</span> <span class="st">&#39;Buzz&#39;</span>)
+  <span class="op">}</span>)<span class="op">;</span>
+
+  <span class="va">Test</span>.<span class="at">it</span>(<span class="st">&#39;should return &quot;FizzBuzz&quot; on 15*n&#39;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span>
+    <span class="cf">for</span>(<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">4</span><span class="op">;</span> <span class="op">++</span>i)
+      <span class="va">Test</span>.<span class="at">assertEquals</span>(<span class="at">fizzBuzz</span>(<span class="dv">15</span> <span class="op">*</span> i)<span class="op">,</span> <span class="st">&#39;FizzBuzz&#39;</span>)
+  <span class="op">}</span>)<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<p>Note that not every language provides <code>describe</code> and <code>it</code>. Refer to your language's test framework documentation to find out how to group tests there.</p>
+<p>If you use <code>describe</code>, keep in mind that you <em>describe</em> <strong>one</strong> thing:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Test</span>.<span class="at">describe</span>(<span class="st">&#39;bar&#39;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span>
+  <span class="va">Test</span>.<span class="at">it</span>(<span class="st">&#39;returns &quot;bar&quot;&#39;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span>
+    <span class="va">Test</span>.<span class="at">assertEquals</span>(<span class="at">bar</span>()<span class="op">,</span> <span class="st">&quot;bar&quot;</span>)<span class="op">;</span>
+  <span class="op">}</span>)<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span>
+
+<span class="va">Test</span>.<span class="at">describe</span>(<span class="st">&#39;foo&#39;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span>
+  <span class="va">Test</span>.<span class="at">it</span>(<span class="st">&#39;returns &quot;foo&quot;&#39;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span>
+    <span class="va">Test</span>.<span class="at">assertEquals</span>(<span class="at">foo</span>()<span class="op">,</span> <span class="st">&quot;foo&quot;</span>)<span class="op">;</span>
+  <span class="op">}</span>)<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<p>A final remark on test grouping: if you have a look into some TDD books, you'll notice that they encourage you to use a <em>single</em> assertion in a test, not multiple as in this section's first example. This is also the subject <a href="http://programmers.stackexchange.com/q/7823/7515">of a programmers SE question</a>.</p>
+<p>However, some languages on Codewars don't provide the proper means to couple tests (label/text) with assertions, for example Python. It would be cumbersome to add a single <code>it(&quot;...&quot;)</code> for every assertion and clutters the test code. In those cases, you should write a helper that takes care of this.</p>
+<p>Either way, you should always make sure that the user knows the reason for failing tests (see next section).</p>
+<h3 id="make-errors-obvious"><span class="header-section-number">4.2.2</span> Make errors obvious</h3>
+<p>Especially if you use random tests (see below), you want to make sure that the user knows <em>why</em> the test failed. You could print the arguments. You could show a hint. Either way, a user shouldn't be left alone in face of an error.</p>
+<h3 id="think-of-the-html"><span class="header-section-number">4.2.3</span> Think of the HTML</h3>
+<p>Keep in mind that every output will be interpreted as HTML. If you want to use <code>&lt;</code>, <code>&gt;</code> or <code>&amp;</code> in your error messages or description, make sure to escape it---unless you actually want to use HTML tags:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Character</th>
+<th style="text-align: left;"><a href="http://dev.w3.org/html5/html-author/charref">HTML entity</a></th>
+<th style="text-align: left;">Mnemonic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>&lt;</code></td>
+<td style="text-align: left;"><code>&amp;lt;</code></td>
+<td style="text-align: left;"><strong>l</strong>esser <strong>t</strong>han</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>&gt;</code></td>
+<td style="text-align: left;"><code>&amp;gt;</code></td>
+<td style="text-align: left;"><strong>g</strong>reater <strong>t</strong>han</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&amp;</code></td>
+<td style="text-align: left;"><code>&amp;amp;</code></td>
+<td style="text-align: left;"><strong>amp</strong>ersand</td>
+</tr>
+</tbody>
+</table>
+<p>All other characters are usually safe to use in UTF8 encoded documents.</p>
+<h2 id="always-test-all-corner-cases-of-your-input-domain"><span class="header-section-number">4.3</span> Always test all corner cases of your input domain</h2>
+<p>If you ask the user to create a function that should work for <code>1 &lt;= N &lt;=  1,000,000</code>, make sure that their function works for <em>both</em> 1 and 1,000,000. If you specified that &quot;negative input should return a monkey&quot;, make sure that you actually test negative input.</p>
+<h2 id="use-the-tools-of-your-testing-framework"><span class="header-section-number">4.4</span> Use the tools of your testing framework</h2>
+<p>If possible, try to use multiple kinds of assertions, e.g. <code>assertEquals</code> and <code>assertNotEquals</code>, or <code>shouldSatisfy</code> and <code>shouldNotSatisfy</code>. That way, a cheating user will have some more work to circumvent equality or predicate based tests.</p>
+<h2 id="use-random-tests"><span class="header-section-number">4.5</span> Use random tests</h2>
+<p>Whenever when you state a kata you also have to write a solution. This is great, as you can use exactly that function to check the users code in the tests. What's even better: it makes you think about the input domain.</p>
+<p>This is usually the hard part of creating random tests. After all, creating sufficient random input is most often harder than creating the kata itself. But it is worth every honour.</p>
+<h2 id="use-more-random-tests"><span class="header-section-number">4.6</span> Use <strong>more</strong> random tests</h2>
+<p>While it's nice to have a random test which validates that the user returns the same as your hidden solution, there's no guarantee that your solution provides the <em>correct result</em>. If you provide a predicate that checks whether the solution makes sense, you can use it in both the hidden <em>and</em> public tests.</p>
+<p>For example, if <code>foo</code> should always return <code>false</code> on negative inputs, add the following test:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Test</span>.<span class="at">it</span>(<span class="st">&#39;should return false for negative numbers&#39;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span>
+  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">100</span><span class="op">;</span> <span class="op">++</span>i) <span class="op">{</span>
+    <span class="va">Test</span>.<span class="at">assertEquals</span>(<span class="at">foo</span>(<span class="op">-</span><span class="va">Math</span>.<span class="at">random</span>() <span class="op">*</span> <span class="dv">1000000</span>)<span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span>
+  <span class="op">}</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<p>This prevents both you and the user to forget about those inputs. Generally this pattern will look like this:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Test</span>.<span class="at">it</span>(<span class="st">&#39;returns something valid&#39;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span>
+  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">100</span><span class="op">;</span> <span class="op">++</span>i) <span class="op">{</span>
+    <span class="kw">var</span> some   <span class="op">=</span> ...
+    <span class="kw">var</span> random <span class="op">=</span> ...
+    <span class="kw">var</span> args   <span class="op">=</span> ...
+    <span class="va">Test</span>.<span class="at">expect</span>(
+      <span class="at">isValid</span>(<span class="at">foo</span>(some<span class="op">,</span> random<span class="op">,</span> args))<span class="op">,</span>
+      <span class="st">&quot;predicate failed, invalid answer returned&quot;</span>
+    )<span class="op">;</span>
+  <span class="op">}</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<h2 id="hide-your-solution"><span class="header-section-number">4.7</span> Hide your solution</h2>
+<p>If you use random tests, make sure to hide your solution. In Java or C#, this includes making your function <code>private</code>. Haskell doesn't allow mutual imports, so the user cannot import the tests either way. However, in dynamic languages, one can sometimes simply use <code>solve = solution</code>.</p>
+<p>You can prevent this kind of cheating if you</p>
+<ul>
+<li>add static tests (not only random ones),</li>
+<li>move your solution into a local scope.</li>
+</ul>
+<p>The first one is obvious. The second one can be realized if you don't provide a <code>solution</code> with the same interface, but instead a <code>testAgainstSolution</code>:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// bad!</span>
+<span class="kw">var</span> solution <span class="op">=</span> <span class="kw">function</span>(a<span class="op">,</span> b)<span class="op">{</span>
+  <span class="co">// ...</span>
+<span class="op">}</span>
+
+<span class="co">// better</span>
+<span class="kw">var</span> testFunction <span class="op">=</span> <span class="kw">function</span>(a<span class="op">,</span>b)<span class="op">{</span>
+  <span class="kw">var</span> solution <span class="op">=</span> <span class="kw">function</span>(a<span class="op">,</span> b) <span class="op">{</span>
+    <span class="co">// ...</span>
+  <span class="op">}</span>
+  <span class="va">Test</span>.<span class="at">assertEquals</span>(<span class="at">userFunc</span>(a<span class="op">,</span>b)<span class="op">,</span> <span class="at">solution</span>(a<span class="op">,</span>b))<span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+<p>There are more creative ways to hide/store the function, but that's one way at least. Note that all dynamic languages on Codewars (Ruby, Python, CS, JS) support this kind of local scopes.</p>
+<h2 id="always-have-some-example-tests"><span class="header-section-number">4.8</span> Always have some example tests</h2>
+<p>Unless you're creating a puzzle where the user has to find <em>the answer</em>, present some example tests. Those tests should also contain the corner cases and some easy random tests, e.g. check that the user actually returns a number for arbitrary negative numbers.</p>
+<h2 id="handle-floating-point-values-the-right-way"><span class="header-section-number">4.9</span> Handle floating point values the right way</h2>
+<p>Whenever the user returns a floating point number, make sure that you take floating point behaviour into account. The user might not add the numbers in the same order as you, and therefore end up with a slightly different number. Equality tests will always fail for that poor user.</p>
+<p>Unless you want to write a kata were the user needs to round a floating point value to a certain precision, never ever tell the user to round up/down or truncate a floating point number. Instead, check the <a href="https://en.wikipedia.org/wiki/Approximation_error"><em>relative error</em></a>. You might some time need to find a good epsilon, I usually use <code>1e-12</code> if I want to have something &quot;almost exact&quot; and <code>1e-7</code> if I want something &quot;near-ish&quot; the correct solution.</p>
+<p>For more information about floating-point arithmetic, read <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html">What Every Computer Scientist Should Know About Floating-Point Arithmetic</a>.</p>
+<h3 id="an-example-of-floating-point-dangers"><span class="header-section-number">4.9.1</span> An example of floating point dangers</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add_three(a,b,c):
+    <span class="cf">return</span> a <span class="op">+</span> b <span class="op">+</span> c
+
+<span class="kw">def</span> add_three_reference(a,b,c):
+    <span class="cf">return</span> a <span class="op">+</span> (b <span class="op">+</span> c)
+
+<span class="bu">print</span>(add_three_reference(<span class="fl">1e-12</span>,<span class="fl">1e-12</span>,<span class="dv">1</span>) <span class="op">==</span> add_three(<span class="fl">1e-12</span>,<span class="fl">1e-12</span>,<span class="dv">1</span>))
+ <span class="co"># False</span></code></pre></div>
+<h3 id="relative-error-testing"><span class="header-section-number">4.9.2</span> Relative error testing</h3>
+<p>The following example shows one way to check floating point values in a more sane way:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> assertFuzzyEquals(actual, expected, msg<span class="op">=</span><span class="st">&quot;&quot;</span>):
+    <span class="im">import</span> math
+
+    <span class="co"># max error</span>
+    merr <span class="op">=</span> <span class="fl">1e-12</span>
+
+    <span class="cf">if</span> expected <span class="op">==</span> <span class="dv">0</span>:
+        inrange <span class="op">=</span> math.fabs(actual) <span class="op">&lt;=</span> merr
+    <span class="cf">else</span>:
+        inrange <span class="op">=</span> math.fabs((actual <span class="op">-</span> expected) <span class="op">/</span> expected) <span class="op">&lt;=</span> merr
+
+    <span class="cf">if</span> msg <span class="op">==</span> <span class="st">&quot;&quot;</span>:
+        msg <span class="op">=</span> <span class="st">&quot;Expected value near {:.12f}, but got {:.12f}&quot;</span>
+        msg <span class="op">=</span> msg.<span class="bu">format</span>(expected, actual)
+
+    <span class="cf">return</span> Test.expect(inrange, msg)</code></pre></div>
+<p>Most language sections contain their equivalent and use <code>expect</code> or a similar function of their test framework.</p>
+<h3 id="consider-integral-tests"><span class="header-section-number">4.9.3</span> Consider integral tests</h3>
+<p>If your number is guaranteed to be an integral number, use <code>int</code>, <code>long</code> or your language's equivalent instead of floating point numbers. However, keep in mind that all values, either input, output, or intermediate should fit in this type, otherwise you might encounter overflow or underflow issues.</p>
+<h2 id="fix-broken-tests-early-and-fix-them-right"><span class="header-section-number">4.10</span> Fix broken tests early and fix them right</h2>
+<p>While <a href="https://github.com/Codewars/codewars.com/issues/163">#163</a> will give you the tools to fix a kata even late, you should take every reported test issue by heart. If the tests are failing for some only, check whether your current example tests contain enough corner cases. Ask them for their code (in spoilers).</p>
+<p>There are several ways your tests can be wrong. For examples, your tests can be too strict. This is usually the case with floating points, where one expects the user to do things in a certain way.</p>
+<p>However, sometimes your reference implementation – the solution the users try to write – is wrong. People have now adjusted their submitted functions to yours, so that they still solve the kata, even though their logic is broken. If you now fix your reference solution, the results of many users might get rejected.</p>
+<p>So what can you do?</p>
+<h3 id="change-description-to-address-the-bug"><span class="header-section-number">4.10.1</span> Change description to address the bug</h3>
+<p>You should definitely tell your users if your kata is broken. Especially if your tests have a defect in only one particular language. It's not the best you can do, but as long as #163 is still there, it might be the only thing you can do.</p>
+<h3 id="reject-old-solutions-they-didnt-follow-the-description"><span class="header-section-number">4.10.2</span> Reject old solutions, they didn't follow the description</h3>
+<p>This is fine as long as there haven't been many solutions. If your kata has been solved by hundreds, it might seem a little bit unfair, but correct tests are a little bit more important.</p>
+<h3 id="experimental-solutions"><span class="header-section-number">4.10.3</span> Experimental solutions</h3>
+<p>There are also other alternatives:</p>
+<ul>
+<li>check the time: if the kata solution is submitted after a certain point in time, use the new tests, otherwise the old. This can lead to problems with the anti-cheat measurements.</li>
+<li>test against both results: this basically duplicates all your tests, which can be hard to maintain if you do it wrong.</li>
+</ul>
+<p>Either way, fix them, otherwise it will lead to submitted issues and therefore to negative honour.</p>
+<h2 id="collaborative-codewars-catches"><span class="header-section-number">4.11</span> Collaborative Codewars Catches</h2>
+<p>The previous sections mentioned some practices for your tests. However, what if you don't know Haskell? Or Java? Or Ruby? You shouldn't provide tests for a language you don't know, as this will usually lead to bugs in your test cases (see section &quot;A user solves a kata in a single language, not many&quot;).</p>
+<p>That's where translations and collaboration kick in.</p>
+<h3 id="accepting-a-translation"><span class="header-section-number">4.11.1</span> Accepting a translation</h3>
+<p>Let's stay in the mentioned scenario for a while. You wrote a kata, it's currently in beta, and suddenly, you get a notification that someone provided a translation. So where can you find that translation?</p>
+<p>Go to your kata and have a look at the language icon bar. There's a &quot;+&quot; next to the language icons. Click on it to see the current list of translations. Here you get a quick overview of all translations. To see them in detail and approve, decline or fork them, click on the translation's title.</p>
+<p>Now you can see their tests (both example and hidden), solution (both hidden and initial), and the description. There are several things you want to check before accepting a translation:</p>
+<ul>
+<li>is the kata as hard as in you original languages?
+<ul>
+<li>does it use the same or comparable tests?</li>
+<li>does it use the same or comparable input/output types?</li>
+</ul></li>
+<li>does the description provide some examples in that language?</li>
+<li>do the description changes break your description style?</li>
+</ul>
+<p>Those are basically questions that follow from the rules &quot;Consistency is key&quot; and &quot;A user solves a kata in a single language, not many&quot;.</p>
+<p>If all questions above can be answered with yes, you can approve the translation. If one or more questions were answered with no, write a comment on the translation. Discuss your concerns with the translator until both of you are happy. If you don't think that the translation is salvageable, decline it.</p>
+<h3 id="handling-merge-conflicts"><span class="header-section-number">4.11.2</span> Handling merge conflicts</h3>
+<p>A translation basically copies the description at the time one has started writing the translation. If the kata's description changes before the translation got approved, the variants often cannot get merged together. This is called a <em>merge conflict</em>. (By the way, Codewars uses a <a href="https://en.wikipedia.org/wiki/Merge_%28version_control%29#Three-way_merge">3-way merge</a>).</p>
+<p>Either the translator or the kata author has to <em>fork</em> the translation, fix the merge conflict by hand, and publish the translation again.</p>
+<h3 id="writing-a-translation"><span class="header-section-number">4.11.3</span> Writing a translation</h3>
+<p>Now you found a kata in JavaScript. You liked it, and want to translate it into Python. There should be a &quot;+&quot; sign next to the language icons after you solved it. Click on it and you'll land on the list of current translations. After you've checked that there isn't a pending translation in Python, you click on &quot;Translate this kata&quot;.</p>
+<p>This will open translation kumite editor. Choose the language in the drop-down menu before you write any code. Then fill the (initial) solution and (example) tests. Save your progress often to prevent data loss. Whenever you're ready, publish your translation.</p>
+<h1 id="language-specific-remarks"><span class="header-section-number">5</span> Language specific remarks</h1>
+<p>While the previous section included general tips, it's often not obvious how to implement them in a test framework. Random strings? Random numbers? How does one create specific elements?</p>
+<p>This section gives some insights on those topics. However, it <strong>cannot</strong> replace your language's test framework documentation. You need to have at least some grasp of that one. Otherwise this section will probably confuse you.</p>
+<!--- this is only a placeholder -->
+<h2 id="csharp"><span class="header-section-number">5.1</span> CSharp</h2>
+<p>CSharp is the only language that doesn't have a proper documentation on Codewars currently. This will probably change at some point. The test framework is <a href="http://www.nunit.org/">NUnit</a>, initially a port from JUnit. It's rather large, so we cannot cover <a href="http://www.nunit.org/index.php?p=docHome&amp;r=2.6.4">everything</a> here, but at least some points should be addressed.</p>
+<p><em>Note:</em> C# looks rather ugly in the generated PDF, so I'm going to refer to it as <em>CSharp</em> instead.</p>
+<h3 id="beware-of-the-assert-arguments"><span class="header-section-number">5.1.1</span> Beware of the assert arguments!</h3>
+<p>NUnit differs from the other frameworks. Very. Much. Well, overall it doesn't, it still has <code>Assert.AreEqual</code>, <code>Assert.Greater</code> and others. But the order of arguments is swapped.</p>
+<p>Where CoffeeScript, Ruby, Python and Haskell expect the first argument of <code>Test.assert_equals</code>/<code>Test.assertEquals</code>/<code>shouldBe</code> to be the actual value and the second to be the expected, NUnit swaps the order, see the documentation of <a href="http://www.nunit.org/index.php?p=equalityAsserts&amp;r=2.6.4">Assert</a>:</p>
+<div class="sourceCode"><pre class="sourceCode cs"><code class="sourceCode cs">Assert.<span class="fu">AreEqual</span>( <span class="dt">int</span> expected, <span class="dt">int</span> actual );
+Assert.<span class="fu">AreEqual</span>( <span class="dt">int</span> expected, <span class="dt">int</span> actual, <span class="dt">string</span> message );
+Assert.<span class="fu">AreEqual</span>( <span class="dt">int</span> expected, <span class="dt">int</span> actual, <span class="dt">string</span> message,
+                 <span class="kw">params</span> <span class="dt">object</span>[] parms );
+<span class="co">// many other</span></code></pre></div>
+<p>For comparison, here's the syntax of an equality assert in the other languages:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="co">-- Haskell</span>
+actual <span class="ot">`shouldBe`</span> expected</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// Javascript</span>
+<span class="va">Test</span>.<span class="at">assertEquals</span>(actual<span class="op">,</span> expected<span class="op">,</span> message)<span class="op">;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Python</span>
+Test.assert_equals(actual, expected, message)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="co"># Ruby</span>
+<span class="dt">Test</span>.assert_equals(actual, expected, message)</code></pre></div>
+<p>Keep this in mind. Your tests won't fail on correct solutions if you swap the arguments, but they <strong>will</strong> confuse anyone who fails them. By the way, Java uses the same convention. This isn't surprising, since NUnit was inspired by JUnit.</p>
+<h3 id="use-descriptive-test-names"><span class="header-section-number">5.1.2</span> Use descriptive test names</h3>
+<p>This was already addressed in the previous chapter, but it's rather important in CSharp. NUnit doesn't give you any method to label a test. Instead, a test is simply a public static method with a <code>[Test]</code> attribute inside a class with the <code>[TestFixture]</code> attribute. The <em>name</em> of your test is the method's name.</p>
+<p>Make that name descriptive. A method called <code>test1</code> doesn't help. Name it after the property you're testing, e.g. <code>ReturnsTrueOnEven</code>, or <code>ThrowsExceptionOnNull</code>.</p>
+<h3 id="use-testcase-to-create-parametrized-tests"><span class="header-section-number">5.1.3</span> Use <code>[TestCase]</code> to create parametrized tests</h3>
+<p>A test function doesn't have to be of type <code>void ...(void)</code>. You can use parameters, which will be shown automatically. This is possible via the <a href="http://www.nunit.org/index.php?p=testCase&amp;r=2.6.4">TestCase</a> attribute. It enables you to specify the arguments for a test function. This works best if you use <code>TestCase</code> together with <code>Result</code>:</p>
+<div class="sourceCode"><pre class="sourceCode cs"><code class="sourceCode cs">[Test]
+[<span class="fu">TestCase</span>(<span class="dv">2</span>, Result=<span class="kw">true</span>)]
+[<span class="fu">TestCase</span>(<span class="dv">4</span>, Result=<span class="kw">true</span>)]
+[<span class="fu">TestCase</span>(<span class="dv">6</span>, Result=<span class="kw">true</span>)]
+[<span class="fu">TestCase</span>(-<span class="dv">10</span>, Result=<span class="kw">true</span>)]
+<span class="kw">public</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="fu">ReturnsTrueOnEven</span>(<span class="dt">int</span> n){
+  <span class="kw">return</span> Evener.<span class="fu">isEven</span>(n);
+}
+
+[Test]
+[<span class="fu">TestCase</span>(<span class="dv">3</span>, Result=<span class="kw">false</span>)]
+[<span class="fu">TestCase</span>(<span class="dv">5</span>, Result=<span class="kw">false</span>)]
+[<span class="fu">TestCase</span>(<span class="dv">7</span>, Result=<span class="kw">false</span>)]
+[<span class="fu">TestCase</span>(-<span class="dv">1</span>, Result=<span class="kw">false</span>)]
+<span class="kw">public</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="fu">ReturnsFalseOnOdd</span>(<span class="dt">int</span> n){
+  <span class="kw">return</span> Evener.<span class="fu">isEven</span>(n);
+}</code></pre></div>
+<p>Unfortunately, <code>[TestCase]</code> does not report the used parameters on a failed test. An alternative is to use <code>Assert.*</code> with a custom message:</p>
+<div class="sourceCode"><pre class="sourceCode cs"><code class="sourceCode cs">[Test]
+[<span class="fu">TestCase</span>(<span class="dv">3</span>, <span class="kw">false</span>)]
+[<span class="fu">TestCase</span>(<span class="dv">5</span>, <span class="kw">false</span>)]
+[<span class="fu">TestCase</span>(<span class="dv">7</span>, <span class="kw">false</span>)]
+[<span class="fu">TestCase</span>(-<span class="dv">1</span>, <span class="kw">false</span>)]
+<span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> <span class="fu">ReturnsFalseOnOdd</span>(<span class="dt">int</span> n, <span class="dt">bool</span> result){
+  Assert.<span class="fu">AreEqual</span>(result, Evener.<span class="fu">isEven</span>(n),
+    String.<span class="fu">Format</span>(<span class="st">&quot;Returned the wrong result on {}&quot;</span>, n));
+}</code></pre></div>
+<h3 id="use-random-for-simple-random-values"><span class="header-section-number">5.1.4</span> Use <code>[Random]</code> for simple random values</h3>
+<p>The <a href="http://www.nunit.org/index.php?p=random&amp;r=2.6.4">Random</a> attribute can be used on arguments. This enables you to create random integers or doubles within a range:</p>
+<div class="sourceCode"><pre class="sourceCode cs"><code class="sourceCode cs">[Test]
+<span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> <span class="fu">RandomTests</span>([<span class="fu">Random</span>(<span class="dv">10</span>, <span class="dv">500000</span>, <span class="dv">100</span>)] <span class="dt">int</span> n)) {
+    Assert.<span class="fu">AreEqual</span>(PersistTests.<span class="fu">Sol</span>(n), Persist.<span class="fu">Persistence</span>(n));
+}</code></pre></div>
+<p>This would draw random integers between 10 and 500000 (inclusive) and run a total of 100 tests. Note that the drawbacks of <code>[TestCase]</code> also affect <code>[Random]</code>, <code>NUnit</code> does not report the generated random values. Provide a message if you want your users to know what arguments they didn't get right.</p>
+<h3 id="use-theory-for-a-quickcheck-light-experience"><span class="header-section-number">5.1.5</span> Use <code>[Theory]</code> for a QuickCheck light experience</h3>
+<p>Haskell's QuickCheck enables you to test only certain combinations of random values via <code>forAll</code>. That's also possible with <a href="http://www.nunit.org/index.php?p=theory&amp;r=2.6.4">Theory</a> and <code>Assume</code>:</p>
+<div class="sourceCode"><pre class="sourceCode cs"><code class="sourceCode cs">[Theory]
+<span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> <span class="fu">ReturnsTrueOnEven</span>([<span class="fu">Random</span>(<span class="dv">1</span>, <span class="dv">50000</span>, <span class="dv">100</span>)] <span class="dt">int</span> n){
+  Assume.<span class="fu">That</span>(n % <span class="dv">2</span> == <span class="dv">0</span>);
+  Assert.<span class="fu">That</span>(Evener.<span class="fu">isEven</span>(n));
+}
+
+[Theory]
+<span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> <span class="fu">ReturnsFalseOnOdd</span>([<span class="fu">Random</span>(<span class="dv">1</span>, <span class="dv">50000</span>, <span class="dv">100</span>)] <span class="dt">int</span> n){
+  Assume.<span class="fu">That</span>(n % <span class="dv">2</span> == <span class="dv">1</span>);
+  Assert.<span class="fu">That</span>(! Evener.<span class="fu">isEven</span>(n));
+}</code></pre></div>
+<p>However, this should be used with care. After all, NUnit will still check only 100 random values, and if they don't hold the assumption, the test case is still completely executed but any failed assertion is disregarded. And yes, this will also not report the used values.</p>
+<h2 id="haskell"><span class="header-section-number">5.2</span> Haskell</h2>
+<p><a href="http://www.haskell.org">Haskell</a> has been my main translation target on Codewars so far, so it's probably the one I know most. <a href="http://hackage.haskell.org/package/QuickCheck">QuickCheck</a> makes it tremendously easy to create random tests, and Hspec provides a very convenient test framework.</p>
+<p>Codewars has QuickCheck, <a href="http://hackage.haskell.org/package/hspec/">Hspec</a> and <a href="http://hackage.haskell.org/package/HUnit/">HUnit</a> installed. Unfortunately, it doesn't use a recent version of this libraries, but they're recent enough for most stuff you'll encounter <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
+<h3 id="use-hspec-with-enough-information-for-the-user"><span class="header-section-number">5.2.1</span> Use Hspec with enough information for the user</h3>
+<p>Hspec's <code>describe</code> should be used with a <em>function name</em>, whereas <code>it</code> should be used with a sentence, so that <code>it &quot;should be readable&quot;</code>. There can be many tests per <code>it</code>, but depending on your input you might want to use one test per <code>it</code> or a test by hand in accordance with <code>expecationFailure</code> instead of <code>shouldBe</code>. You can also use HUnit, but I usually stay within Hspec's DSL.</p>
+<h3 id="floating-point-tests"><span class="header-section-number">5.2.2</span> Floating point tests</h3>
+<p>As written above, one shouldn't use <code>shouldBe</code> on floating point values, since the user might use another order of addition, and adding floating point numbers isn't associative. Therefore, you should plan a little threshold.</p>
+<p>Hspec doesn't have such an operator, but you can easily write one yourself:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Control.Monad</span> (when)
+
+<span class="ot">shouldBeFuzzy ::</span> (<span class="dt">Fractional</span> a, <span class="dt">Ord</span> a) <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Expectation</span>
+shouldBeFuzzy a e <span class="fu">=</span>
+    when (abs ((a <span class="fu">-</span> e) <span class="fu">/</span> e) <span class="fu">&gt;=</span> 1e<span class="fu">-</span><span class="dv">12</span>) <span class="fu">$</span> expectationFailure msg
+  <span class="kw">where</span> msg <span class="fu">=</span> <span class="st">&quot;Expected &quot;</span> <span class="fu">++</span> show e <span class="fu">++</span> <span class="st">&quot;, but got &quot;</span> <span class="fu">++</span> show a</code></pre></div>
+<p>Alternatively, if you don't want to import <code>Control.Monad</code>, you can use</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">shouldBeFuzzy ::</span> (<span class="dt">Fractional</span> a, <span class="dt">Ord</span> a) <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Expectation</span>
+shouldBeFuzzy a e <span class="fu">=</span>
+    <span class="kw">if</span> cond
+      <span class="kw">then</span> expectationFailure msg
+      <span class="kw">else</span> return ()
+  <span class="kw">where</span>
+    msg <span class="fu">=</span> <span class="st">&quot;Expected &quot;</span> <span class="fu">++</span> show a <span class="fu">++</span> <span class="st">&quot;, but got &quot;</span> <span class="fu">++</span> show e
+    cond
+      <span class="fu">|</span> e <span class="fu">==</span> <span class="dv">0</span>    <span class="fu">=</span> abs a <span class="fu">&gt;=</span> 1e<span class="fu">-</span><span class="dv">12</span>
+      <span class="fu">|</span> otherwise <span class="fu">=</span> (abs <span class="fu">$</span> (a <span class="fu">-</span> e) <span class="fu">/</span> e) <span class="fu">&gt;=</span> 1e<span class="fu">-</span><span class="dv">12</span></code></pre></div>
+<h3 id="use-quickchecks-forall-to-constraint-random-values"><span class="header-section-number">5.2.3</span> Use QuickCheck's <code>forAll</code> to constraint random values</h3>
+<p>The QuickCheck DSL is a little bit too large to explain completely, but usually that's not necessary. If you want to use an arbitrary <code>Bool</code>, <code>Int</code> or anything else <a href="http://hackage.haskell.org/package/QuickCheck-2.8.1/docs/Test-QuickCheck-Arbitrary.html#v:arbitrary">from that list</a>, simply do so while wrapping your test with <code>property</code>:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  it <span class="st">&quot;should work for arbitrary integers&quot;</span> <span class="fu">$</span> property <span class="fu">$</span> \x <span class="ot">-&gt;</span>
+    <span class="dv">2</span> <span class="fu">*</span> x <span class="ot">`shouldBe`</span> x <span class="fu">*</span> (<span class="dv">2</span><span class="ot"> ::</span> <span class="dt">Integer</span>)</code></pre></div>
+<p>However, the instance of <code>Arbitrary</code> must be clear. Therefore, you might need to add some types as can be seen above.</p>
+<p>What if you want to restrict the random elements on some domain? That's when you use <code>forAll</code> or <code>==&gt;</code>. The first will generate only fitting values (if you use it correctly), the latter will discard values that don't fit:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  it <span class="st">&quot;should return true for even numbers&quot;</span> <span class="fu">$</span> property <span class="fu">$</span>
+    forAll (arbitrary <span class="ot">`suchThat`</span> even) <span class="fu">$</span> \x <span class="ot">-&gt;</span>
+      solution x <span class="ot">`shouldBe`</span> <span class="dt">True</span>
+
+  it <span class="st">&quot;should return true for even numbers&quot;</span> <span class="fu">$</span> property <span class="fu">$</span> \x <span class="ot">-&gt;</span> even x <span class="fu">==&gt;</span>
+      solution x <span class="ot">`shouldBe`</span> <span class="dt">True</span></code></pre></div>
+<p>Beware! The latter variant might seem a lot easier, but if your domain is small, QuickCheck might give up. Note that this will also happen in the first case. If you want to generate a value, it's often better to generate an arbitrary value and then <code>fmap</code>, e.g. <code>forAll (fmap (2*) arbitrary)</code>.</p>
+<p>If you have several arguments which stem from different domains, use <code>forAll</code> per domain:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  it <span class="st">&quot;returns true on (3*n) (5*k)&quot;</span> <span class="fu">$</span>
+    property <span class="fu">$</span>
+      forAll (fmap (<span class="dv">3</span><span class="fu">*</span>) arbitrary) <span class="fu">$</span> \three <span class="ot">-&gt;</span>
+      forAll (fmap (<span class="dv">5</span><span class="fu">*</span>) arbitrary) <span class="fu">$</span> \five <span class="ot">-&gt;</span>
+        isFizzBuzz three five <span class="ot">`shouldBe`</span> <span class="dt">True</span></code></pre></div>
+<p>You could also multiply the values later, but that will change the error message QuickCheck returns:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  it <span class="st">&quot;returns true on even values&quot;</span> <span class="fu">$</span>
+    forAll (arbitrary) <span class="fu">$</span> \x <span class="ot">-&gt;</span>
+      <span class="co">-- bad, prints `x`, not `2 * x`</span>
+      isEven (<span class="dv">2</span> <span class="fu">*</span> x) <span class="ot">`shouldBe`</span> <span class="dt">True</span>
+
+  it <span class="st">&quot;returns true on even values&quot;</span> <span class="fu">$</span>
+    forAll (fmap (<span class="dv">2</span><span class="fu">*</span>) arbitrary) <span class="fu">$</span> \x <span class="ot">-&gt;</span>
+      <span class="co">-- better, still prints x, but after</span>
+      <span class="co">-- the application of (2*)</span>
+      isEven x <span class="ot">`shouldBe`</span> <span class="dt">True</span></code></pre></div>
+<h3 id="always-import-only-the-expected-functions"><span class="header-section-number">5.2.4</span> Always import only the expected functions</h3>
+<p>To prevent name clashes, only import what you need from the user module. This enables the user to define additional helpers at global namespace.</p>
+<p>Additionally, don't name your helper functions like QuickCheck, Hspec or HUnit operators or functions, even if they aren't currently available on Codewars. The administrators might update the package, and you end up with a defunct test due to ambiguity.</p>
+<h3 id="test-example"><span class="header-section-number">5.2.5</span> Test example</h3>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Codewars.MyPrefix.KataName.Test</span> <span class="kw">where</span>
+<span class="kw">import </span><span class="dt">Codewars.MyPrefix.KataName</span> (functionName1, functionName2, ...)
+<span class="kw">import </span><span class="dt">Test.Hspec</span>
+<span class="kw">import </span><span class="dt">Test.QuickCheck</span>
+
+<span class="co">-- Solving modules, e.g. Data.List, Data.Char, sometimes qualified:</span>
+<span class="kw">import </span><span class="dt">Module.That.Solves.The.Kata</span>
+<span class="kw">import </span><span class="dt">Text.Printf</span> (printf) <span class="co">-- if you need to use printf</span>
+
+main <span class="fu">=</span> hspec <span class="fu">$</span> <span class="kw">do</span>
+  describe <span class="st">&quot;functionName1&quot;</span> <span class="fu">$</span> <span class="kw">do</span>
+
+    <span class="co">-- multiple tests per it; only reports expected vs actual</span>
+    it <span class="st">&quot;should work for some simple examples&quot;</span> <span class="fu">$</span> <span class="kw">do</span>
+      functionName1 <span class="st">&quot;abc&quot;</span> <span class="ot">`shouldBe`</span> <span class="st">&quot;abc&quot;</span>
+      functionName1 <span class="st">&quot;xyz&quot;</span> <span class="ot">`shouldBe`</span> <span class="st">&quot;xyz&quot;</span>
+      functionName1 <span class="st">&quot;&quot;</span>    <span class="ot">`shouldBe`</span> <span class="st">&quot;&quot;</span> <span class="co">-- corner case</span>
+
+    <span class="co">-- multiple tests per it; hand written failure message</span>
+    it <span class="st">&quot;should work for some other examples&quot;</span> <span class="fu">$</span> <span class="kw">do</span>
+      <span class="kw">let</span> test i r <span class="fu">=</span> <span class="kw">if</span> a <span class="fu">/=</span> r
+                      <span class="kw">then</span> expectationFailure <span class="fu">$</span> p
+                      <span class="kw">else</span> return ()
+            <span class="kw">where</span>
+              a <span class="fu">=</span> functionName1 i
+              p <span class="fu">=</span> concat [<span class="st">&quot;expected &quot;</span>, show r, <span class="st">&quot; on &quot;</span>
+                         , show i, <span class="st">&quot; but got &quot;</span>, show a
+                         ]
+
+      test <span class="st">&quot;def&quot;</span> <span class="st">&quot;def&quot;</span>
+      test <span class="st">&quot;123&quot;</span> <span class="st">&quot;&quot;</span>
+
+    it <span class="st">&quot;shouldn&#39;t change letter-only strings&quot;</span> <span class="fu">$</span> property <span class="fu">$</span>
+      forAll (listOf <span class="fu">$</span> elements <span class="fu">$</span> [<span class="ch">&#39;a&#39;</span><span class="fu">..</span><span class="ch">&#39;z&#39;</span>] <span class="fu">++</span> [<span class="ch">&#39;A&#39;</span><span class="fu">..</span><span class="ch">&#39;Z&#39;</span>]) <span class="fu">$</span> \xs <span class="ot">-&gt;</span>
+        functionName1 xs <span class="ot">`shouldBe`</span> xs
+
+    it <span class="st">&quot;should return the right result&quot;</span> <span class="fu">$</span> property <span class="fu">$</span> \xs <span class="ot">-&gt;</span>
+      functionName1 xs <span class="ot">`shouldBe`</span> solution1 xs
+
+  describe <span class="st">&quot;functionName2&quot;</span> <span class="fu">$</span> <span class="kw">do</span>
+    <span class="co">-- ... similar to above</span></code></pre></div>
+<h2 id="java"><span class="header-section-number">5.3</span> Java</h2>
+<p>Codewars' Java test framework uses <a href="http://junit.org/">JUnit</a> version 4.11. The latest version at this point is 4.12, so make sure to check the framework's documentation for recent changes if you encounter problems. The functionality you use might not be in JUnit 4.11.</p>
+<p><em>Note:</em> This section is under construction and could use some help. Please submit pull-requests.</p>
+<h3 id="beware-of-the-assert-arguments-1"><span class="header-section-number">5.3.1</span> Beware of the assert arguments!</h3>
+<p>JUnit differs from the other frameworks. Very. Much. Well, overall it doesn't, it still has <code>assertEquals</code>, <code>assertArrayEquals</code> and others. But the order of arguments is swapped.</p>
+<p>Where CoffeeScript, Ruby, Python and Haskell expect the first argument of <code>Test.assert_equals</code>/<code>Test.assertEquals</code>/<code>shouldBe</code> to be the actual value and the second to be the expected, JUnit swaps the order, see the documentation of <a href="http://junit.org/javadoc/latest/org/junit/Assert.html">Assert</a>:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="fu">assertEquals</span>(<span class="dt">double</span> expected, <span class="dt">double</span> actual); <span class="co">// note: use delta variant!</span>
+<span class="fu">assertEquals</span>(<span class="dt">float</span>  expected, <span class="dt">float</span>  actual); <span class="co">// note: use delta variant!</span>
+<span class="fu">assertEquals</span>(<span class="dt">long</span>   expected, <span class="dt">long</span>   actual);
+<span class="co">// many other</span></code></pre></div>
+<p>For comparison, here's the syntax of an equality assert in the other languages:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="co">-- Haskell</span>
+actual <span class="ot">`shouldBe`</span> expected</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// Javascript</span>
+<span class="va">Test</span>.<span class="at">assertEquals</span>(actual<span class="op">,</span> expected<span class="op">,</span> message)<span class="op">;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Python</span>
+Test.assert_equals(actual, expected, message)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="co"># Ruby</span>
+<span class="dt">Test</span>.assert_equals(actual, expected, message)</code></pre></div>
+<p>Keep this in mind. Your tests won't fail on correct solutions if you swap the arguments, but they <strong>will</strong> confuse anyone who fails them. By the way, CSharp uses the same convention. This isn't surprising, since its testing framework NUnit was inspired by JUnit.</p>
+<h2 id="javascript-coffeescript"><span class="header-section-number">5.4</span> JavaScript / CoffeeScript</h2>
+<p>The JavaScript tests on Codewars use a <a href="http://www.codewars.com/docs/js-slash-coffeescript-test-reference">custom</a> test framework. Any kata written in CoffeeScript will use the same framework, since CoffeeScript gets compiled to JavaScript.</p>
+<p>Therefore, you won't find a section about CoffeeScript in this document. Also, keep in mind that the current support of ES2015 is implemented via <a href="http://babeljs.io/">Babel</a>, so you won't get the real source code if you use <code>.toString()</code>, but the result of the Babel compiler.</p>
+<h3 id="floating-point-tests-1"><span class="header-section-number">5.4.1</span> Floating point tests</h3>
+<p>As written above, one shouldn't use <code>assertEquals</code> on floating point values, since the user might use another order of addition, and adding floating point numbers isn't associative:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Is + associative in JS on double values?&quot;</span>)
+<span class="va">console</span>.<span class="at">log</span>(<span class="dv">1</span> <span class="op">+</span> (<span class="fl">1e-12</span> <span class="op">+</span> <span class="fl">3e-12</span>) <span class="op">===</span> (<span class="dv">1</span> <span class="op">+</span> <span class="fl">1e-12</span>) <span class="op">+</span> <span class="fl">3e-12</span>)
+
+<span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;    :(    &quot;</span>)</code></pre></div>
+<p>Therefore, you should plan a little threshold.</p>
+<p>ES6 provides <code>Number.EPSILON</code>, but that's actually a little bit too low for most cases. I usually use <code>1e-12</code>, which is <em>good enough</em>, or <code>1e-6</code> if the kata is about approximative results. Just change the value below to whatever you feel is best. Just keep in mind that any value lower than <code>Math.min(1e-15,Number.EPSILON)</code> is bogus.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> assertFuzzyEquals <span class="op">=</span> <span class="kw">function</span>(actual<span class="op">,</span> expected<span class="op">,</span> msg)<span class="op">{</span>
+    <span class="kw">var</span> inrange <span class="op">=</span> <span class="va">Math</span>.<span class="at">abs</span>((actual <span class="op">-</span> expected) / expected) <span class="op">&lt;=</span> <span class="fl">1e-12</span><span class="op">;</span>
+    <span class="va">Test</span>.<span class="at">expect</span>(expected <span class="op">!==</span> <span class="dv">0</span> <span class="op">?</span> inrange : <span class="va">Math</span>.<span class="at">abs</span>(actual) <span class="op">&lt;=</span> <span class="fl">1e-12</span><span class="op">,</span>
+      msg <span class="op">||</span> <span class="st">&quot;Expected value near &quot;</span> <span class="op">+</span> <span class="va">expected</span>.<span class="at">toExponential</span>(<span class="dv">13</span>) <span class="op">+</span>
+             <span class="st">&quot;, but got &quot;</span> <span class="op">+</span> <span class="va">actual</span>.<span class="at">toExponential</span>(<span class="dv">13</span>)
+    )<span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+<h3 id="checking-user-code"><span class="header-section-number">5.4.2</span> Checking user code</h3>
+<p><a href="https://github.com/slothpie">@slothpie</a> provided the following code to check the user's code for forbidden functions:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Test</span>.<span class="at">describe</span>(<span class="st">&quot;Reinforcement Test Cases:&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span>
+  <span class="co">// get the code as text, (this also grabs test case code)</span>
+  <span class="kw">var</span> dump <span class="op">=</span> <span class="va">arguments</span>.<span class="va">callee</span>.<span class="va">caller</span>.<span class="va">caller</span>.<span class="va">caller</span>.<span class="at">toString</span>()<span class="op">;</span>
+
+  <span class="co">// The length of our test case code.</span>
+  <span class="kw">const</span> FIXED <span class="op">=</span> <span class="va">arguments</span>.<span class="va">callee</span>.<span class="va">caller</span>.<span class="va">caller</span>.<span class="at">toString</span>().<span class="at">length</span><span class="op">;</span>
+
+  <span class="co">// Slice out our test case code so we just have users</span>
+  <span class="kw">const</span> USER_CODE <span class="op">=</span> <span class="va">dump</span>.<span class="at">slice</span>(<span class="dv">0</span><span class="op">,</span><span class="va">dump</span>.<span class="at">length</span><span class="op">-</span>FIXED)<span class="op">;</span>
+
+  <span class="at">check_user_code_for_stuff</span>(USER_CODE)<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<p>However, there are two things you have to keep in mind:</p>
+<ol type="1">
+<li><code>USER_CODE</code> does not contain actual user code, but the one returned by babel.js. You never get access to the actual source code (until node supports ES6 and gets updated on Codwars).</li>
+<li><code>arguments.callee</code> and <code>arguments.caller</code> only work if you don't run your script in strict mode. A stray <code>&quot;use strict&quot;;</code> in the user's code will lead to an error, even if the code is otherwise OK.</li>
+</ol>
+<p>Other than that, it's an easy way to check whether the user uses any loops or similar.</p>
+<h3 id="random-tests"><span class="header-section-number">5.4.3</span> Random tests</h3>
+<p>In <a href="https://gitter.im/Codewars/codewars.com?at=55d376c5bdd5d6c9362b6e79">August 2015</a> the <a href="https://github.com/mcandre/node-quickcheck"><code>node-quickeck</code></a> package was added to the available JavaScript packages. This section predates the inclusion of the package. If you want to use <code>node-quickcheck</code>, have a look at it's documentation. If you prefer to write your random tests by hand, read on.</p>
+<p>The following functions can be used for random tests. Note that both expect your solution to be pure (don't change the argument, for example if it's an object or an array) and cannot check side-effects, so you probably edit the functions for your needs. Also note that <code>randomAssertSimilar</code> is rather verbose.</p>
+<p>In both functions, <code>generator</code> should return an array.</p>
+<p><strong>NOTE:</strong> The functions haven't been tested thoroughly. Use them with care and feel free to create an issue or a pull-request if they contain any errors.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">/**</span>
+<span class="co"> * </span><span class="kw">@brief</span><span class="co"> Tests a user defined function against a reference function.</span>
+<span class="co"> * </span><span class="kw">@param</span><span class="co"> </span><span class="kw">generator</span><span class="co"> generates random arguments (must return an array)</span>
+<span class="co"> * </span><span class="kw">@param</span><span class="co"> </span><span class="kw">userSol</span><span class="co"> is the solution provided by the user</span>
+<span class="co"> * </span><span class="kw">@param</span><span class="co"> </span><span class="kw">refSol</span><span class="co"> is the solution provided by the original kata author</span>
+<span class="co"> * </span><span class="kw">@param</span><span class="co"> </span><span class="kw">tests</span><span class="co"> is the number of tests (optional)</span>
+<span class="co"> *</span>
+<span class="co"> * The `refSol` should be pure, it shouldn&#39;t modify it&#39;s arguments,</span>
+<span class="co"> * since `userSol` will work on the same array afterwards.</span>
+<span class="co"> *</span>
+<span class="co"> * The values are compared via equality (===), and the number of</span>
+<span class="co"> * shown tests is limited to three.</span>
+<span class="co">*/</span>
+<span class="kw">var</span> randomAssertEquals <span class="op">=</span> <span class="kw">function</span>(generator<span class="op">,</span> userSol<span class="op">,</span> refSol<span class="op">,</span> tests)<span class="op">{</span>
+  tests <span class="op">=</span> tests <span class="op">||</span> <span class="dv">100</span><span class="op">;</span>
+  <span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> user<span class="op">,</span> reference<span class="op">,</span> values<span class="op">;</span>
+  <span class="cf">while</span>( tests <span class="op">--&gt;</span> <span class="dv">0</span>)<span class="op">{</span>
+    values <span class="op">=</span> <span class="at">generator</span>()<span class="op">;</span>
+    reference <span class="op">=</span> <span class="va">refSol</span>.<span class="at">apply</span>(<span class="kw">this</span><span class="op">,</span> values)<span class="op">;</span>
+    user      <span class="op">=</span> <span class="va">userSol</span>.<span class="at">apply</span>(<span class="kw">this</span><span class="op">,</span>      values)<span class="op">;</span>
+    <span class="cf">if</span>(i<span class="op">++</span> <span class="op">&lt;</span> <span class="dv">3</span>)<span class="op">{</span>
+      <span class="va">Test</span>.<span class="at">assertEquals</span>(
+        user<span class="op">,</span> reference<span class="op">,</span>
+        <span class="st">&quot;didn&#39;t work on the following argument array: &quot;</span> <span class="op">+</span> values
+      )<span class="op">;</span>
+    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span>(reference <span class="op">!==</span> user)<span class="op">{</span>
+      <span class="va">Test</span>.<span class="at">assertEquals</span>(
+        user<span class="op">,</span> reference<span class="op">,</span>
+        <span class="st">&quot;didn&#39;t work on the following argument array: &quot;</span> <span class="op">+</span> values
+      )<span class="op">;</span>
+    <span class="op">}</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">/**</span>
+<span class="co"> * </span><span class="kw">@brief</span><span class="co"> Tests a user defined function against a reference function.</span>
+<span class="co"> * </span><span class="kw">@param</span><span class="co"> </span><span class="kw">generator</span><span class="co"> generates random arguments (must return an array)</span>
+<span class="co"> * </span><span class="kw">@param</span><span class="co"> </span><span class="kw">userSol</span><span class="co"> is the solution provided by the user</span>
+<span class="co"> * </span><span class="kw">@param</span><span class="co"> </span><span class="kw">refSol</span><span class="co"> is the solution provided by the original kata author</span>
+<span class="co"> * </span><span class="kw">@param</span><span class="co"> </span><span class="kw">tests</span><span class="co"> is the number of tests (optional)</span>
+<span class="co"> *</span>
+<span class="co"> * The `refSol` should be pure, it shouldn&#39;t modify it&#39;s arguments,</span>
+<span class="co"> * since `userSol` will work on the same array afterwards.</span>
+<span class="co"> *</span>
+<span class="co"> * The values are compared via assertSimilar.</span>
+<span class="co">*/</span>
+<span class="kw">var</span> randomAssertSimilar <span class="op">=</span> <span class="kw">function</span>(generator<span class="op">,</span> userSol<span class="op">,</span> refSol<span class="op">,</span> tests)<span class="op">{</span>
+  tests <span class="op">=</span> tests <span class="op">||</span> <span class="dv">100</span><span class="op">;</span>
+  <span class="kw">var</span> user<span class="op">,</span> reference<span class="op">,</span> values<span class="op">;</span>
+  <span class="cf">while</span>( tests <span class="op">--&gt;</span> <span class="dv">0</span>)<span class="op">{</span>
+    values <span class="op">=</span> <span class="at">generator</span>()<span class="op">;</span>
+    reference <span class="op">=</span> <span class="va">refSol</span>.<span class="at">apply</span>(<span class="kw">this</span><span class="op">,</span> values)<span class="op">;</span>
+    user      <span class="op">=</span> <span class="va">userSol</span>.<span class="at">apply</span>(<span class="kw">this</span><span class="op">,</span>      values)<span class="op">;</span>
+    <span class="va">Test</span>.<span class="at">assertSimilar</span>(
+      user<span class="op">,</span> reference<span class="op">,</span>
+      <span class="st">&quot;didn&#39;t work on the following argument array: &quot;</span> <span class="op">+</span> values
+    )<span class="op">;</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></div>
+<h3 id="test-example-1"><span class="header-section-number">5.4.4</span> Test example</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Test</span>.<span class="at">describe</span>(<span class="st">&quot;functionName1&quot;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span>
+  <span class="kw">var</span> solution <span class="op">=</span> <span class="kw">function</span>()<span class="op">{</span>
+    <span class="co">// your solution</span>
+  <span class="op">};</span>
+  <span class="va">Test</span>.<span class="at">it</span>(<span class="st">&quot;should work for some simple examples&quot;</span><span class="op">,</span> () <span class="op">=&gt;</span> <span class="op">{</span>
+    <span class="va">Test</span>.<span class="at">assertEquals</span>(<span class="at">functionName1</span>(<span class="st">&quot;abc&quot;</span>)<span class="op">,</span> <span class="st">&quot;abc&quot;</span>)<span class="op">;</span>
+    <span class="va">Test</span>.<span class="at">assertEquals</span>(<span class="at">functionName1</span>(<span class="st">&quot;xyz&quot;</span>)<span class="op">,</span> <span class="st">&quot;xyz&quot;</span>)<span class="op">;</span>
+    <span class="va">Test</span>.<span class="at">assertEquals</span>(<span class="at">functionName1</span>(<span class="st">&quot;&quot;</span>)   <span class="op">,</span> <span class="st">&quot;&quot;</span>)<span class="op">;</span> <span class="co">// corner case</span>
+  <span class="op">}</span>)<span class="op">;</span>
+
+  <span class="va">Test</span>.<span class="at">it</span>(<span class="st">&quot;should not return strings longer than 3 chars&quot;</span><span class="op">,</span> () <span class="op">=&gt;</span> <span class="op">{</span>
+    <span class="cf">for</span>(<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">100</span><span class="op">;</span> <span class="op">++</span>i)<span class="op">{</span>
+      <span class="kw">const</span> str <span class="op">=</span> <span class="va">Test</span>.<span class="at">randomToken</span>()<span class="op">;</span>
+      <span class="va">Test</span>.<span class="at">expect</span>(<span class="at">functionName1</span>(str).<span class="at">length</span> <span class="op">&lt;=</span> <span class="dv">3</span><span class="op">,</span>
+                  <span class="st">&#39;returned more than 3 characters on&#39;</span> <span class="op">+</span> str)<span class="op">;</span>
+    <span class="op">}</span>
+  <span class="op">}</span>)<span class="op">;</span>
+
+  <span class="va">Test</span>.<span class="at">it</span>(<span class="st">&quot;returns the correct string&quot;</span><span class="op">,</span> () <span class="op">=&gt;</span> <span class="op">{</span>
+    <span class="cf">for</span>(<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">100</span><span class="op">;</span> <span class="op">++</span>i)<span class="op">{</span>
+      <span class="kw">const</span> str <span class="op">=</span> <span class="va">Test</span>.<span class="at">randomToken</span>()<span class="op">;</span>
+      <span class="va">Test</span>.<span class="at">assertEquals</span>(
+        <span class="at">functionName1</span>(str)<span class="op">,</span>
+        <span class="at">solution</span>(str)
+      )<span class="op">;</span>
+    <span class="op">}</span>
+  <span class="op">}</span>)<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<h2 id="python"><span class="header-section-number">5.5</span> Python</h2>
+<p><strong><em>Sorry.</em></strong> This section does not contain any helpful information currently. Instead, have a look at the following PEPs:</p>
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-0008/" title="Style Guide for Python Code">PEP 0008 -- Style Guide for Python Code</a></li>
+<li><a href="https://www.python.org/dev/peps/pep-0020/" title="The Zen of Python">PEP 20 -- The Zen of Python</a></li>
+</ul>
+<p>If you have some ideas for this section, head over to <a href="https://github.com/bkaestner/codewars-rules/issues/7">GitHub</a>.</p>
+<h3 id="floating-point-tests-2"><span class="header-section-number">5.5.1</span> Floating point tests</h3>
+<p>As written above, one shouldn't use <code>assert_equals</code> on floating point values, since the user might use another order of addition, and adding floating point numbers isn't associative:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span> (<span class="st">&quot;Is + associative in Python on double values?&quot;</span>)
+<span class="bu">print</span> (<span class="dv">1</span> <span class="op">+</span> (<span class="fl">1e-12</span> <span class="op">+</span> <span class="fl">3e-12</span>) <span class="op">==</span> (<span class="dv">1</span> <span class="op">+</span> <span class="fl">1e-12</span>) <span class="op">+</span> <span class="fl">3e-12</span>)
+
+<span class="bu">print</span> (<span class="st">&quot;    :(    &quot;</span>)</code></pre></div>
+<p>Therefore, you should plan a little threshold. I usually use <code>1e-12</code>, which is most often good enough, or <code>1e-6</code> if the kata is about approximative results. Just change the value below to whatever you feel is best. Keep in mind that any value lower than <code>1e-15</code> is bogus.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> assertFuzzyEquals(actual, expected, msg<span class="op">=</span><span class="st">&quot;&quot;</span>):
+    <span class="im">import</span> math
+
+    <span class="co"># max error</span>
+    merr <span class="op">=</span> <span class="fl">1e-12</span>
+
+    <span class="cf">if</span> expected <span class="op">==</span> <span class="dv">0</span>:
+        inrange <span class="op">=</span> math.fabs(actual) <span class="op">&lt;=</span> merr
+    <span class="cf">else</span>:
+        inrange <span class="op">=</span> math.fabs((actual <span class="op">-</span> expected) <span class="op">/</span> expected) <span class="op">&lt;=</span> merr
+
+    <span class="cf">if</span> msg <span class="op">==</span> <span class="st">&quot;&quot;</span>:
+        msg <span class="op">=</span> <span class="st">&quot;Expected value near {:.12f}, but got {:.12f}&quot;</span>
+        msg <span class="op">=</span> msg.<span class="bu">format</span>(expected, actual)
+
+    <span class="cf">return</span> Test.expect(inrange, msg)</code></pre></div>
+<!--- this is only a placeholder -->
+<h2 id="ruby"><span class="header-section-number">5.6</span> Ruby</h2>
+<p><em>Note:</em> This section is under construction and could use some help. Please submit pull-requests.</p>
+<p>Codewars <a href="http://www.codewars.com/docs/ruby-environment">uses Ruby 2.0</a>. The testing framework is <a href="http://www.codewars.com/docs/ruby-test-reference">inspired</a> by <a href="http://rspec.info/documentation/">RSpec</a>, but not 100% compatible.</p>
+<!--- this is only a placeholder -->
+<h1 id="faq"><span class="header-section-number">6</span> FAQ</h1>
+<p>This section answers some questions which are not related to the topics in the first chapters, but asked rather often on Codewars. Compared to the rest of the document, this section shouldn't get read in a linear style. Instead, just check whether your question is here whenever you have one in mind. If it isn't, file an issue on GitHub.</p>
+<h2 id="errors"><span class="header-section-number">6.1</span> Errors</h2>
+<p>Nothing is worse on Codewars than writing a solution and getting an error that isn't explained. However, sometimes the error doesn't stem from the kata, but from the Codewars system itself.</p>
+<p>This section is dedicated to those errors.</p>
+<h3 id="what-does-submission-timed-out-mean"><span class="header-section-number">6.1.1</span> What does &quot;Submission timed out&quot; mean?</h3>
+<p>Once in a while, you can encounter the following error:</p>
+<blockquote>
+<p>Submission timed out. Please try again.</p>
+</blockquote>
+<h4 id="what-does-this-mean"><span class="header-section-number">6.1.1.1</span> What does this mean?</h4>
+<p>First of all, don't worry. This doesn't mean that your code is wrong. However, it doesn't mean that your code is correct either. Instead, your code wasn't even tested. The very process of <em>submitting the code</em> timed out. This can happen under heavy load, if all worker pools are exhausted, all queues are full, or some other behind the scenes detail gave up.</p>
+<p>The actual source of the problem <a href="https://github.com/Codewars/codewars.com/issues/18" title="Issue #18: Submission Timeouts / Poor messaging">isn't fully known yet</a>. Sometimes, it's background jobs not processing items from the job queue. Sometimes, it's another, completely unrelated process on the same machine, that takes too much resources from a Codewars virtual machine.</p>
+<h4 id="what-should-i-do"><span class="header-section-number">6.1.1.2</span> What should I do?</h4>
+<p>First of all, relax. Even if the submission timed out, your code is usually saved. However, you can copy your code into your clipboard and reload the kata submission page in order to check this: if the code is still there, you can come back later. If it isn't, paste it and try to submit it again – maybe it was just a lost server connection and you can go on.</p>
+<p><strong>If the problem persists</strong> you can notify Jake or at least report the incident in <a href="https://github.com/Codewars/codewars.com/issues/18" title="Issue #18: Submission Timeouts / Poor messaging">the aforementioned issue topic (#18)</a>. You can also check <a href="http://status.codewars.com">the status page</a>. Note that the status page isn't always accurate. Also have a look at the dashboard. People usually post issues or comments about &quot;submission timed out&quot; if this happens.</p>
+<p>Again, this error doesn't solely happen to you, and it doesn't have anything to do with your code. Please do not comment on katas in this case, as &quot;Submission timed out&quot; comments clutter the comment page, and the kata author can't do anything to fix this error.</p>
+<h4 id="huh-it-says-now-process-took-more-than-6000ms-did-they-change-the-message"><span class="header-section-number">6.1.1.3</span> Huh? It says now &quot;Process took more than 6000ms&quot;, did they change the message?</h4>
+<p>That, on the other hand, <em>is</em> a code related error. It means that <em>your code</em> wasn't able to perform the necessary operations in the given time. The time limit varies between languages, but it's usually ~6s. Therefore, this is an error you <em>can</em> fix. You need to perform optimizations on your code. This includes <a href="https://en.wikipedia.org/wiki/Memoization">memoization</a>, dynamic programming or even better algorithms and depends on the kata. If you get stuck, submit a comment on the specific kata and mark it as &quot;Question&quot;.</p>
+<h4 id="can-i-get-a-tldr"><span class="header-section-number">6.1.1.4</span> Can I get a TL;DR?</h4>
+<p>Sure.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Error message</th>
+<th style="text-align: left;">Interpretation / meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Submission timed out</td>
+<td style="text-align: left;">The Codewars platform has some problems. Try again later.<br />
+ Your code wasn't checked.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Process timed out</td>
+<td style="text-align: left;">Your code is to slow and has exceeded the time limit.<br />
+ Try another approach, algorithm, or optimize.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-is-an-unknown-error"><span class="header-section-number">6.1.2</span> What is an &quot;Unknown Error&quot;?</h3>
+<p>Sometimes, you will encounter an &quot;Unknown error&quot;. The complete error message is</p>
+<blockquote>
+<p>Tests didn't pass: Unknown error.</p>
+</blockquote>
+<p>However, this error message is usually misleading. Most important: the error isn't affiliated with your code. Instead, the test framework didn't actually run.</p>
+<p>You will also encounter the error on <strong>empty tests</strong>. Some katas don't provide example test cases. <kbd>Run</kbd> won't work in those circumstances, since there are no tests to run. Instead, press <kbd>Submit</kbd> on those katas.</p>
+<p>Another workaround that works <em>sometimes</em> is <code>submit -&gt; reload -&gt; submit</code>. However, this doesn't work all the time.</p>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Apparently, the libraries <em>do</em> get updated from time to time, but there's no reference at the moment.<a href="#fnref1">↩</a></p></li>
+</ol>
+</section>
+</body>
+</html>
