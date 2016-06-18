@@ -1,4 +1,4 @@
-# The Conjured Codewars Codex [![Build Status](https://travis-ci.org/bkaestner/codewars-rules.svg?branch=master)](https://travis-ci.org/bkaestner/codewars-rules) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bkaestner/codewars-rules?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+# The Conjured Codewars Codex [![Build Status](https://travis-ci.org/bkaestner/codewars-rules.svg?branch=master)](https://travis-ci.org/bkaestner/codewars-rules) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bkaestner/codewars-rules?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Maintainer needed](https://img.shields.io/badge/maintainer-needed-%23f00.svg)](https://github.com/bkaestner/codewars-rules/issues/41)
 
 These documents contains some rules I've employed for my katas and my
 translations on [Codewars]. Some of them are very simple
