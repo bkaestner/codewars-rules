@@ -24,7 +24,7 @@ Now you can see their tests (both example and hidden), solution (both
 hidden and initial), and the description. There are several things
 you want to check before accepting a translation:
 
-- is the kata as hard as in you original languages?
+- is the kata as hard as in your original languages?
     - does it use the same or comparable tests?
     - does it use the same or comparable input/output types?
 - does the description provide some examples in that language?
@@ -52,7 +52,7 @@ merge conflict by hand, and publish the translation again.
 
 ### Writing a translation
 
-Now you found a kata in JavaScript. You liked it, and want to translate it into
+You found a kata in JavaScript. You like it, and want to translate it into
 Python. There should be a "+" sign next to the language icons after you solved
 it. Click on it and you'll land on the list of current translations. After
 you've checked that there isn't a pending translation in Python, you click on
