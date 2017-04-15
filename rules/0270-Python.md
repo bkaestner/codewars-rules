@@ -51,4 +51,47 @@ def assertFuzzyEquals(actual, expected, msg=""):
     return Test.expect(inrange, msg)
 ```
 
+### Disabling built-in functions
+
+Python certainly does not make this task easy (his "cousin" Ruby in comparison is much, much more easy to deal with, thanks to the `undef` function), but there is some trick to permanently disable a function in your kata and avoid that a sneaky codewarrior can re-enable it again.
+
+Following code template comes from electricjay, partially adapted to prevent the import of the `permutations` function from the `itertools` module.
+
+```python
+def crush_itertools_permutations():
+  import __builtin__
+  orig_import = __builtin__.__import__
+  orig_reload = __builtin__.reload
+
+  def disabled(*args):
+    print "itertools.permutations has been disabled for this Kata"
+
+  def filter_unwanted_imports(*args, **kwargs):
+    if 'permutations' in args[0]:
+      return disabled
+    if 'imp' == args[0]:  # No legit reason to load this module in this Kata
+      return None
+    results = orig_import(*args, **kwargs)
+    if hasattr(results, 'permutations'):
+      results.permutations = disabled
+    return results
+
+  def filter_unwanted_reloads(*args, **kwargs):
+    results = orig_reload(*args, **kwargs)
+    if hasattr(results, 'permutations'):
+      results.permutations = disabled
+    if hasattr(results, 'reload'):
+      results.reload = filter_unwanted_reloads
+    if hasattr(results, '__import__'):
+      results.__import__ = filter_unwanted_imports
+    return results
+
+  __builtin__.__import__ = filter_unwanted_imports
+  __builtin__.reload = filter_unwanted_reloads
+
+crush_itertools_permutations()
+```
+
+Notice that you can also prevent basic functions from working importing `__builtin__`; mathematical operators can be blocked with their alias, but not with their symbolic aliases - i.e.: you can prevent users from using `operators.__mod__` or `operators.mod`, but not from simply using `%`.
+
 <!--- this is only a placeholder -->
