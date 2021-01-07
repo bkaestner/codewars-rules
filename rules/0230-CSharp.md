@@ -97,20 +97,6 @@ public static bool ReturnsFalseOnOdd(int n){
   return Evener.isEven(n);
 }
 ```
-Unfortunately, `[TestCase]` does not report the used parameters on a failed
-test. An alternative is to use `Assert.*` with a custom message:
-
-``` cs
-[Test]
-[TestCase(3, false)]
-[TestCase(5, false)]
-[TestCase(7, false)]
-[TestCase(-1, false)]
-public static void ReturnsFalseOnOdd(int n, bool result){
-  Assert.AreEqual(result, Evener.isEven(n),
-    String.Format("Returned the wrong result on {}", n));
-}
-```
 
 ### Use `[Random]` for simple random values
 The [Random] attribute can be used on arguments. This enables you to create
